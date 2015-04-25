@@ -1,5 +1,8 @@
 class HogeController < ApplicationController
+
+  # /hoge.json
   def index
-    render json: { id: 1, name: 'hoge' }
+    @hoge = OpenStruct.new(id: 1, name: 'hoge')
+    p @hoge
   end
 end
