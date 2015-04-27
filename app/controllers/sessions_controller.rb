@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  def create
+  def new
     login(request.env['omniauth.auth'])
 
     # redirect_to '/home/show'
