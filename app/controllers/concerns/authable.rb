@@ -3,16 +3,24 @@ module Authable
 
   private
   def login(*credentials)
-    # binding.pry
     @current_user = nil
-    user = User.authenticate(request.env['omniauth.auth'])
+
+    user = User.authenticate(credentials)
     if user
       reset_token
+      token = gen_token
+
+      Rails.cache.write(token, user)
 
       @current_user = user
     else
-      # TODO: 例外投げる
+      nil
     end
+  end
+
+  def gen_token
+    # AccessToken用のテーブル作ったほうがよいかも
+    '123456789'
   end
 
   def reset_token
@@ -20,13 +28,19 @@ module Authable
   end
 
   def current_user
-    @current_user = login_from_session
+    return @current_user if logged_in?
+
+    login_from_cache
   end
 
-  def login_from_session
+  def login_from_cache
     @current_user =
-      if session[:user_id]
-        User.find_by_id(session[:user_id])
+      if params[:token]
+        Rails.cache.read(params[:token])
       end
+  end
+
+  def logged_in?
+    !!Rails.cache.read(params[:token])
   end
 end

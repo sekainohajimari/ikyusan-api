@@ -7,7 +7,5 @@ class ApplicationController < ActionController::API
   # include ActionController::Cookies
 
   include ActionController::ImplicitRender
-
-  # TODO: concernsに切り出す
   include Authable
 end
