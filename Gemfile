@@ -33,7 +33,7 @@ gem 'unicorn'
 # gem 'capistrano-rails', group: :development
 
 gem 'rails-api'
-gem 'rabl'
+gem 'active_model_serializers'
 gem 'squeel'
 gem 'active_hash'
 gem 'omniauth'

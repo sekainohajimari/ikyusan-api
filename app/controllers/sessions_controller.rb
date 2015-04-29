@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
     login(request.env['omniauth.auth'])
 
-    render :json => @current_user
+    render json: current_user
   end
 
   def destroy
