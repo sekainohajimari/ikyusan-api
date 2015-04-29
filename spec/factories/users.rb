@@ -11,6 +11,10 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_provider_and_uid  (provider,uid) UNIQUE
+#
 
 FactoryGirl.define do
   factory :user do

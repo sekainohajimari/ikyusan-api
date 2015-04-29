@@ -11,9 +11,13 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_users_on_provider_and_uid  (provider,uid) UNIQUE
+#
 
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  has_one :ios_access_token, -> { where(type: 'ios_access_token') }
 
   enum status: { active: 1, ban: 2 }
 
