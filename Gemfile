@@ -38,7 +38,6 @@ gem 'squeel'
 gem 'active_hash'
 gem 'omniauth'
 gem 'omniauth-twitter'
-gem 'sorcery'
 gem 'global'
 
 group :development, :test do

@@ -1,0 +1,6 @@
+default: &default
+  key: dummy_consumer_key
+  secret: dummy_consumer_secret
+
+development:
+  <<: *default
