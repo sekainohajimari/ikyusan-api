@@ -5,7 +5,8 @@ class ApplicationController < ActionController::API
   # include ActionController::MimeResponds
   # include ActionController::Helpers
   # include ActionController::Cookies
-
-  include ActionController::ImplicitRender
+  # include ActionController::ImplicitRender
+  
+  include ActionController::Serialization
   include Authenticate
 end

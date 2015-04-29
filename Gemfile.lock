@@ -23,6 +23,8 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
     active_hash (1.4.0)
       activesupport (>= 2.2.2)
+    active_model_serializers (0.9.3)
+      activemodel (>= 3.2)
     activejob (4.2.1)
       activesupport (= 4.2.1)
       globalid (>= 0.3.0)
@@ -166,8 +168,6 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    rabl (0.11.6)
-      activesupport (>= 2.3.14)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -293,6 +293,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
+  active_model_serializers
   annotate
   bcrypt (~> 3.1.7)
   bullet
@@ -313,7 +314,6 @@ DEPENDENCIES
   pry-doc
   pry-rails
   pry-stack_explorer
-  rabl
   rails (= 4.2.1)
   rails-api
   rspec-parameterized
