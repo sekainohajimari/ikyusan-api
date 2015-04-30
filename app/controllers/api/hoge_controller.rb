@@ -1,4 +1,4 @@
-class HogeController < ApplicationController
+class Api::HogeController < ApplicationController
 
   # /hoge.json
   def index
