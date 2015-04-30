@@ -4,6 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   Global.social.twitter.secret,
   {
     secure_image_url: 'true',
-    image_size: 'mini'
+    image_size: 'mini',
+    callback_path: '/api/auth/twitter/callback'
   }
 end

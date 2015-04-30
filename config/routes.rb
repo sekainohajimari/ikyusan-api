@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  get '/auth/:provider/callback', to: 'sessions#new'
-  resources :hoge, only: ['index']
+
+  namespace :api, defaults: {format: :json} do
+    get '/auth/:provider/callback', to: 'sessions#new'
+    resources :hoge, only: ['index']
+  end
 end
