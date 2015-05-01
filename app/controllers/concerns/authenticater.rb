@@ -1,4 +1,4 @@
-module Authenticate
+module Authenticater
   extend ActiveSupport::Concern
 
   # TODO 現状はiOSのみしか想定していない
@@ -8,7 +8,7 @@ module Authenticate
 
     user = User.authenticate(*credentials)
     if user
-      IosAccessToken.clean_issuance(user_id: user.id, expired: 7.days)
+      IosAccessToken.clean_issuance(user_id: user.id, expired: 100.days)
 
       @current_user = user
     else
