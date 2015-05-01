@@ -6,7 +6,8 @@ class ApplicationController < ActionController::API
   # include ActionController::Helpers
   # include ActionController::Cookies
   # include ActionController::ImplicitRender
-  
+
   include ActionController::Serialization
   include Authenticate
+  include ExceptionHandle
 end
