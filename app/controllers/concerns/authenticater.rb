@@ -1,4 +1,4 @@
-module Authenticate
+module Authenticater
   extend ActiveSupport::Concern
 
   # TODO 現状はiOSのみしか想定していない
