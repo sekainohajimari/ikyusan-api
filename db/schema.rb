@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429070931) do
+ActiveRecord::Schema.define(version: 20150502142248) do
 
   create_table "access_tokens", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -24,6 +24,72 @@ ActiveRecord::Schema.define(version: 20150429070931) do
 
   add_index "access_tokens", ["type", "token"], name: "index_access_tokens_on_type_and_token", unique: true, using: :btree
   add_index "access_tokens", ["type", "user_id"], name: "index_access_tokens_on_type_and_user_id", unique: true, using: :btree
+
+  create_table "group_members", force: :cascade do |t|
+    t.integer  "group_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+    t.integer  "role",       limit: 1
+    t.integer  "status",     limit: 1
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "group_members", ["group_id"], name: "index_group_members_on_group_id", using: :btree
+  add_index "group_members", ["user_id"], name: "index_group_members_on_user_id", using: :btree
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",           limit: 255
+    t.integer  "membar_max_num", limit: 2
+    t.integer  "topic_max_num",  limit: 2
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "ideas", force: :cascade do |t|
+    t.integer  "topic_id",   limit: 4
+    t.integer  "poster_id",  limit: 4
+    t.string   "content",    limit: 255
+    t.integer  "anonymity",  limit: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "ideas", ["topic_id"], name: "index_ideas_on_topic_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "idea_id",    limit: 4
+    t.integer  "liker_id",   limit: 4
+    t.integer  "num",        limit: 2
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "likes", ["idea_id"], name: "index_likes_on_idea_id", using: :btree
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.string   "display_id",   limit: 255
+    t.string   "display_name", limit: 255
+    t.string   "affiliation",  limit: 255
+    t.string   "place",        limit: 255
+    t.string   "website",      limit: 255
+    t.string   "introduction", limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "topics", force: :cascade do |t|
+    t.integer  "group_id",     limit: 4
+    t.integer  "builder_id",   limit: 4
+    t.string   "name",         limit: 255
+    t.integer  "idea_max_num", limit: 2
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "topics", ["group_id"], name: "index_topics_on_group_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",    limit: 255
