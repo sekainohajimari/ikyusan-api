@@ -1,6 +1,6 @@
 default: &default
-  key: dummy_consumer_key
-  secret: dummy_consumer_secret
+  key: PVY0zv04nz6zPW58z52Jg
+  secret: 5HV3CU2xvm7DENeBzIpDg0kdoQCIUWqO2C4i2aP09SQ
 
 development:
   <<: *default

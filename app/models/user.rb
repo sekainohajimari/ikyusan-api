@@ -18,6 +18,7 @@
 
 class User < ActiveRecord::Base
   has_one :ios_access_token, -> { where(type: 'ios_access_token') }
+  has_one :profile
 
   enum status: { active: 1, ban: 2 }
 
