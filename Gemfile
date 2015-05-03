@@ -39,6 +39,7 @@ gem 'active_hash'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'global'
+gem 'ridgepole'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

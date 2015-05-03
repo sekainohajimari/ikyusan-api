@@ -1,0 +1,14 @@
+create_table "profiles", force: :cascade do |t|
+  t.integer  "user_id",      limit: 4
+  t.string   "display_id",   limit: 255
+  t.string   "display_name", limit: 255
+  t.string   "icon_url",     limit: 255
+  t.string   "affiliation",  limit: 255
+  t.string   "place",        limit: 255
+  t.string   "website",      limit: 255
+  t.string   "introduction", limit: 255
+  t.datetime "created_at",               null: false
+  t.datetime "updated_at",               null: false
+end
+
+add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
