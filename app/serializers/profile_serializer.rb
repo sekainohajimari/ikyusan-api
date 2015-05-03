@@ -19,15 +19,6 @@
 #  index_profiles_on_user_id  (user_id)
 #
 
-FactoryGirl.define do
-  factory :profile do
-    user nil
-display_id "MyString"
-display_name "MyString"
-affiliation "MyString"
-place "MyString"
-website "MyString"
-introduction "MyString"
-  end
-
+class ProfileSerializer < ActiveModel::Serializer
+  attributes :display_id, :display_name, :icon_url
 end
