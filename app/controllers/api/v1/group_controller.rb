@@ -1,5 +1,7 @@
 class Api::V1::GroupController < ApplicationController
   before_action :require_login, only: [:index, :create, :edit]
+  before_action :set_group, only: [:edit]
+  before_action :editable?, only: [:edit]
 
   def index
     groups = GroupMember.includes(:group).where(user_id: current_user.id)
@@ -9,9 +11,7 @@ class Api::V1::GroupController < ApplicationController
 
   def create
     group = Group.create!(
-      name: group_params[:name],
-      membar_max_num: 10,
-      topic_max_num: 100
+      name: group_params[:name]
     )
 
     group.group_members.create(
@@ -24,13 +24,27 @@ class Api::V1::GroupController < ApplicationController
   end
 
   def edit
+    @group.update!(
+      name: group_params[:name]
+    )
+
+    render json: @group
   end
 
+  ##### private methods #####
   private
 
   def group_params
     params.permit(
       :name
     )
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
+  def editable?
+    raise "No Editable" unless @group.editable?(user_id: current_user.id)
   end
 end
