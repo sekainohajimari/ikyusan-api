@@ -1,7 +1,9 @@
 class Api::V1::GroupController < ApplicationController
+  include GroupReferencer
+
   before_action :require_login, only: [:index, :create, :edit]
   before_action :set_group, only: [:edit]
-  before_action :editable?, only: [:edit]
+  before_action :referenceable?, only: [:edit]
 
   def index
     groups = GroupMember.includes(:group).where(user_id: current_user.id)
@@ -42,11 +44,7 @@ class Api::V1::GroupController < ApplicationController
     )
   end
 
-  def set_group
-    @group = Group.find(params[:id])
-  end
-
-  def editable?
-    raise ::ApiError.new('No Editable') unless @group.editable?(user_id: current_user.id)
+  def group_id
+    params[:id]
   end
 end
