@@ -14,6 +14,7 @@ class Group < ActiveRecord::Base
   has_many :group_members
   has_many :topics
   has_many :ideas, through: :topics
+  has_many :likes, through: :ideas
 
   before_create :default_membar_max_num
   before_create :default_topic_max_num
