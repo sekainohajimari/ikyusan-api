@@ -14,7 +14,7 @@ module Authenticater
     @current_user = nil
 
     user = User.authenticate(*credentials)
-    raise "Authentication failure" unless user
+    raise ::ApiError.new('Authentication failure', 401)
 
     IosAccessToken.clean_issuance(user_id: user.id, expired: 100.days)
 
@@ -48,6 +48,6 @@ module Authenticater
   def require_login
     return true if logged_in?
 
-    raise "No Login"
+    raise ::ApiError.new('No Login', 400)
   end
 end
