@@ -12,6 +12,12 @@ class Api::V1::TopicController < ApplicationController
   end
 
   def create
+    topic = @group.topics.create!(
+      build_user: current_user,
+      name: topic_params[:name]
+    )
+
+    render json: topic
   end
 
   def edit
@@ -22,5 +28,11 @@ class Api::V1::TopicController < ApplicationController
 
   def group_id
     params[:group_id]
+  end
+
+  def topic_params
+    params.permit(
+      :name
+    )
   end
 end

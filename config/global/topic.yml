@@ -1,0 +1,5 @@
+default: &default
+  default_idea_max_num: 100
+
+development:
+  <<: *default

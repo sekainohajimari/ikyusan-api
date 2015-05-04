@@ -21,6 +21,7 @@ class Group < ActiveRecord::Base
     group_members.exists?(user_id: user_id)
   end
 
+  ##### private methods #####
   private
 
   def default_membar_max_num
