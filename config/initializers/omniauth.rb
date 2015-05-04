@@ -5,6 +5,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   {
     secure_image_url: 'true',
     image_size: 'mini',
-    callback_path: '/api/auth/twitter/callback'
+    callback_path: '/api/v1/auth/twitter/callback'
   }
 end

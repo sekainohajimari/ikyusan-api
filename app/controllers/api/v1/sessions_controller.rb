@@ -1,4 +1,4 @@
-class Api::SessionsController < ApplicationController
+class Api::V1::SessionsController < ApplicationController
   def new
     login(request.env['omniauth.auth'])
 
@@ -7,5 +7,7 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     logout
+
+    render json: {}
   end
 end

@@ -3,21 +3,26 @@ module Authenticater
 
   # TODO 現状はiOSのみしか想定していない
   private
+
+  def auth_params
+    params.permit(
+      :token
+    )
+  end
+
   def login(*credentials)
     @current_user = nil
 
     user = User.authenticate(*credentials)
-    if user
-      IosAccessToken.clean_issuance(user_id: user.id, expired: 100.days)
+    raise "Authentication failure" unless user
 
-      @current_user = user
-    else
-      nil
-    end
+    IosAccessToken.clean_issuance(user_id: user.id, expired: 100.days)
+
+    @current_user = user
   end
 
   def logout
-    IosAccessToken.reset(user_id: current_user.id)
+    AccessToken.reset(user_id: current_user.id, token: auth_params[:token])
   end
 
   def current_user
@@ -27,14 +32,22 @@ module Authenticater
   end
 
   def login_from_token
-    if params[:token]
-      IosAccessToken.find_by(token: params[:token]).user
-    else
-      nil
+    Rails.cache.fetch(auth_params[:token], expires_in: 1.hour) do
+      AccessToken.find_by(token: auth_params[:token]).user
     end
   end
 
   def logged_in?
-    !!IosAccessToken.find_by(token: params[:token]).try(:alive)
+    access_token = Rails.cache.read(auth_params[:token])
+    return true if access_token.present?
+
+    access_token = AccessToken.alive.find_by(token: auth_params[:token])
+    access_token.present?
+  end
+
+  def require_login
+    return true if logged_in?
+
+    raise "No Login"
   end
 end

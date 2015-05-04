@@ -8,6 +8,6 @@ module Exceptionailer
   end
 
   def handle_500(exception = nil)
-    render json: { error: 'システムエラーが発生しました' }, status: 500
+    render json: { message: 'システムエラーが発生しました' }, status: 500
   end
 end

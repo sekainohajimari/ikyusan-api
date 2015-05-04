@@ -47,9 +47,10 @@ class AccessToken < ActiveRecord::Base
     token.destroy if token
   end
 
+  ##### private methods #####
   private
 
   def gen_token
-    self.token = SecureRandom.hex(24)
+    self.token = SecureRandom.hex(40)
   end
 end

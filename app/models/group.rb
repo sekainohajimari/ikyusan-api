@@ -11,4 +11,22 @@
 #
 
 class Group < ActiveRecord::Base
+  has_many :group_members
+
+  before_create :default_membar_max_num
+  before_create :default_topic_max_num
+
+  def editable?(user_id: )
+    group_members.exists?(user_id: user_id)
+  end
+
+  private
+
+  def default_membar_max_num
+    self.membar_max_num = Global.group.default_membar_max_num
+  end
+
+  def default_topic_max_num
+    self.topic_max_num = Global.group.default_topic_max_num
+  end
 end

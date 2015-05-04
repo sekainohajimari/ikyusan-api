@@ -19,4 +19,7 @@
 class GroupMember < ActiveRecord::Base
   belongs_to :group
   belongs_to :user
+
+  enum role: { owner: 1, member: 2 }
+  enum status: { join: 1, invite: 2, withdrawal: 3 }
 end

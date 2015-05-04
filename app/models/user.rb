@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  ##### private methods #####
   private
 
   def change_status_active
