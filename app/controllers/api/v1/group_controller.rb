@@ -15,7 +15,7 @@ class Api::V1::GroupController < ApplicationController
         name: group_params[:name]
       )
 
-      @group.group_members.create(
+      @group.group_members.create!(
         user: current_user,
         role: GroupMember.roles[:owner],
         status: GroupMember.statuses[:join]
