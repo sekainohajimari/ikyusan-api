@@ -4,11 +4,10 @@ class Api::V1::TopicController < ApplicationController
   before_action :require_login, only: [:index, :create, :edit]
   before_action :set_group, only: [:index, :edit]
   before_action :referenceable?, only: [:index, :create, :edit]
+  before_action :set_topic, only: [:edit]
 
   def index
-    topics = @group.topics
-
-    render json: topics
+    render json: @group.topics
   end
 
   def create
@@ -21,6 +20,11 @@ class Api::V1::TopicController < ApplicationController
   end
 
   def edit
+    @topic.update!(
+      name: topic_params[:name]
+    )
+
+    render json: @topic
   end
 
   ##### private methods #####
@@ -34,5 +38,9 @@ class Api::V1::TopicController < ApplicationController
     params.permit(
       :name
     )
+  end
+
+  def set_topic
+    @topic = @group.topics.find(params[:id])
   end
 end
