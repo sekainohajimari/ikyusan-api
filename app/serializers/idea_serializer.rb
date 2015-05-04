@@ -16,8 +16,8 @@
 #  index_ideas_on_topic_id  (topic_id)
 #
 
-require 'rails_helper'
+class IdeaSerializer < ActiveModel::Serializer
+  attributes :id, :content, :likes_count, :post_user
 
-RSpec.describe Idea, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  has_one :post_user
 end

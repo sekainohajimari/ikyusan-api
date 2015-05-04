@@ -20,6 +20,7 @@ class UserSerializer < ActiveModel::Serializer
   has_one :profile
 
   def token
+    # TODO: optionを渡してログイン以外の時はnilにする
     object.ios_access_token.token
   end
 end

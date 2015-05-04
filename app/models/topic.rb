@@ -19,6 +19,8 @@ class Topic < ActiveRecord::Base
   belongs_to :group
   belongs_to :build_user, class_name: 'User', foreign_key: :builder_id
 
+  has_many :ideas
+
   before_create :default_idea_max_num
 
   ##### private methods #####

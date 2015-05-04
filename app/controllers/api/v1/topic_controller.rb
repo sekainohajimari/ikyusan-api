@@ -2,7 +2,7 @@ class Api::V1::TopicController < ApplicationController
   include GroupReferencer
 
   before_action :require_login, only: [:index, :create, :edit]
-  before_action :set_group, only: [:index, :edit]
+  before_action :set_group, only: [:index, :create, :edit]
   before_action :referenceable?, only: [:index, :create, :edit]
   before_action :set_topic, only: [:edit]
 
