@@ -12,14 +12,16 @@
 
 class Group < ActiveRecord::Base
   has_many :group_members
+  has_many :topics
 
   before_create :default_membar_max_num
   before_create :default_topic_max_num
 
-  def editable?(user_id: )
+  def referenceable?(user_id: )
     group_members.exists?(user_id: user_id)
   end
 
+  ##### private methods #####
   private
 
   def default_membar_max_num

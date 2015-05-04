@@ -15,16 +15,6 @@
 #  index_topics_on_group_id  (group_id)
 #
 
-class Topic < ActiveRecord::Base
-  belongs_to :group
-  belongs_to :build_user, class_name: 'User', foreign_key: :builder_id
-
-  before_create :default_idea_max_num
-
-  ##### private methods #####
-  private
-
-  def default_idea_max_num
-    self.idea_max_num = Global.topic.default_idea_max_num
-  end
+class TopicSerializer < ActiveModel::Serializer
+  attributes :id, :name
 end
