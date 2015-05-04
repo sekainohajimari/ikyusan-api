@@ -17,4 +17,7 @@
 
 class Idea < ActiveRecord::Base
   belongs_to :topic
+  belongs_to :post_user, class_name: 'User', foreign_key: :poster_id
+
+  enum anonymity: { disable: 0, enable: 1 }
 end
