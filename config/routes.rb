@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       get '/signout', to: 'sessions#destroy'
       resources :group, path: 'g', only: [:index, :create, :edit] do
         resources :topic, path: 't', only: [:index, :create, :edit] do
-          resources :idea, path: 'i', only: [:index, :create, :delete]
+          resources :idea, path: 'i', only: [:index, :create, :destroy]
         end
       end
     end
