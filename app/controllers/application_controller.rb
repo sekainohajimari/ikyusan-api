@@ -9,5 +9,5 @@ class ApplicationController < ActionController::API
   include ActionController::Helpers
 
   include Authenticater
-  include Exceptionailer
+  include ExceptionHandler
 end

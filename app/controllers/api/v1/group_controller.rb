@@ -47,6 +47,6 @@ class Api::V1::GroupController < ApplicationController
   end
 
   def editable?
-    raise "No Editable" unless @group.editable?(user_id: current_user.id)
+    raise ::ApiError.new('No Editable') unless @group.editable?(user_id: current_user.id)
   end
 end
