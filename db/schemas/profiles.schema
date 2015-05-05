@@ -12,3 +12,4 @@ create_table "profiles", force: :cascade do |t|
 end
 
 add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+add_index "profiles", ["display_id"], name: "index_profiles_on_display_id", using: :btree
