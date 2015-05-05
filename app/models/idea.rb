@@ -21,6 +21,7 @@ class Idea < ActiveRecord::Base
   belongs_to :post_user, class_name: 'User', foreign_key: :poster_id
 
   has_many :likes
-  
+  has_many :favorites, as: :favoritable
+
   enum anonymity: { disable: 0, enable: 1 }
 end

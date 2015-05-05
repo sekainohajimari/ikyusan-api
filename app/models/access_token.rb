@@ -17,19 +17,13 @@
 #
 
 class AccessToken < ActiveRecord::Base
+  include StiSnakecasable
+
   belongs_to :user
 
   before_create :gen_token
 
   scope :alive, -> (now: Time.now){ where{ expires_at > now } }
-
-  def self.find_sti_class(type_name)
-    type_name.camelize.constantize
-  end
-
-  def self.sti_name
-    name.underscore
-  end
 
   def self.clean_issuance(user_id: , expired:)
     IosAccessToken.transaction do
