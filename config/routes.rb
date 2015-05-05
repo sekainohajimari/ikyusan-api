@@ -6,11 +6,12 @@ Rails.application.routes.draw do
       resources :group, path: 'g', only: [:index, :create, :edit] do
         resources :topic, path: 't', only: [:index, :create, :edit] do
           resources :idea, path: 'i', only: [:index, :create, :destroy] do
-            resources :like, path: 'l', only: [:index]
+            get 'l', to: 'like#index'
             post 'l/doing', to: 'like#doing'
           end
         end
       end
+      resources :profile, only: [:index, :edit]
     end
   end
 end
