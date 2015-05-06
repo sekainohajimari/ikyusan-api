@@ -1,3 +1,4 @@
+# ref: https://github.com/thoughtbot/hound/blob/master/config/style_guides/ruby.yml
 AllCops:
   Include:
   - "**/*.gemspec"
