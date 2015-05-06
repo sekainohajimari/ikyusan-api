@@ -11,7 +11,7 @@ class Api::V1::LikeController < ApplicationController
   end
 
   def doing
-    like = Like.create_or_update!(
+    like = Like.create_or_update_by!(
       idea_id: idea_params[:idea_id],
       like_user: current_user,
       num: idea_params[:num].to_i
