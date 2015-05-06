@@ -68,7 +68,6 @@ group :development, :test do
   gem 'database_rewinder'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'faker-precure'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-parameterized'
