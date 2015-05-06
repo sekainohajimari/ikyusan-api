@@ -10,7 +10,7 @@ module GroupReferencer
   def referenceable?
     set_group unless @group
 
-    raise ::ApiError.new('No Referenceable') unless @group.referenceable?(user_id: current_user.id)
+    raise Error::ApiError.new('No Referenceable') unless @group.referenceable?(user_id: current_user.id)
   end
 
   def group_id

@@ -17,7 +17,7 @@ Bundler.require(*Rails.groups)
 
 module IkyusanApi
   class Application < Rails::Application
-    config.autoload_paths += Dir["#{config.root}/lib/**/*"]
+    config.autoload_paths += %W(#{config.root}/lib/autoload)
     config.time_zone = 'Tokyo'
     config.active_record.raise_in_transactional_callbacks = true
     config.api_only = false

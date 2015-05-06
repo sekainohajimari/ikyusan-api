@@ -3,7 +3,7 @@ module ExceptionHandler
 
   included do
     rescue_from Exception, with: :handle_500
-    rescue_from ::ApiError, with: :handle_api_error
+    rescue_from Error::ApiError, with: :handle_api_error
   end
 
   def handle_500(e = nil)
