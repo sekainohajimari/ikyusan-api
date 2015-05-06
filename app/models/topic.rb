@@ -25,7 +25,6 @@ class Topic < ActiveRecord::Base
 
   ##### private methods #####
   private
-
   def default_idea_max_num
     self.idea_max_num = Global.topic.default_idea_max_num
   end

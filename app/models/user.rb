@@ -15,12 +15,21 @@
 #
 
 class User < ActiveRecord::Base
+  include AASM
+
   has_one :ios_access_token, -> { where(type: 'ios_access_token') }
   has_one :profile
 
-  enum status: { active: 1, ban: 2 }
+  enum status: { activing: 1, baning: 2 }
 
-  before_create :change_status_active
+  aasm column: :status, enum: true do
+    state :activing, initial: true
+    state :baning
+
+    event :ban do
+      transitions from: [:activing], to: :baning
+    end
+  end
 
   def self.authenticate(auth = {})
     User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
@@ -31,12 +40,5 @@ class User < ActiveRecord::Base
         place: auth[:info][:location]
       )
     end
-  end
-
-  ##### private methods #####
-  private
-
-  def change_status_active
-    self.status = :active
   end
 end
