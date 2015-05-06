@@ -12,17 +12,7 @@ class Api::V1::GroupController < ApplicationController
   end
 
   def create
-    ActiveRecord::Base.transaction do
-      @group = Group.create!(
-        name: group_params[:name]
-      )
-
-      @group.group_members.create!(
-        user: current_user,
-        role: GroupMember.roles[:owner],
-        status: GroupMember.statuses[:join]
-      )
-    end
+    @group = Group.regist(name: group_params[:name], user: current_user)
 
     render json: @group
   end
@@ -37,7 +27,6 @@ class Api::V1::GroupController < ApplicationController
 
   ##### private methods #####
   private
-
   def group_params
     params.permit(
       :name

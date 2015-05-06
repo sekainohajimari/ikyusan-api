@@ -19,13 +19,31 @@ class Group < ActiveRecord::Base
   before_create :default_membar_max_num
   before_create :default_topic_max_num
 
-  def referenceable?(user_id: )
+  def referenceable?(user_id:)
     group_members.exists?(user_id: user_id)
+  end
+
+  def self.regist(name:, user:)
+    ActiveRecord::Base.transaction do
+      group = Group.new(
+        name: name
+      )
+
+      group_member = GroupMember.new(
+        user: user,
+        role: GroupMember.roles[:owner]
+      )
+      group_member.join
+      group.group_members << group_member
+
+      group.save!
+
+      group
+    end
   end
 
   ##### private methods #####
   private
-
   def default_membar_max_num
     self.membar_max_num = Global.group.default_membar_max_num
   end

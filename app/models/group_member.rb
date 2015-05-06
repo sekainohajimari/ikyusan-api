@@ -17,9 +17,25 @@
 #
 
 class GroupMember < ActiveRecord::Base
+  include AASM
+
   belongs_to :group
   belongs_to :user
 
   enum role: { owner: 1, member: 2 }
-  enum status: { join: 1, invite: 2, withdrawal: 3 }
+  enum status: { inviting: 1, joining: 2, withdrawaling: 3 }
+
+  aasm column: :status, enum: true do
+    state :inviting, initial: true
+    state :joining
+    state :withdrawaling
+
+    event :join do
+      transitions from: [:inviting], to: :joining
+    end
+
+    event :withdrawal do
+      transitions from: [:joining], to: :withdrawaling
+    end
+  end
 end
