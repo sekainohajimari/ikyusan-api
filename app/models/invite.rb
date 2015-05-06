@@ -20,6 +20,10 @@
 class Invite < ActiveRecord::Base
   include AASM
 
+  belongs_to :group
+  belongs_to :host_user, class_name: 'User', foreign_key: :hoster_id
+  belongs_to :invite_user, class_name: 'User', foreign_key: :inviter_id
+
   enum status: { inviting: 1, agreeing: 2, denialing: 3 }
 
   aasm column: :status, enum: true do
@@ -34,5 +38,29 @@ class Invite < ActiveRecord::Base
     event :denial do
       transitions from: [:inviting], to: :denial
     end
+  end
+
+  after_save :create_invite_group_member
+  after_save :update_join_group_member
+
+  ##### private methods #####
+  private
+  def create_invite_group_member
+    return unless self.inviting?
+
+    group_member = GroupMember.new(user: invite_user)
+    group_member.member!
+    group.group_members << group_member
+
+    group.save!
+  end
+
+  def update_join_group_member
+    return unless self.agreeing?
+
+    group_member = group.group_member.inviting.find_by(user: invite_user)
+    group_member.join
+
+    group_member.save!
   end
 end

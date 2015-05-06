@@ -15,6 +15,7 @@ class Group < ActiveRecord::Base
   has_many :topics
   has_many :ideas, through: :topics
   has_many :likes, through: :ideas
+  has_many :invites
 
   before_create :default_membar_max_num
   before_create :default_topic_max_num
@@ -29,6 +30,7 @@ class Group < ActiveRecord::Base
         name: name
       )
 
+      # TODO: tapでスコープ作ったほうがスマートな気がするので後程検討
       group_member = GroupMember.new(
         user: user,
         role: GroupMember.roles[:owner]
