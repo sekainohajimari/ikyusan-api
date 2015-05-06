@@ -59,16 +59,19 @@ group :development, :test do
   gem 'tapp'
   gem 'annotate'
   gem 'factory_girl_rails'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'guard'
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'debug_exceptions_json'
   gem 'database_rewinder'
-  gem 'factory_girl_rails', group: :development
+  gem 'factory_girl_rails'
   gem 'faker'
   gem 'faker-precure'
-  gem 'rspec-rails', group: :development
+  gem 'rspec'
+  gem 'rspec-rails'
   gem 'rspec-parameterized'
   gem 'timecop'
+  gem 'hirb'
+  gem 'hirb-unicode'
 end
