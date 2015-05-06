@@ -13,8 +13,7 @@ class Api::V1::IdeaController < ApplicationController
   def create
     @ideas.create!(
       post_user: current_user,
-      content: idea_params[:content],
-      anonymity: Idea.anonymities[:disable]
+      content: idea_params[:content]
     )
 
     render json: @ideas
