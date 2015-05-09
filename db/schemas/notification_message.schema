@@ -1,7 +1,6 @@
 create_table "notification_messages", force: :cascade do |t|
   t.integer  "notification_id", limit: 4
   t.integer  "user_id", limit: 4
-  t.integer  "progress", limit: 4
   t.integer  "open", limit: 4
   t.string   "message", limit: 255
   t.datetime "created_at",           null: false
@@ -10,4 +9,3 @@ end
 
 add_index "notification_messages", "notification_id", name: "index_notification_messages_on_notification_id", using: :btree
 add_index "notification_messages", "user_id", name: "index_notification_messages_on_user_id", using: :btree
-add_index "notification_messages", "progress", name: "index_notification_messages_on_progress", using: :btree
