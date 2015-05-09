@@ -15,10 +15,18 @@
 #
 
 class Like < ActiveRecord::Base
+  include Notificationable
+
   belongs_to :idea
   belongs_to :like_user, class_name: 'User', foreign_key: :liker_id
 
   after_save :update_counter_cache
+
+  act_as_notification do
+    config type: :app do
+      notification_kind :immediately
+    end
+  end
 
   def self.create_or_update_by!(idea_id:, like_user:, num:)
     like = find_or_initialize_by(

@@ -6,4 +6,4 @@ create_table "favorites", force: :cascade do |t|
   t.datetime "updated_at",       null: false
 end
 
-add_index "favorites", ["favoritable_id", "favoritable_type"], name: "index_favorites_on_favoritable_id_and_favoritable_type", using: :btree
+add_index "favorites", ["favoritable_id", "favoritable_type"], name: "index_favorites_on_favoritable", using: :btree
