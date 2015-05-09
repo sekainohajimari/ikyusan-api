@@ -52,8 +52,9 @@ class Notification < ActiveRecord::Base
   ##### private methods #####
   private
   def create_notification_message
-    return if self.immediately?
+    return unless self.immediately?
 
     # create
+    NotificationMessage.notify_messages(self)
   end
 end

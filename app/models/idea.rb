@@ -18,7 +18,7 @@
 
 class Idea < ActiveRecord::Base
   include AASM
-  
+
   belongs_to :topic
   belongs_to :post_user, class_name: 'User', foreign_key: :poster_id
 
@@ -34,5 +34,9 @@ class Idea < ActiveRecord::Base
     event :enable do
       transitions from: [:disabling], to: :enabling
     end
+  end
+
+  def short_content
+    self.content.truncate(25, omission: '...')
   end
 end
