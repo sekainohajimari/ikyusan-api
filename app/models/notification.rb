@@ -2,6 +2,7 @@
 #
 # Table name: notifications
 #
+#  notifier_id           :integer
 #  id                    :integer          not null, primary key
 #  type                  :string(255)
 #  notificationable_type :string(255)
@@ -14,11 +15,15 @@
 # Indexes
 #
 #  index_notifications_on_notificationable  (notificationable_type,notificationable_id)
+#  index_notifications_on_notifier_id       (notifier_id)
 #
 
 class Notification < ActiveRecord::Base
   include AASM
 
+  has_many :notification_messages
+
+  belongs_to :notifiy_user, class_name: 'User', foreign_key: :notifier_id
   belongs_to :notificationable, polymorphic: true
 
   enum notification_kind: { immediately: 1, job: 2, batch: 3 }

@@ -2,6 +2,7 @@
 #
 # Table name: notifications
 #
+#  notifier_id           :integer
 #  id                    :integer          not null, primary key
 #  type                  :string(255)
 #  notificationable_type :string(255)
@@ -14,6 +15,7 @@
 # Indexes
 #
 #  index_notifications_on_notificationable  (notificationable_type,notificationable_id)
+#  index_notifications_on_notifier_id       (notifier_id)
 #
 
 require 'rails_helper'
