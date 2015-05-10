@@ -26,7 +26,9 @@ class Notification < ActiveRecord::Base
   belongs_to :notifiy_user, class_name: User.name, foreign_key: :notifier_id
   belongs_to :notificationable, polymorphic: true
 
-  enum notification_kind: { immediately: 1, job: 2, batch: 3 }
+  enum type: { app: AppNotification.name, ios_push: IosPushNotification.name }
+  enum notificationable_type: { like: Like.name, invite: Invite.name }
+  enum notification_kind: { sync: 1, job: 2, batch: 3 }
   enum progress: { incompleting: 1, processing: 2, completing: 3 }
 
   aasm column: :progress, enum: true do
@@ -45,17 +47,10 @@ class Notification < ActiveRecord::Base
 
   after_save :create_notification_message
 
-  ##### class methods #####
-  class << self
-    def to_subclass_name(type)
-      "#{type.to_s}_#{Notification.name}".camelize
-    end
-  end
-
   ##### private methods #####
   private
   def create_notification_message
-    return unless self.immediately?
+    return unless self.sync?
 
     NotificationMessage.notify_messages(self)
   end

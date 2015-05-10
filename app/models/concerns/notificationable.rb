@@ -20,7 +20,7 @@ module Notificationable
     def fire_notification(notifications)
       @notice.configs.each do |config|
         notifications.create!(
-          type: Notification.to_subclass_name(config.type),
+          type: Notification.types(config.type),
           notification_kind: Notification.notification_kinds[config.notification_kind]
         )
       end
