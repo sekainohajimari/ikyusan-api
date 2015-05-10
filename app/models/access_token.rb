@@ -19,6 +19,8 @@
 class AccessToken < ActiveRecord::Base
   belongs_to :user
 
+  enum type: { ios: IosAccessToken.name }
+
   before_create :gen_token
 
   scope :alive, -> (now: Time.now){ where{ expires_at > now } }

@@ -17,7 +17,7 @@
 class User < ActiveRecord::Base
   include AASM
 
-  has_one :ios_access_token, -> { where(type: IosAccessToken.name) }
+  has_one :ios_access_token, -> { where(type: AccessToken.types[:ios]) }
   has_one :profile
 
   has_many :notifications, foreign_key: :notifier_id

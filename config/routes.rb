@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       end
       resources :profile, only: [:index, :edit]
       get '/profile/:display_id/enabled', to: 'profile#enabled'
+      resources :notifications, only: [:index]
     end
   end
 end
