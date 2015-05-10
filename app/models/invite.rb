@@ -19,6 +19,7 @@
 
 class Invite < ActiveRecord::Base
   include AASM
+  include Notificationable
 
   belongs_to :group
   belongs_to :host_user, class_name: 'User', foreign_key: :hoster_id
@@ -40,6 +41,12 @@ class Invite < ActiveRecord::Base
     end
   end
 
+  act_as_notification do
+    config type: :app do
+      notification_kind :immediately
+    end
+  end
+  
   after_save :create_invite_group_member
   after_save :update_join_group_member
 

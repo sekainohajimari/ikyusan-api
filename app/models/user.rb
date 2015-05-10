@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  delegate :display_name, to: :profile
+
   def self.authenticate(auth = {})
     User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
       user.create_profile(
