@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   has_one :ios_access_token, -> { where(type: 'ios_access_token') }
   has_one :profile
 
+  has_many :notifications, foreign_key: :notifier_id
+
   enum status: { activing: 1, baning: 2 }
 
   aasm column: :status, enum: true do
@@ -30,6 +32,8 @@ class User < ActiveRecord::Base
       transitions from: [:activing], to: :baning
     end
   end
+
+  delegate :display_name, to: :profile
 
   def self.authenticate(auth = {})
     User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|

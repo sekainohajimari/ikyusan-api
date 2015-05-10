@@ -11,7 +11,7 @@
 #
 # Indexes
 #
-#  index_favorites_on_favoritable_id_and_favoritable_type  (favoritable_id,favoritable_type)
+#  index_favorites_on_favoritable  (favoritable_id,favoritable_type)
 #
 
 class Favorite < ActiveRecord::Base
