@@ -39,49 +39,55 @@ class NotificationMessage < ActiveRecord::Base
       targets =
         case notification.notificationable_type
         when Like.name
-          like = notification.notificationable
-          target_user_ids = like.idea.topic.group
-            .group_members.pluck(:user_id).delete(notification.notifier_id)
-
-          return if target_user_ids.blank?
-
-          [].tap do |result|
-            target_user_ids.each do |user_id|
-              result << {
-                user_id: user_id,
-                message: gen_message(like)
-              }
-            end
-          end
+          like_messages(notification)
         when Invite.name
-          invite = notification.notificationable
-
-          [].tap do |result|
-            result << {
-              user_id: invite.invite_user.id,
-              message: gen_message(invite)
-            }
-          end
+          invite_messages(notification)
         end
 
+      return if targets.blank?
+
       targets.each do |target|
-        notify_message(notification, target)
+        create!(
+          notification: notification,
+          user_id: target[:user_id],
+          message: target[:message]
+        )
       end
     end
 
     ##### private methods #####
     private
-    def gen_message(notificationable)
-      relative_path = "#{Global.notification_message.template_file_dir}/#{notificationable.class.name.underscore}.txt.erb"
-      ERB.new(File.read(relative_path)).result(binding)
+    def like_messages(notification)
+      like = notification.notificationable
+      target_users = like.idea.topic.group
+        .group_members.where.not(user_id: notification.notifier_id)
+
+      return nil if target_users.blank?
+
+      [].tap do |result|
+        target_users.pluck(:user_id).each do |user_id|
+          result << {
+            user_id: user_id,
+            message: message(like)
+          }
+        end
+      end
     end
 
-    def notify_message(notification, target)
-      create!(
-        notification: notification,
-        user_id: target[:user_id],
-        message: target[:message]
-      )
+    def invite_messages(notification)
+      invite = notification.notificationable
+
+      [].tap do |result|
+        result << {
+          user_id: invite.invite_user.id,
+          message: message(invite)
+        }
+      end
+    end
+
+    def message(notificationable)
+      relative_path = "#{Global.notification_message.template_file_dir}/#{notificationable.class.name.underscore}.txt.erb"
+      ERB.new(File.read(relative_path)).result(binding)
     end
   end
 end
