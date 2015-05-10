@@ -33,23 +33,21 @@ class NotificationMessage < ActiveRecord::Base
 
           return if target_user_ids.blank?
 
-          message = "#{like.like_user.display_name}さんが、「#{like.idea.short_content}」に対し、スキをしました"
           [].tap do |result|
             target_user_ids.each do |user_id|
               result << {
                 user_id: user_id,
-                message: message
+                message: gen_message(like)
               }
             end
           end
         when Invite.name
           invite = notification.notificationable
 
-          message = "#{invite.host_user.display_name}さんが、グループ「#{invite.group.name}」に招待しています"
           [].tap do |result|
             result << {
               user_id: invite.invite_user.id,
-              message: message
+              message: gen_message(invite)
             }
           end
         end
@@ -61,6 +59,11 @@ class NotificationMessage < ActiveRecord::Base
 
     ##### private methods #####
     private
+    def gen_message(notificationable)
+      relative_path = "#{Global.notification_message.template_file_dir}/#{notificationable.class.name.underscore}.txt.erb"
+      ERB.new(File.read(relative_path)).result(binding)
+    end
+
     def notify_message(notification, target)
       notification_message = self.new(
         notification: notification,
