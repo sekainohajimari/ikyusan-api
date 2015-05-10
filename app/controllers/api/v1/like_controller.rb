@@ -22,7 +22,6 @@ class Api::V1::LikeController < ApplicationController
 
   ##### private methods #####
   private
-
   def group_id
     params[:group_id]
   end

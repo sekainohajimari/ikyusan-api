@@ -23,7 +23,7 @@ class Notification < ActiveRecord::Base
 
   has_many :notification_messages
 
-  belongs_to :notifiy_user, class_name: 'User', foreign_key: :notifier_id
+  belongs_to :notifiy_user, class_name: User.name, foreign_key: :notifier_id
   belongs_to :notificationable, polymorphic: true
 
   enum notification_kind: { immediately: 1, job: 2, batch: 3 }
@@ -45,8 +45,11 @@ class Notification < ActiveRecord::Base
 
   after_save :create_notification_message
 
-  def self.to_subclass_name(type)
-    "#{type.to_s}_#{Notification.name}".camelize
+  ##### class methods #####
+  class << self
+    def to_subclass_name(type)
+      "#{type.to_s}_#{Notification.name}".camelize
+    end
   end
 
   ##### private methods #####
@@ -54,7 +57,6 @@ class Notification < ActiveRecord::Base
   def create_notification_message
     return unless self.immediately?
 
-    # create
     NotificationMessage.notify_messages(self)
   end
 end

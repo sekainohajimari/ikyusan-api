@@ -17,33 +17,33 @@
 #
 
 class AccessToken < ActiveRecord::Base
-  include StiSnakecasable
-
   belongs_to :user
 
   before_create :gen_token
 
   scope :alive, -> (now: Time.now){ where{ expires_at > now } }
 
-  def self.clean_issuance(user_id: , expired:)
-    IosAccessToken.transaction do
-      reset(user_id: user_id)
+  ##### class methods #####
+  class << self
+    def clean_issuance(user_id:, expired:)
+      IosAccessToken.transaction do
+        reset(user_id: user_id)
 
-      create!(
-        user_id: user_id,
-        expires_at: Time.now + expired
-      )
+        create!(
+          user_id: user_id,
+          expires_at: Time.now + expired
+        )
+      end
     end
-  end
 
-  def self.reset(user_id:)
-    token = find_by(user_id: user_id)
-    token.destroy if token
+    def reset(user_id:)
+      token = find_by(user_id: user_id)
+      token.destroy if token
+    end
   end
 
   ##### private methods #####
   private
-
   def gen_token
     self.token = SecureRandom.hex(40)
   end

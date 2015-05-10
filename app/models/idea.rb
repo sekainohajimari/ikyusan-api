@@ -20,7 +20,7 @@ class Idea < ActiveRecord::Base
   include AASM
 
   belongs_to :topic
-  belongs_to :post_user, class_name: 'User', foreign_key: :poster_id
+  belongs_to :post_user, class_name: User.name, foreign_key: :poster_id
 
   has_many :likes
   has_many :favorites, as: :favoritable

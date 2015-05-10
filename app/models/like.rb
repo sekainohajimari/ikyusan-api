@@ -18,7 +18,7 @@ class Like < ActiveRecord::Base
   include Notificationable
 
   belongs_to :idea
-  belongs_to :like_user, class_name: 'User', foreign_key: :liker_id
+  belongs_to :like_user, class_name: User.name, foreign_key: :liker_id
 
   after_save :update_counter_cache
 
@@ -28,21 +28,24 @@ class Like < ActiveRecord::Base
     end
   end
 
-  def self.create_or_update_by!(idea_id:, like_user:, num:)
-    like = find_or_initialize_by(
-      idea_id: idea_id,
-      like_user: like_user
-    )
-    like.num =
-      if like.num.blank?
-        num
-      else
-        like.num + num
-      end
+  ##### class methods #####
+  class << self
+    def create_or_update_by!(idea_id:, like_user:, num:)
+      like = find_or_initialize_by(
+        idea_id: idea_id,
+        like_user: like_user
+      )
+      like.num =
+        if like.num.blank?
+          num
+        else
+          like.num + num
+        end
 
-    like.save!
+      like.save!
 
-    like
+      like
+    end
   end
 
   ##### private methods #####

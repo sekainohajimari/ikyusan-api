@@ -22,6 +22,7 @@ class NotificationMessage < ActiveRecord::Base
 
   enum open: { no: 0 , yes: 1 }
 
+  ##### class methods #####
   class << self
     def notify_messages(notification)
       targets =

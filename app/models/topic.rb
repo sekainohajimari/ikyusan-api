@@ -17,15 +17,15 @@
 
 class Topic < ActiveRecord::Base
   belongs_to :group
-  belongs_to :build_user, class_name: 'User', foreign_key: :builder_id
+  belongs_to :build_user, class_name: User.name, foreign_key: :builder_id
 
   has_many :ideas
 
-  before_create :default_idea_max_num
+  before_create :setting_default
 
   ##### private methods #####
   private
-  def default_idea_max_num
+  def setting_default
     self.idea_max_num = Global.topic.default_idea_max_num
   end
 end

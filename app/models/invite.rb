@@ -22,8 +22,8 @@ class Invite < ActiveRecord::Base
   include Notificationable
 
   belongs_to :group
-  belongs_to :host_user, class_name: 'User', foreign_key: :hoster_id
-  belongs_to :invite_user, class_name: 'User', foreign_key: :inviter_id
+  belongs_to :host_user, class_name: User.name, foreign_key: :hoster_id
+  belongs_to :invite_user, class_name: User.name, foreign_key: :inviter_id
 
   enum status: { inviting: 1, agreeing: 2, denialing: 3 }
 
@@ -46,8 +46,8 @@ class Invite < ActiveRecord::Base
       notification_kind :immediately
     end
   end
-  
-  after_save :create_invite_group_member
+
+  after_create :create_invite_group_member
   after_save :update_join_group_member
 
   ##### private methods #####

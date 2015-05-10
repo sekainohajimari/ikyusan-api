@@ -17,7 +17,7 @@
 class User < ActiveRecord::Base
   include AASM
 
-  has_one :ios_access_token, -> { where(type: 'ios_access_token') }
+  has_one :ios_access_token, -> { where(type: IosAccessToken.name) }
   has_one :profile
 
   has_many :notifications, foreign_key: :notifier_id
@@ -35,14 +35,17 @@ class User < ActiveRecord::Base
 
   delegate :display_name, to: :profile
 
-  def self.authenticate(auth = {})
-    User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
-      user.create_profile(
-        display_id: auth[:info][:nickname],
-        display_name: auth[:info][:name],
-        icon_url: auth[:info][:image],
-        place: auth[:info][:location]
-      )
+  ##### class methods #####
+  class << self
+    def authenticate(auth = {})
+      User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
+        user.create_profile(
+          display_id: auth[:info][:nickname],
+          display_name: auth[:info][:name],
+          icon_url: auth[:info][:image],
+          place: auth[:info][:location]
+        )
+      end
     end
   end
 end

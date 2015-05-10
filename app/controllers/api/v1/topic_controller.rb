@@ -29,7 +29,6 @@ class Api::V1::TopicController < ApplicationController
 
   ##### private methods #####
   private
-
   def group_id
     params[:group_id]
   end
