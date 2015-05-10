@@ -17,10 +17,21 @@
 #
 
 class NotificationMessage < ActiveRecord::Base
+  include AASM
+
   belongs_to :notification
   belongs_to :user
 
   enum open: { no: 0 , yes: 1 }
+
+  aasm column: :open, enum: true do
+    state :no, initial: true
+    state :yes
+
+    event :be_open do
+      transitions from: [:no], to: :yes
+    end
+  end
 
   ##### class methods #####
   class << self
@@ -66,13 +77,11 @@ class NotificationMessage < ActiveRecord::Base
     end
 
     def notify_message(notification, target)
-      notification_message = self.new(
+      create!(
         notification: notification,
         user_id: target[:user_id],
         message: target[:message]
       )
-      notification_message.no!
-      notification_message.save!
     end
   end
 end
