@@ -38,9 +38,9 @@ class NotificationMessage < ActiveRecord::Base
     def notify_messages(notification)
       targets =
         case notification.notificationable_type
-        when Notification.types[:like]
+        when Notification.notificationable_types[:like]
           like_messages(notification)
-        when Notification.types[:invite]
+        when Notification.notificationable_types[:invite]
           invite_messages(notification)
         end
 
