@@ -1,4 +1,4 @@
-class Api::V1::LikeController < ApplicationController
+class Api::V1::LikeController < Api::V1::ApplicationController
   include GroupReferencer
 
   before_action :require_login, only: [:index, :doing]

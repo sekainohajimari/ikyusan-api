@@ -1,4 +1,4 @@
-class Api::V1::IdeaController < ApplicationController
+class Api::V1::IdeaController < Api::V1::ApplicationController
   include GroupReferencer
 
   before_action :require_login, only: [:index, :create, :destroy]

@@ -1,4 +1,4 @@
-class Api::V1::ProfileController < ApplicationController
+class Api::V1::ProfileController < Api::V1::ApplicationController
   def index
     render json: current_user.profile
   end

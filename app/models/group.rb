@@ -25,7 +25,7 @@ class Group < ActiveRecord::Base
 
   ##### class methods #####
   class << self
-    def self.regist(name:, user:)
+    def regist(name:, user:)
       ActiveRecord::Base.transaction do
         group = Group.new(
           name: name

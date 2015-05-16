@@ -1,4 +1,4 @@
-class Api::V1::NotificationsController < ApplicationController
+class Api::V1::NotificationsController < Api::V1::ApplicationController
   before_action :require_login, only: [:index]
   before_action :set_notification_messages, only: [:index]
 
