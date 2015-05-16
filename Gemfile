@@ -54,7 +54,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'pry-doc'
   gem 'tapp'
-  gem 'annotate', require: false
+  gem 'annotate'
   gem 'factory_girl_rails'
   gem 'rubocop', require: false
   gem 'guard'
