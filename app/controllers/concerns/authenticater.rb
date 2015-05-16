@@ -4,9 +4,7 @@ module Authenticater
   # TODO 現状はiOSのみしか想定していない
   private
   def auth_token
-    authenticate_or_request_with_http_token do |token, options|
-      token
-    end
+    authenticate_or_request_with_http_token { |token, options| token }
   end
 
   def login(*credentials)
