@@ -5,8 +5,8 @@ working_directory app_dir
 
 listen "#{app_dir}/tmp/sockets/#{application}_unicorn.sock"
 pid "#{app_dir}/tmp/pids/#{application}_unicorn.pid"
-stdout_path "/var/log/rails/#{application}_unicorn.log"
-stderr_path "/var/log/rails/#{application}_unicorn.log"
+stdout_path "#{app_dir}/log/#{application}_unicorn.log"
+stderr_path "#{app_dir}/log/#{application}_unicorn.log"
 
 cpu_num = `cat /proc/cpuinfo | grep processor`.split("\n").size
 

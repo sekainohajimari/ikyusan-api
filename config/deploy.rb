@@ -13,12 +13,3 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
 
 set :bundle_jobs, 4
-
-# namespace :deploy do
-#   namespace :assets do
-#     task :precompile, :roles => :web, :except => { :no_release => true } do
-#       # from = source.next_revision(current_revision)
-#       logger.info "Skipping asset pre-compilation because there were no asset changes"
-#     end
-#   end
-# end
