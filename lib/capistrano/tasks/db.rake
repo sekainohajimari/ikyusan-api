@@ -3,12 +3,12 @@ namespace :deploy do
   task :db_create do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
-        within current_path do
+        within release_path do
           execute :bundle, :exec, :rake, 'db:create'
       end
       end
     end
   end
 
-  before :migrate, :db_create 
+  before :migrate, :db_create
 end
