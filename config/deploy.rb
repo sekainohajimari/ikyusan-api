@@ -1,6 +1,6 @@
 set :application, 'ikyusan-api'
 set :repo_url, 'https://github.com/sekainohajimari/ikyusan-api.git'
-set :branch, ENV['BRUNCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'master'
 set :deploy_to, "/var/www/#{fetch(:application)}"
 set :scm, :git
 set :keep_releases, 3
