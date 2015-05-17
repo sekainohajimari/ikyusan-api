@@ -1,0 +1,34 @@
+machine:
+  timezone:
+    Asia/Tokyo
+
+  ruby:
+    version:
+      2.2.2
+
+dependencies:
+  cache_directories:
+    - "vendor/bundle"
+
+  pre:
+    - gem install bundler --pre
+
+  override:
+    - bundle install -j4 --path vendor/bundle
+
+test:
+  override:
+    - bundle exec bin/rubocop:
+        parallel: true
+
+# deployment:
+#   test:
+#     branch: deployment/test
+#     commands:
+#       - bash ./create_aws_instance_and_deploy_test.sh:
+#           timeout: 600
+#   production:
+#     branch: deployment/production
+#     commands:
+#       - bash ./create_aws_instance_and_deploy_production.sh:
+#           timeout: 600
