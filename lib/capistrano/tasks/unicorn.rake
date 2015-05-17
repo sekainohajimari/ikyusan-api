@@ -38,7 +38,12 @@ namespace :unicorn do
   task restart: :enviroment do
     on roles(:app) do
       if test(" [ -f #{fetch :unicorn_pid} ]")
-        send_signal(:USR2)
+        if test :pgrep, '-f', "'unicorn'"
+          execute :rm, "-f #{fetch :unicorn_pid}"
+          start_unicorn
+        else
+          send_signal(:USR2)
+        end
       else
         start_unicorn
       end
