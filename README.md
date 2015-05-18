@@ -1,9 +1,9 @@
 # ikyusan-api
 
-
+[![Circle CI](https://circleci.com/gh/sekainohajimari/ikyusan-api.svg?style=svg)](https://circleci.com/gh/sekainohajimari/ikyusan-api)
 
 ## What Is This?
-ネタを管理するためのツールのAPIです
+ネタを共有するアプリのAPIです
 
 
 
