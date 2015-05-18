@@ -18,7 +18,8 @@ dependencies:
 
 test:
   override:
-    - bundle exec rubocop
+    # - bundle exec rubocop
+    - bundle exec rake spec
 
 # deployment:
 #   test:
