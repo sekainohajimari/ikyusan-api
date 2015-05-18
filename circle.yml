@@ -18,8 +18,7 @@ dependencies:
 
 test:
   override:
-    - bundle exec bin/rubocop:
-        parallel: true
+    - bundle exec rake rubocop
 
 # deployment:
 #   test:
