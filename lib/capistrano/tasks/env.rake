@@ -3,8 +3,8 @@ task :production do
 end
 
 task :staging do
-  set :bundle_without, [:test]
-  set :rails_env, 'staging'
+  set :bundle_without, [:development]
+  set :rails_env, 'test'
 end
 
 task :development do
