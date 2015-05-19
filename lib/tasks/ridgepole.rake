@@ -9,7 +9,7 @@ namespace :db do
   desc "db migration by ridgepole"
   task :migrate => :environment do
     sh "bundle exec ridgepole -E#{ENV['RAILS_ENV']} -c #{DATABASE_CONFIG} --apply -f #{SCHEMA_CONFIG}"
-    sh 'bin/rake annotate_models'
+    sh 'bin/rake annotate_models' if ENV['RAILS_ENV'] == 'development'
   end
 
   desc "db migration dryrun by ridgepole"
