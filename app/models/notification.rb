@@ -26,7 +26,8 @@ class Notification < ActiveRecord::Base
   belongs_to :notifiy_user, class_name: User.name, foreign_key: :notifier_id
   belongs_to :notificationable, polymorphic: true
 
-  enum type: { app: AppNotification.name, ios_push: IosPushNotification.name }
+  # enum type: { app: AppNotification.name, ios_push: IosPushNotification.name }
+  enum type: { app: 'AppNotification', ios_push: 'IosPushNotification' }
   enum notificationable_type: { like: Like.name, invite: Invite.name }
   enum notification_kind: { sync: 1, job: 2, batch: 3 }
   enum progress: { incompleting: 1, processing: 2, completing: 3 }
