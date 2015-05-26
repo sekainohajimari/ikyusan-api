@@ -19,7 +19,7 @@
 class AccessToken < ActiveRecord::Base
   belongs_to :user
 
-  enum type: { ios: 'IosAccessToken' }
+  enum type: { ios: 'IosAccessToken', android: 'AndroidAccessToken' }
 
   before_create :set_token
 
@@ -47,6 +47,7 @@ class AccessToken < ActiveRecord::Base
     private
     def get_type
       return IosAccessToken.name if Util::Request.ios?
+      return AndroidAccessToken.name if Util::Request.android?
     end
   end
 
