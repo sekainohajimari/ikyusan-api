@@ -19,20 +19,21 @@
 class AccessToken < ActiveRecord::Base
   belongs_to :user
 
-  enum type: { ios: IosAccessToken.name }
+  enum type: { ios: 'IosAccessToken', android: 'AndroidAccessToken' }
 
-  before_create :gen_token
+  before_create :set_token
 
   scope :alive, -> (now: Time.now){ where{ expires_at > now } }
 
   ##### class methods #####
   class << self
     def clean_issuance(user_id:, expired:)
-      IosAccessToken.transaction do
+      AccessToken.transaction do
         reset(user_id: user_id)
 
         create!(
           user_id: user_id,
+          type: get_type,
           expires_at: Time.now + expired
         )
       end
@@ -42,11 +43,17 @@ class AccessToken < ActiveRecord::Base
       token = find_by(user_id: user_id)
       token.destroy if token
     end
+
+    private
+    def get_type
+      return IosAccessToken.name if Util::Request.ios?
+      return AndroidAccessToken.name if Util::Request.android?
+    end
   end
 
   ##### private methods #####
   private
-  def gen_token
+  def set_token
     self.token = SecureRandom.hex(40)
   end
 end
