@@ -235,6 +235,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
     ref (1.0.5)
+    request_store (1.1.0)
     ridgepole (0.6.0)
       activerecord (~> 4.2.1)
     rspec (3.2.0)
@@ -369,6 +370,7 @@ DEPENDENCIES
   pry-stack_explorer
   rails (= 4.2.1)
   rails-api
+  request_store
   ridgepole
   rspec
   rspec-parameterized
