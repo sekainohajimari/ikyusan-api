@@ -2,7 +2,7 @@ module Util
   class Request
     class << self
       def ios?
-        ua.include?('Mobile')
+        ua.include?('iPhone') || ua.include?('iPad') || ua.include?('iPod')
       end
 
       def android?
