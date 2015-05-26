@@ -6,7 +6,7 @@
 
 
 ## What Is This?
-It offers the app API of that share a story.
+It ideas share the app API of that share a story.
 
 
 
