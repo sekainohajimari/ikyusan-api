@@ -10,7 +10,7 @@ module Util
       end
 
       def ua
-        RequestStore.store[:request].user_agent
+        @ua ||= RequestStore.store[:request].user_agent
       end
     end
   end
