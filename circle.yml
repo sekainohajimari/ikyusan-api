@@ -21,14 +21,8 @@ test:
     # - bundle exec rubocop
     - bundle exec rake spec
 
-# deployment:
-#   test:
-#     branch: deployment/test
-#     commands:
-#       - bash ./create_aws_instance_and_deploy_test.sh:
-#           timeout: 600
-#   production:
-#     branch: deployment/production
-#     commands:
-#       - bash ./create_aws_instance_and_deploy_production.sh:
-#           timeout: 600
+deployment:
+  production:
+    branch: production
+    commands:
+      - sh ci/deploy-production.sh
