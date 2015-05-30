@@ -9,6 +9,4 @@ namespace :deploy do
       end
     end
   end
-
-  before :migrate, :db_create
 end
