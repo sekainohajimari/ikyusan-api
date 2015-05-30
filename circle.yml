@@ -25,5 +25,4 @@ deployment:
   production:
     branch: production
     commands:
-      - sh ci/deploy-production.sh:
-        timeout: 600
+      - sh ci/deploy-production.sh
