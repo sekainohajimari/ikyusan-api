@@ -46,6 +46,7 @@ class AccessToken < ActiveRecord::Base
 
     private
     def get_type
+      # TODO: 本番OPEN前には変更する
       return IosAccessToken.name
       # return IosAccessToken.name if Util::Request.ios?
       # return AndroidAccessToken.name if Util::Request.android?
