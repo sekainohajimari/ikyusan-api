@@ -26,4 +26,4 @@ deployment:
     branch: production
     commands:
       - bundle exec cap production deploy
-          timeout: 600
+        timeout: 600
