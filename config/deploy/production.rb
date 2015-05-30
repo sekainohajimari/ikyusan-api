@@ -7,8 +7,9 @@ role :db, ["#{fetch(:deploy_user)}@#{fetch(:deploy_host)}"]
 
 server fetch(:deploy_host), user: fetch(:deploy_user), roles: %w{web app db}
 
-set :ssh_options, {
-  user:          'kyoko',
-  keys:          %w(~/.ssh/kyoko.pem),
-  forward_agent: true,
-}
+# Note: ローカルから実行する場合はコメントインする
+# set :ssh_options, {
+#   user:          'kyoko',
+#   keys:          %w(~/.ssh/kyoko.pem),
+#   forward_agent: true,
+# }
