@@ -38,7 +38,7 @@ namespace :unicorn do
   task restart: :enviroment do
     on roles(:app) do
       if test(" [ -f #{fetch :unicorn_pid} ]")
-        if test :pgrep, '-f', "'unicorn'"
+        unless test :pgrep, '-f', "'unicorn'"
           execute :rm, "-f #{fetch :unicorn_pid}"
           start_unicorn
         else
@@ -50,5 +50,3 @@ namespace :unicorn do
     end
   end
 end
-
-after "deploy:finished", "unicorn:restart"
