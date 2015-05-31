@@ -7,7 +7,7 @@ class Api::V1::TopicController < Api::V1::ApplicationController
   before_action :set_topic, only: [:edit]
 
   def index
-    render json: @group.topics
+    render json: @group.topics, root: 'topics'
   end
 
   def create
@@ -16,7 +16,7 @@ class Api::V1::TopicController < Api::V1::ApplicationController
       name: topic_params[:name]
     )
 
-    render json: topic
+    render json: topic, root: 'topic'
   end
 
   def edit
@@ -24,7 +24,7 @@ class Api::V1::TopicController < Api::V1::ApplicationController
       name: topic_params[:name]
     )
 
-    render json: @topic
+    render json: @topic, root: 'topic'
   end
 
   ##### private methods #####
