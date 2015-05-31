@@ -7,7 +7,7 @@ class Api::V1::IdeaController < Api::V1::ApplicationController
   before_action :set_ideas, only: [:index, :create, :destroy]
 
   def index
-    render json: @ideas
+    render json: @ideas, root: 'ideas'
   end
 
   def create
@@ -16,13 +16,13 @@ class Api::V1::IdeaController < Api::V1::ApplicationController
       content: idea_params[:content]
     )
 
-    render json: @ideas
+    render json: @ideas, root: 'ideas'
   end
 
   def destroy
     @ideas.find(params[:id]).destroy!
 
-    render json: @ideas
+    render json: @ideas, root: 'ideas'
   end
 
   ##### private methods #####
