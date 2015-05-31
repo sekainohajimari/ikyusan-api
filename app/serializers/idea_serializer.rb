@@ -17,7 +17,11 @@
 #
 
 class IdeaSerializer < ActiveModel::Serializer
-  attributes :id, :content, :likes_count, :post_user
+  attributes :id, :content, :likes_count, :post_user_name
 
-  has_one :post_user
+  def post_user_name
+    return '**********' if object.enabling?
+
+    object.post_user.display_name
+  end
 end
