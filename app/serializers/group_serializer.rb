@@ -11,5 +11,5 @@
 #
 
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :membar_max_num, :topic_max_num
 end
