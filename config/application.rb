@@ -22,6 +22,7 @@ module IkyusanApi
     config.active_record.raise_in_transactional_callbacks = true
     config.api_only = false
     config.cache_store = :file_store, 'tmp/cache'
-    config.action_controller.action_on_unpermitted_parameters = :raise
+    # TODO: 一旦コメントアウト
+    # config.action_controller.action_on_unpermitted_parameters = :raise
   end
 end
