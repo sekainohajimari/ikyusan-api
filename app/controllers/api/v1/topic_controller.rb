@@ -30,11 +30,12 @@ class Api::V1::TopicController < Api::V1::ApplicationController
   ##### private methods #####
   private
   def group_id
-    params[:group_id]
+    topic_params[:group_id]
   end
 
   def topic_params
     params.permit(
+      :group_id,
       :name
     )
   end
