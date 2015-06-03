@@ -2,7 +2,7 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   include GroupReferencer
 
   before_action :require_login, only: [:index, :create, :edit]
-  before_action :set_group, only: [:edit]
+  before_action :set_group, only: [:edit, :detail]
   before_action :referenceable?, only: [:edit]
 
   def index
@@ -23,6 +23,10 @@ class Api::V1::GroupController < Api::V1::ApplicationController
     )
 
     render json: @group
+  end
+
+  def detail
+
   end
 
   ##### private methods #####
