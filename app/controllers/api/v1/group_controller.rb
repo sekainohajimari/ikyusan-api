@@ -2,8 +2,8 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   include GroupReferencer
 
   before_action :require_login, only: [:index, :create, :edit]
-  before_action :set_group, only: [:edit, :detail]
-  before_action :referenceable?, only: [:edit]
+  before_action :set_group, only: [:edit]
+  before_action :referenceable?, only: [:edit, :detail]
 
   def index
     groups = Group.joins(:group_members).where(group_members: { user_id: current_user.id })
@@ -26,7 +26,12 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   end
 
   def detail
+    group =
+      Group.includes(invites: [invite_user: :profile], group_members: [user: :profile])
+        .where(group_members: { status: GroupMember.roles[:member] })
+        .find(group_id)
 
+    render json: group
   end
 
   ##### private methods #####

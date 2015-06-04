@@ -15,12 +15,13 @@
 #
 
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :token
+  attributes :id
 
   has_one :profile
 
-  def token
-    # TODO: optionを渡してログイン以外の時はnilにする
-    object.ios_access_token.token
+  def attributes
+    data = super
+    data[:token] = serialization_options[:token] if serialization_options[:token].present?
+    data
   end
 end
