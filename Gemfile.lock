@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/smartinez87/exception_notification.git
+  revision: 535aa76045762cca644bd26dd4d2e8144f6ecffe
+  specs:
+    exception_notification (4.1.0)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -354,6 +362,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   database_rewinder
   debug_exceptions_json
+  exception_notification!
   factory_girl_rails
   faker
   global
