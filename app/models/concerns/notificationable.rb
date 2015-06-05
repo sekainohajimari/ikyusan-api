@@ -7,7 +7,11 @@ module Notificationable
     after_save :fire_notification
 
     def fire_notification
-      self.class.fire_notification(notifications)
+      self.class.fire_notification(self.notifications, notifier_id)
+    end
+
+    def notifier_id
+      nil
     end
   end
 
@@ -17,10 +21,11 @@ module Notificationable
       @notice.instance_eval(&block)
     end
 
-    def fire_notification(notifications)
+    def fire_notification(notifications, notifier_id)
       @notice.configs.each do |config|
         notifications.create!(
-          type: Notification.types(config.type),
+          notifier_id: notifier_id,
+          type: Notification.types[config.type],
           notification_kind: Notification.notification_kinds[config.notification_kind]
         )
       end
