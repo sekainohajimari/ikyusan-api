@@ -24,7 +24,7 @@ class Like < ActiveRecord::Base
 
   act_as_notification do
     config type: :app do
-      notification_kind :immediately
+      notification_kind :sync
     end
   end
 
@@ -54,5 +54,9 @@ class Like < ActiveRecord::Base
     idea.likes_count = Like.where(idea_id: self.idea_id).sum(:num)
 
     idea.save!
+  end
+
+  def notifier_id
+    like_user.id
   end
 end
