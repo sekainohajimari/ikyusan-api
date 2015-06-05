@@ -10,6 +10,16 @@ module ExceptionHandler
     if e
       logger.fatal("Rendering 500 with exception: #{e.message}")
       logger.fatal(e.backtrace.join("\n"))
+
+      ExceptionNotifier.notify_exception(
+        e,
+        env: request.env,
+        data: {
+          env: Rails.env,
+          host: Socket.gethostname,
+          params: params
+        }
+      )
     end
 
     render json: { message: 'システムエラーが発生しました' }, status: 500

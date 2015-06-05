@@ -39,6 +39,8 @@ gem 'ridgepole'
 gem 'aasm'
 gem 'request_store'
 
+gem 'exception_notification', github: 'smartinez87/exception_notification'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
