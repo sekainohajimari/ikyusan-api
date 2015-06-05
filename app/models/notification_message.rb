@@ -36,11 +36,12 @@ class NotificationMessage < ActiveRecord::Base
   ##### class methods #####
   class << self
     def notify_messages(notification)
+      # Note: うーんなんかいけてない。。というかNotificationは落ち着いたら再設計。
       targets =
         case notification.notificationable_type
-        when Notification.notificationable_types[:like]
+        when 'like'
           like_messages(notification)
-        when Notification.notificationable_types[:invite]
+        when 'invite'
           invite_messages(notification)
         end
 
@@ -58,9 +59,10 @@ class NotificationMessage < ActiveRecord::Base
     ##### private methods #####
     private
     def like_messages(notification)
-      like = notification.notificationable
+      # TODO: N+1
+      like = Like.includes(like_user: :profile).find(notification.notificationable.id)
       target_users = like.idea.topic.group
-        .group_members.where.not(user_id: notification.notifier_id)
+        .group_members.where.not(user_id: notification.notifier_id).includes(user: :profile)
 
       return nil if target_users.blank?
 

@@ -2,8 +2,8 @@
 #
 # Table name: notifications
 #
-#  notifier_id           :integer
 #  id                    :integer          not null, primary key
+#  notifier_id           :integer
 #  type                  :string(255)
 #  notificationable_type :string(255)
 #  notificationable_id   :string(255)
