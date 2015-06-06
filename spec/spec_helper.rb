@@ -86,4 +86,7 @@ RSpec.configure do |config|
 =end
 
   config.include FactoryGirl::Syntax::Methods
+  config.include JsonSpec::Helpers
+  config.include RSpec::RequestDescriber, type: :request
+  Autodoc.configuration.toc = true
 end
