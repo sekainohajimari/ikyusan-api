@@ -1,15 +1,18 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
   before_action :set_profile, only: [:index, :edit]
-  
+
   def index
     render json: @profile
   end
 
   def edit
-    @profile.update!(
-      display_id: profile_params[:display_id],
-      display_name: profile_params[:display_name]
-    )
+    update_params =
+      {}.tap do |hash|
+        hash[:display_id] = profile_params[:display_id] if profile_params[:display_id].present?
+        hash[:display_name] = profile_params[:display_name]
+      end
+
+    @profile.update!(update_params)
 
     render json: current_user.profile
   end
