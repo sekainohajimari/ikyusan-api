@@ -84,9 +84,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
-  config.include FactoryGirl::Syntax::Methods
-  config.include JsonSpec::Helpers
-  config.include RSpec::RequestDescriber, type: :request
-  Autodoc.configuration.toc = true
 end

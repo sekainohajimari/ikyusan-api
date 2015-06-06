@@ -51,7 +51,7 @@ RSpec.configure do |config|
   config.before :all do
     FactoryGirl.reload
   end
-  
+
   config.before :suite do
     DatabaseRewinder.clean_all
   end
@@ -59,4 +59,8 @@ RSpec.configure do |config|
   config.after :each do
     DatabaseRewinder.clean
   end
+
+  config.include JsonSpec::Helpers
+  config.include RSpec::RequestDescriber, type: :request
+  Autodoc.configuration.toc = true
 end
