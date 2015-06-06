@@ -1,12 +1,14 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
+  before_action :set_profile, only: [:index, :edit]
+  
   def index
-    render json: current_user.profile
+    render json: @profile
   end
 
   def edit
-    current_user.profile.update!(
-      profile_params[:display_id],
-      profile_params[:display_name]
+    @profile.update!(
+      display_id: profile_params[:display_id],
+      display_name: profile_params[:display_name]
     )
 
     render json: current_user.profile
@@ -14,6 +16,12 @@ class Api::V1::ProfileController < Api::V1::ApplicationController
 
   def enabled
     render json: { enabled: !Profile.where(display_id: params[:display_id]).exists? }
+  end
+
+  private
+
+  def set_profile
+    @profile = current_user.profile
   end
 
   def profile_params
