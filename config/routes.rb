@@ -14,7 +14,8 @@ Rails.application.routes.draw do
         get '/invite/agree', to: 'invite#agree'
       end
       get '/g/:id/detail', to: 'group#detail'
-      resources :profile, only: [:index, :edit]
+      resources :profile, only: [:index]
+      get '/profile/edit', to: 'profile#edit'
       get '/profile/:display_id/enabled', to: 'profile#enabled'
       resources :notifications, only: [:index]
     end
