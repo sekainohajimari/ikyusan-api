@@ -1,19 +1,30 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
+  before_action :set_profile, only: [:index, :edit]
+
   def index
-    render json: current_user.profile
+    render json: @profile
   end
 
   def edit
-    current_user.profile.update!(
-      profile_params[:display_id],
-      profile_params[:display_name]
-    )
+    update_params =
+      {}.tap do |hash|
+        hash[:display_id] = profile_params[:display_id] if profile_params[:display_id].present?
+        hash[:display_name] = profile_params[:display_name]
+      end
+
+    @profile.update!(update_params)
 
     render json: current_user.profile
   end
 
   def enabled
     render json: { enabled: !Profile.where(display_id: params[:display_id]).exists? }
+  end
+
+  private
+
+  def set_profile
+    @profile = current_user.profile
   end
 
   def profile_params

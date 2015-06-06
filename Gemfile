@@ -40,6 +40,7 @@ gem 'aasm'
 gem 'request_store'
 
 gem 'exception_notification', github: 'smartinez87/exception_notification'
+gem 'slack-notifier'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -70,7 +71,9 @@ group :development, :test do
   gem 'faker'
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'rspec-parameterized'
+  gem 'rspec-request_describer'
+  gem 'autodoc'
+  gem 'json_spec'
   gem 'timecop'
   gem 'hirb'
   gem 'hirb-unicode'
@@ -78,5 +81,4 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
-  gem 'slack-notifier'
 end
