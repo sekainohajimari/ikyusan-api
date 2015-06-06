@@ -2,7 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/sekainohajimari/ikyusan-api.svg?style=svg)](https://circleci.com/gh/sekainohajimari/ikyusan-api)
 [![Code Climate](https://codeclimate.com/github/sekainohajimari/ikyusan-api/badges/gpa.svg)](https://codeclimate.com/github/sekainohajimari/ikyusan-api)
-
+[![Test Coverage](https://codeclimate.com/github/sekainohajimari/ikyusan-api/badges/coverage.svg)](https://codeclimate.com/github/sekainohajimari/ikyusan-api/coverage)
 
 
 ## What Is This?
