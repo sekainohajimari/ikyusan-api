@@ -3,7 +3,9 @@ module Authenticater
 
   private
   def auth_token
-    authenticate_or_request_with_http_token { |token, options| token }
+    return @token if @token.present?
+
+    authenticate_or_request_with_http_token { |token, options| @token = token }
   end
 
   def login(*credentials)
