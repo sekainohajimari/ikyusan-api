@@ -18,10 +18,17 @@
 
 FactoryGirl.define do
   factory :group_member do
-    group nil
-user nil
-role 1
-status 1
-  end
+    group
+    user
+    role 1
+    status 1
 
+    trait :owner do
+      role GroupMember.roles[:owner]
+    end
+
+    trait :member do
+      role GroupMember.roles[:member]
+    end
+  end
 end

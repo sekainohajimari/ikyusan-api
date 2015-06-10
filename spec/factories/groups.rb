@@ -12,9 +12,8 @@
 
 FactoryGirl.define do
   factory :group do
-    name "MyString"
-membar_max_num 1
-topic_max_num 1
+    sequence(:name) { |n| "group_#{n}" }
+    membar_max_num Global.group.default_membar_max_num
+    topic_max_num Global.group.default_topic_max_num
   end
-
 end
