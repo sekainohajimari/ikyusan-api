@@ -2,10 +2,17 @@ default: &default
   adapter: mysql2
   encoding: utf8
   collation: utf8_general_ci
+  pool: 5
   reconnect: false
+  username: root
+  password:
+
+development:
+  <<: *default
+  database: circleci_development
 
 test:
   <<: *default
   username: ubuntu
   password:
-  database: circle_test
+  database: circleci_test
