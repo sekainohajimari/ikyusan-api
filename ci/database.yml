@@ -13,6 +13,4 @@ development:
 
 test:
   <<: *default
-  username: ubuntu
-  password:
   database: circleci_test
