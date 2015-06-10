@@ -9,7 +9,7 @@ machine:
 database:
   override:
     - mv ci/database.yml config/database.yml
-    - bundle exec rake db:create db:migrate db:seed --trace
+    - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed --trace
 
 dependencies:
   cache_directories:
