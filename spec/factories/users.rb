@@ -16,11 +16,11 @@
 
 FactoryGirl.define do
   factory :user do
-    provider "MyString"
-uid "MyString"
-screen_name "MyString"
-screen_url "MyString"
-status 1
-  end
+    uid "1234567890"
+    status 1
 
+    trait :twitter do
+      provider "twitter"
+    end
+  end
 end

@@ -17,7 +17,7 @@
 #
 
 class GroupMemberSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :role, :status
 
   has_one :user
 end
