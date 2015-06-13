@@ -3,3 +3,4 @@
  * [GET /api/v1/g](api/v1/group_controller.md#get-apiv1g)
  * [POST /api/v1/g](api/v1/group_controller.md#post-apiv1g)
  * [GET /api/v1/g/:id/edit](api/v1/group_controller.md#get-apiv1gidedit)
+ * [GET /api/v1/g/:id/detail](api/v1/group_controller.md#get-apiv1giddetail)
