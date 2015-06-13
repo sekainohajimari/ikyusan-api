@@ -2,8 +2,10 @@ module Authenticater
   extend ActiveSupport::Concern
 
   private
-  def auth_token
-    authenticate_or_request_with_http_token { |token, options| token }
+  def auth_token  
+    return @token if @token.present?
+
+    authenticate_or_request_with_http_token { |token, options| @token = token }
   end
 
   def login(*credentials)
@@ -43,7 +45,5 @@ module Authenticater
 
   def require_login
     return true if logged_in?
-
-    raise Error::ApiError.new('No Login', 400)
   end
 end

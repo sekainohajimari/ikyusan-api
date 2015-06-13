@@ -18,10 +18,16 @@
 
 FactoryGirl.define do
   factory :access_token do
-    user_id 1
-type ""
-token "MyString"
-expires_at "2015-04-29 13:57:32"
-  end
+    user
+    token SecureRandom.hex(40)
+    expires_at Time.now + 100.days
 
+    trait :ios do
+      type AccessToken.types[:ios]
+    end
+
+    trait :android do
+      type AccessToken.types[:android]
+    end
+  end
 end

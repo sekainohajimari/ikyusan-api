@@ -6,6 +6,11 @@ machine:
     version:
       2.2.2
 
+database:
+  override:
+    - mv ci/database.yml config/database.yml
+    - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed --trace
+
 dependencies:
   cache_directories:
     - "vendor/bundle"

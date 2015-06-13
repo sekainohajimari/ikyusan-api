@@ -12,7 +12,4 @@
 
 class GroupSerializer < ActiveModel::Serializer
   attributes :id, :name, :membar_max_num, :topic_max_num
-
-  has_many :invites
-  has_many :group_members
 end

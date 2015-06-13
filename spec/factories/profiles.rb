@@ -22,13 +22,12 @@
 
 FactoryGirl.define do
   factory :profile do
-    user nil
-display_id "MyString"
-display_name "MyString"
-affiliation "MyString"
-place "MyString"
-website "MyString"
-introduction "MyString"
+    user
+    display_id "kyoko"
+    display_name "きょうこ"
+    affiliation "セカハマ部"
+    place "大阪府"
+    website "http://example.com"
+    introduction "はじめまして"
   end
-
 end
