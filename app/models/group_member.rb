@@ -23,7 +23,7 @@ class GroupMember < ActiveRecord::Base
   belongs_to :user
 
   enum role: { owner: 1, member: 2 }
-  enum status: { inviting: 1, joining: 2, withdrawaling: 3 }
+  enum status: { joining: 1, inviting: 2, withdrawaling: 3 }
 
   aasm column: :status, enum: true do
     state :inviting, initial: true

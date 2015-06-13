@@ -27,11 +27,9 @@ class Api::V1::GroupController < Api::V1::ApplicationController
 
   def detail
     group =
-      Group.includes(invites: [invite_user: :profile], group_members: [user: :profile])
-        .where(group_members: { status: GroupMember.roles[:member] })
-        .find(group_id)
+      Group.includes(invites: [invite_user: :profile], group_members: [user: :profile]).find_by(id: group_id)
 
-    render json: group
+    render json: group, serializer: GroupDetailSerializer
   end
 
   ##### private methods #####

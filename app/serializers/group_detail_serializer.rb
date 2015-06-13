@@ -10,6 +10,6 @@
 #  updated_at     :datetime         not null
 #
 
-class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :name, :membar_max_num, :topic_max_num
+class GroupDetailSerializer < GroupSerializer
+  has_many :group_members
 end

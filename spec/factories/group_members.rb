@@ -30,5 +30,13 @@ FactoryGirl.define do
     trait :member do
       role GroupMember.roles[:member]
     end
+
+    trait :joining do
+      status GroupMember.statuses[:joining]
+    end
+    
+    trait :inviting do
+      status GroupMember.statuses[:inviting]
+    end
   end
 end
