@@ -16,9 +16,7 @@
 #
 
 class TopicSerializer < ActiveModel::Serializer
-  attributes :id, :name, :idea_max_num, :builder_user_name
+  attributes :id, :name, :idea_max_num
 
-  def builder_user_name
-    object.build_user.display_name
-  end
+  has_one :build_user
 end
