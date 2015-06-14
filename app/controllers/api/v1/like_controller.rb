@@ -1,7 +1,6 @@
 class Api::V1::LikeController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :require_login, only: [:index, :doing]
   before_action :set_group, only: [:index, :doing]
   before_action :referenceable?, only: [:index, :doing]
   before_action :set_idea, only: [:index, :doing]

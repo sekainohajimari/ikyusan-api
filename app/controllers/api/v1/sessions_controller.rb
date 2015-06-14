@@ -1,4 +1,6 @@
 class Api::V1::SessionsController < Api::V1::ApplicationController
+  before_action :require_login, except: [:new]
+
   def new
     login(request.env['omniauth.auth'])
 

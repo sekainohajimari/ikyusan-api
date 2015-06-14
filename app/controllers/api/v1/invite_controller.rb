@@ -1,7 +1,6 @@
 class Api::V1::InviteController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :require_login, only: [:doing, :agree]
   before_action :set_group, only: [:doing, :agree]
   before_action :referenceable?, only: [:doing, :agree]
 

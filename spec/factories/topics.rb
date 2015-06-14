@@ -17,10 +17,8 @@
 
 FactoryGirl.define do
   factory :topic do
-    group nil
-builder_id 1
-name "MyString"
-idea_max_num 1
+    group
+    sequence(:name) { |n| "topic_#{n}" }
+    idea_max_num Global.topic.default_idea_max_num
   end
-
 end
