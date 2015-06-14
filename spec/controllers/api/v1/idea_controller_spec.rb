@@ -46,6 +46,7 @@ describe 'Idea resource', type: :request, autodoc: true do
     let!(:group_id) { group.id }
     let!(:topic_id) { topic.id }
     let!(:params) { { content: 'hogehoge'} }
+
     before do
       group_member
     end
@@ -60,6 +61,26 @@ describe 'Idea resource', type: :request, autodoc: true do
         expect(body).to be_json_eql(current_user.id.to_json).at_path('idea/post_user/id')
         expect(body).to be_json_eql(current_user.profile.display_id.to_json).at_path('idea/post_user/profile/display_id')
         expect(body).to be_json_eql(current_user.profile.display_name.to_json).at_path('idea/post_user/profile/display_name')
+      end
+    end
+  end
+
+  describe "DELETE /api/v1/g/:group_id/t/:topic_id/i/:id" do
+    let!(:group_id) { group.id }
+    let!(:topic_id) { topic.id }
+    let!(:id) { anonymity_enable_idea.id }
+
+    before do
+      group_member
+    end
+
+    context_user_authenticated do
+      it 'success' do
+        is_expected.to eq 200
+        body = response.body
+
+        expect(body).to have_json_path('ideas')
+        expect(Idea.exists?(id: anonymity_enable_idea.id)).to be_falsey
       end
     end
   end

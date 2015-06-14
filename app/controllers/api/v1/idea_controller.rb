@@ -19,7 +19,7 @@ class Api::V1::IdeaController < Api::V1::ApplicationController
   end
 
   def destroy
-    @ideas.find(params[:id]).destroy!
+    @ideas.where(post_user: current_user).find(params[:id]).destroy!
 
     render json: @ideas, root: 'ideas'
   end
