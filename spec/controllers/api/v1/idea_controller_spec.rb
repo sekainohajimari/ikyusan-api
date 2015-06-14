@@ -41,4 +41,26 @@ describe 'Idea resource', type: :request, autodoc: true do
       end
     end
   end
+
+  describe "POST /api/v1/g/:group_id/t/:topic_id/i" do
+    let!(:group_id) { group.id }
+    let!(:topic_id) { topic.id }
+    let!(:params) { { content: 'hogehoge'} }
+    before do
+      group_member
+    end
+
+    context_user_authenticated do
+      it 'success' do
+        is_expected.to eq 200
+        body = response.body
+
+        expect(body).to have_json_path('idea')
+        expect(body).to be_json_eql(params[:content].to_json).at_path('idea/content')
+        expect(body).to be_json_eql(current_user.id.to_json).at_path('idea/post_user/id')
+        expect(body).to be_json_eql(current_user.profile.display_id.to_json).at_path('idea/post_user/profile/display_id')
+        expect(body).to be_json_eql(current_user.profile.display_name.to_json).at_path('idea/post_user/profile/display_name')
+      end
+    end
+  end
 end
