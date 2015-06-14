@@ -1,7 +1,6 @@
 class Api::V1::IdeaController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :require_login, only: [:index, :create, :destroy]
   before_action :set_group, only: [:index, :create, :destroy]
   before_action :referenceable?, only: [:index, :create, :destroy]
   before_action :set_ideas, only: [:index, :create, :destroy]
