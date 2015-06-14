@@ -23,10 +23,10 @@
 FactoryGirl.define do
   factory :profile do
     user
-    display_id "kyoko"
-    display_name "きょうこ"
+    display_id { %w[kyoko bob tom].sample }
+    display_name { %w[きょうこ ボブ トム].sample }
     affiliation "セカハマ部"
-    place "大阪府"
+    place { %w[大阪府 東京都 青森県].sample }
     website "http://example.com"
     introduction "はじめまして"
   end

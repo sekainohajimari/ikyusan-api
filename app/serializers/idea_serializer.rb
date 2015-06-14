@@ -17,11 +17,15 @@
 #
 
 class IdeaSerializer < ActiveModel::Serializer
-  attributes :id, :content, :likes_count, :post_user_name
+  attributes :id, :content, :likes_count
 
-  def post_user_name
-    return '**********' if object.enabling?
+  has_one :post_user
 
-    object.post_user.display_name
+  def post_user
+    if object.disabling?
+      UserSerializer.new(object.post_user)
+    else
+      AnonymityUserSerializer.new(object.post_user)
+    end
   end
 end

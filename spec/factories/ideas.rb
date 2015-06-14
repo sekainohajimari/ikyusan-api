@@ -18,10 +18,17 @@
 
 FactoryGirl.define do
   factory :idea do
-    topic nil
-poster_id 1
-content "MyString"
-anonymity 1
-  end
+    topic
+    sequence(:content) { |n| "content_#{n}" }
+    anonymity Idea.anonymities[:disabling]
+    likes_count { (1..100).to_a.sample }
 
+    trait :anonymity_disable do
+      anonymity Idea.anonymities[:disabling]
+    end
+
+    trait :anonymity_enable do
+      anonymity Idea.anonymities[:enabling]
+    end
+  end
 end
