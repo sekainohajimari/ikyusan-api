@@ -5,9 +5,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/313/t HTTP/1.1
+GET /api/v1/g/548/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="dcfd687c031a0495a42ea782017f421f51a7bc5cb2f4e08afe9b8c04bbf1aa214477cf9876891c36"
+Authorization: Token token="76ddda34ddff7dcab7a942c2ef953b1085dee79814634e95533331bf976fb332ca898e2522d087ff"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,26 +17,26 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 161
+Content-Length: 154
 Content-Type: application/json; charset=utf-8
-ETag: W/"303b15d06f992cdf374968810321e541"
+ETag: W/"7b84fbf93d2b6f2a8cb39e3fe98fc62d"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 2133f948-b76b-422d-8609-bd5057ce0a94
-X-Runtime: 0.044274
+X-Request-Id: 9e7df576-b56e-4978-9e92-09711a0615bb
+X-Runtime: 0.042835
 X-XSS-Protection: 1; mode=block
 
 {
   "topics": [
     {
-      "id": 46,
+      "id": 197,
       "name": "topic_1",
       "idea_max_num": 100,
       "build_user": {
-        "id": 156,
+        "id": 338,
         "profile": {
-          "display_id": "kyoko",
-          "display_name": "きょうこ",
+          "display_id": "tom",
+          "display_name": "ボブ",
           "icon_url": null
         }
       }
@@ -52,9 +52,9 @@ Success.
 
 #### Request
 ```
-POST /api/v1/g/314/t HTTP/1.1
+POST /api/v1/g/549/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="a1e735c00c6d6c1932a6dc6cde0dba7a3e203302e5e314b9495648a2f9d528a8705fff884e8374d8"
+Authorization: Token token="412de480720e4f1ede7d69362cff532200084a79f59b649e7cdee778c0a6ee4d0bf3436e6fe08bd4"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -66,24 +66,24 @@ name=hoge
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 155
+Content-Length: 154
 Content-Type: application/json; charset=utf-8
-ETag: W/"b1cdc9892e76ae9b4d4357cfff4d0498"
+ETag: W/"d4ff941c5814569d64646a2135c57a23"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: d0953f25-d9c2-4770-8659-4b6907241e43
-X-Runtime: 0.036165
+X-Request-Id: 3230152d-3ecc-4052-844d-1a1e123dd054
+X-Runtime: 0.035188
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 48,
+    "id": 199,
     "name": "hoge",
     "idea_max_num": 100,
     "build_user": {
-      "id": 157,
+      "id": 339,
       "profile": {
-        "display_id": "kyoko",
+        "display_id": "bob",
         "display_name": "きょうこ",
         "icon_url": null
       }
@@ -99,9 +99,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/315/t/49/edit?name=hoge HTTP/1.1
+GET /api/v1/g/550/t/200/edit?name=hoge HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="d47196d39bc7514202fc6041bf8b9076fa70ee8b2c16a9d4e110e1b2890745a3d8a1b0bfa80f4900"
+Authorization: Token token="3928e20078ca03d18681e2fe66af408714d7f9792a37a5ee4137c7a8829be05e41c696f7366e3946"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -111,25 +111,25 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 155
+Content-Length: 148
 Content-Type: application/json; charset=utf-8
-ETag: W/"5851c917707e1e1c2c0019133f8db047"
+ETag: W/"40e93b90b4fbf3c2bc73b6cadf405376"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: c23e167b-744d-4856-a43d-ceb4256fede1
-X-Runtime: 0.042099
+X-Request-Id: 9ab78b6b-4f1a-4444-9fee-853ef1b3dba4
+X-Runtime: 0.020233
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 49,
+    "id": 200,
     "name": "hoge",
     "idea_max_num": 100,
     "build_user": {
-      "id": 158,
+      "id": 340,
       "profile": {
-        "display_id": "kyoko",
-        "display_name": "きょうこ",
+        "display_id": "tom",
+        "display_name": "ボブ",
         "icon_url": null
       }
     }
