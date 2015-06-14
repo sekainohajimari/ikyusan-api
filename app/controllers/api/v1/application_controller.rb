@@ -12,6 +12,7 @@ class Api::V1::ApplicationController < ActionController::API
   include ExceptionHandler
 
   before_action :store_request
+  before_action :require_login
 
   private
   def store_request

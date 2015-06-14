@@ -1,6 +1,4 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
-  before_action :set_profile, only: [:index, :edit]
-
   def index
     render json: @profile
   end

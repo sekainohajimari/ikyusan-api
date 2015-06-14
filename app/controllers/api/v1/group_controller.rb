@@ -1,7 +1,6 @@
 class Api::V1::GroupController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :require_login, only: [:index, :create, :edit]
   before_action :set_group, only: [:edit]
   before_action :referenceable?, only: [:edit, :detail]
 
