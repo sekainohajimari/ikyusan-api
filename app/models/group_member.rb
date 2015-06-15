@@ -20,7 +20,7 @@ class GroupMember < ActiveRecord::Base
   include AASM
 
   belongs_to :group
-  belongs_to :user
+  belongs_to :user, -> { includes :profile }
 
   enum role: { owner: 1, member: 2 }
   enum status: { joining: 1, inviting: 2, withdrawaling: 3 }
