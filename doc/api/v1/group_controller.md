@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="857b48509d2d687db343c229c954600f752c74eaa1e2a56203450a37ed3f16b8d0fe8e68a17712de"
+Authorization: Token token="b5549cb62acf6fc15c2487542d901a9b6f9de6010546780393e87d01e8e6b38a99405ec9cec46ecd"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -19,71 +19,71 @@ HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 693
 Content-Type: application/json; charset=utf-8
-ETag: W/"e28a7538ab84f92807c45c028dbce006"
+ETag: W/"27e9e8900830021a89530a3aee95f135"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 542f1d01-9097-442d-9ef4-6abd5f9fa7d0
-X-Runtime: 0.055718
+X-Request-Id: b88527ee-5ebe-49a9-a811-23530e9338bb
+X-Runtime: 0.044625
 X-XSS-Protection: 1; mode=block
 
 {
   "groups": [
     {
-      "id": 300,
+      "id": 531,
       "name": "group_1",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 301,
+      "id": 532,
       "name": "group_2",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 302,
+      "id": 533,
       "name": "group_3",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 303,
+      "id": 534,
       "name": "group_4",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 304,
+      "id": 535,
       "name": "group_5",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 305,
+      "id": 536,
       "name": "group_6",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 306,
+      "id": 537,
       "name": "group_7",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 307,
+      "id": 538,
       "name": "group_8",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 308,
+      "id": 539,
       "name": "group_9",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 309,
+      "id": 540,
       "name": "group_10",
       "membar_max_num": 10,
       "topic_max_num": 100
@@ -101,7 +101,7 @@ Success.
 ```
 POST /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="6407996719fc894200e19287baffab61c300c18bd340e3f05195c14bf225c18c2fa4c9ed9d41e5a0"
+Authorization: Token token="0a4e915e8c2cd96181ebe15307c3af30cec1c3e33d49c3a0dc0e588ba5642bdde0b4ccd14e912ba4"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -115,15 +115,15 @@ HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 64
 Content-Type: application/json; charset=utf-8
-ETag: W/"b8826ef60cabc9e90504b767683a9561"
+ETag: W/"66f9b1b59f7973562245bc1001dd7ce3"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 147337ee-ff02-446e-b2f7-a92b7d5183a9
-X-Runtime: 0.019214
+X-Request-Id: 0514ebf0-d15a-4295-8cfb-e93c096e1ffc
+X-Runtime: 0.015820
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 310,
+  "id": 541,
   "name": "hoge",
   "membar_max_num": 10,
   "topic_max_num": 100
@@ -137,9 +137,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/311/edit?name=foo HTTP/1.1
+GET /api/v1/g/542/edit?name=foo HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="fb6a35b1d16bd94dae4bfcc28f7f13b922cf575fdb11599436a813180d45fc664606551f9e97681b"
+Authorization: Token token="16da0a7d96f97d2d6091a189e49034d293a7914fdfafb827f1367ccb977dde313463e6c3bc08f352"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -151,15 +151,15 @@ HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 63
 Content-Type: application/json; charset=utf-8
-ETag: W/"b5a29b0c3f489c09f115976e0d7e2e51"
+ETag: W/"624a9564f6838e40f3904b0ecd0d2e14"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 08006b11-64dd-4dab-866e-565bf1fc77a9
-X-Runtime: 0.028682
+X-Request-Id: 791b0ce0-0709-4615-ba7e-5f015db81a0a
+X-Runtime: 0.022797
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 311,
+  "id": 542,
   "name": "foo",
   "membar_max_num": 10,
   "topic_max_num": 100
@@ -173,9 +173,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/312/detail HTTP/1.1
+GET /api/v1/g/543/detail HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="f236b9e175b544eb938f8d977e40f6fb36bceec3a395677f0cec523813f7d7ad0cb84487efb3fc3e"
+Authorization: Token token="414af02fdb674c15f577df452a38dd734959940ddfc5f270c13a37a1dd8ec3028d5f0cdac94a9dc8"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -185,43 +185,43 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 372
+Content-Length: 360
 Content-Type: application/json; charset=utf-8
-ETag: W/"1c26c6f71a37d5102b6084ecccefca06"
+ETag: W/"c511c7c460241402ceddf0c1d1b8a2c3"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 9a224b2e-bfd5-4c7a-b619-ca1800457876
-X-Runtime: 0.055619
+X-Request-Id: 97a10dce-77b3-4c98-9dbc-a45683afa818
+X-Runtime: 0.050498
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 312,
+  "id": 543,
   "name": "group_12",
   "membar_max_num": 10,
   "topic_max_num": 100,
   "group_members": [
     {
-      "id": 328,
+      "id": 565,
       "role": "owner",
       "status": "joining",
       "user": {
-        "id": 154,
+        "id": 332,
         "profile": {
           "display_id": "kyoko",
-          "display_name": "きょうこ",
+          "display_name": "トム",
           "icon_url": null
         }
       }
     },
     {
-      "id": 329,
+      "id": 566,
       "role": "member",
       "status": "inviting",
       "user": {
-        "id": 155,
+        "id": 333,
         "profile": {
           "display_id": "kyoko",
-          "display_name": "きょうこ",
+          "display_name": "ボブ",
           "icon_url": null
         }
       }

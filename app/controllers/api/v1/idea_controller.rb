@@ -10,16 +10,16 @@ class Api::V1::IdeaController < Api::V1::ApplicationController
   end
 
   def create
-    @ideas.create!(
+    idea = @ideas.create!(
       post_user: current_user,
       content: idea_params[:content]
     )
 
-    render json: @ideas, root: 'ideas'
+    render json: idea, root: 'idea'
   end
 
   def destroy
-    @ideas.find(params[:id]).destroy!
+    @ideas.where(post_user: current_user).find(params[:id]).destroy!
 
     render json: @ideas, root: 'ideas'
   end
