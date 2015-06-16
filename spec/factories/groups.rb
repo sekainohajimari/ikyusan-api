@@ -12,7 +12,7 @@
 
 FactoryGirl.define do
   factory :group do
-    sequence(:name) { |n| "group_#{n}" }
+    sequence(:name) { generate(:title) }
     membar_max_num Global.group.default_membar_max_num
     topic_max_num Global.group.default_topic_max_num
   end

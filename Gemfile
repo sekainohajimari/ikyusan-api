@@ -69,6 +69,7 @@ group :development, :test do
   gem 'database_rewinder'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'faker-japanese'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-request_describer'

@@ -19,7 +19,7 @@
 FactoryGirl.define do
   factory :idea do
     topic
-    sequence(:content) { |n| "content_#{n}" }
+    sequence(:content) { generate(:say_something_smart) }
     anonymity Idea.anonymities[:disabling]
     likes_count { (1..100).to_a.sample }
 

@@ -23,11 +23,12 @@
 FactoryGirl.define do
   factory :profile do
     user
-    display_id { %w[kyoko bob tom].sample }
-    display_name { %w[きょうこ ボブ トム].sample }
+    display_id { generate(:internet_name) }
+    icon_url { generate(:avatar_image) }
+    display_name { generate(:name_jp) }
     affiliation "セカハマ部"
-    place { %w[大阪府 東京都 青森県].sample }
-    website "http://example.com"
+    place { generate(:city) }
+    website { generate(:internet_url) }
     introduction "はじめまして"
   end
 end
