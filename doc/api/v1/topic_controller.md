@@ -5,9 +5,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/548/t HTTP/1.1
+GET /api/v1/g/906/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="76ddda34ddff7dcab7a942c2ef953b1085dee79814634e95533331bf976fb332ca898e2522d087ff"
+Authorization: Token token="8bb27a36340ac2534bf2b03daeceacfbb6b0dd7dc73f100a876973d7fe467b1d5e554f49ea2a4a6e"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,27 +17,27 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 154
+Content-Length: 222
 Content-Type: application/json; charset=utf-8
-ETag: W/"7b84fbf93d2b6f2a8cb39e3fe98fc62d"
+ETag: W/"4eaa94915c6b880eeeb85616a907fe4f"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 9e7df576-b56e-4978-9e92-09711a0615bb
-X-Runtime: 0.042835
+X-Request-Id: 9a50a791-ade0-4d15-b6db-364dedcea93a
+X-Runtime: 0.032318
 X-XSS-Protection: 1; mode=block
 
 {
   "topics": [
     {
-      "id": 197,
+      "id": 257,
       "name": "topic_1",
       "idea_max_num": 100,
       "build_user": {
-        "id": 338,
+        "id": 568,
         "profile": {
-          "display_id": "tom",
-          "display_name": "ボブ",
-          "icon_url": null
+          "display_id": "euna_walker",
+          "display_name": "丹下 由可子",
+          "icon_url": "http://robohash.org/eosvoluptatesut.png?size=300x300"
         }
       }
     }
@@ -52,9 +52,9 @@ Success.
 
 #### Request
 ```
-POST /api/v1/g/549/t HTTP/1.1
+POST /api/v1/g/907/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="412de480720e4f1ede7d69362cff532200084a79f59b649e7cdee778c0a6ee4d0bf3436e6fe08bd4"
+Authorization: Token token="bba8b40affa7bfae0a23c76774aee7297b0107ffe8d40dde3fc57e9549c3ee8e5d10b410055a0a51"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -66,26 +66,26 @@ name=hoge
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 154
+Content-Length: 210
 Content-Type: application/json; charset=utf-8
-ETag: W/"d4ff941c5814569d64646a2135c57a23"
+ETag: W/"6974bf1e1112b0b95fbf7d815a5ea381"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 3230152d-3ecc-4052-844d-1a1e123dd054
-X-Runtime: 0.035188
+X-Request-Id: 114a95f9-2ddf-4b0f-adc1-d8152182abf1
+X-Runtime: 0.021089
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 199,
+    "id": 259,
     "name": "hoge",
     "idea_max_num": 100,
     "build_user": {
-      "id": 339,
+      "id": 569,
       "profile": {
-        "display_id": "bob",
-        "display_name": "きょうこ",
-        "icon_url": null
+        "display_id": "eda",
+        "display_name": "野本 義太夫",
+        "icon_url": "http://robohash.org/molestiaesuntsint.png?size=300x300"
       }
     }
   }
@@ -99,9 +99,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/550/t/200/edit?name=hoge HTTP/1.1
+GET /api/v1/g/908/t/260/edit?name=hoge HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="3928e20078ca03d18681e2fe66af408714d7f9792a37a5ee4137c7a8829be05e41c696f7366e3946"
+Authorization: Token token="f94956b8dfd4ae7cd94205ce838333e9a99c41771c6bf5c2d677693993d33953597cd11b9d7a8c63"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -111,26 +111,26 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 148
+Content-Length: 218
 Content-Type: application/json; charset=utf-8
-ETag: W/"40e93b90b4fbf3c2bc73b6cadf405376"
+ETag: W/"15b03cb6687c6733bb5d45a7c4a5e6ef"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 9ab78b6b-4f1a-4444-9fee-853ef1b3dba4
-X-Runtime: 0.020233
+X-Request-Id: cf5b6cbf-67f5-4311-886b-4ebff076149f
+X-Runtime: 0.030915
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 200,
+    "id": 260,
     "name": "hoge",
     "idea_max_num": 100,
     "build_user": {
-      "id": 340,
+      "id": 570,
       "profile": {
-        "display_id": "tom",
-        "display_name": "ボブ",
-        "icon_url": null
+        "display_id": "vincenza",
+        "display_name": "木之元 摩子",
+        "icon_url": "http://robohash.org/inventorequiadolorem.png?size=300x300"
       }
     }
   }
