@@ -1,6 +1,8 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
+  before_action :set_profile, only: [:index, :edit]
+
   def index
-    render json: @profile
+    render json: @profile, root: 'profile'
   end
 
   def edit
@@ -12,7 +14,7 @@ class Api::V1::ProfileController < Api::V1::ApplicationController
 
     @profile.update!(update_params)
 
-    render json: current_user.profile
+    render json: current_user.profile, root: 'profile'
   end
 
   def enabled

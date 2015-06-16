@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get '/g/:id/detail', to: 'group#detail'
       resources :profile, only: [:index]
       get '/profile/edit', to: 'profile#edit'
-      get '/profile/:display_id/enabled', to: 'profile#enabled'
+      get '/profile/enabled', to: 'profile#enabled'
       resources :notifications, only: [:index]
     end
   end
