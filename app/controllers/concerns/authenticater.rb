@@ -23,9 +23,10 @@ module Authenticater
     authenticate_or_request_with_http_token do |token, options|
       return false if token.blank?
 
-      Rails.cache.fetch(token, expires_in: 1.hour) do
-        @access_token = AccessToken.alive.find_by(token: token)
-      end
+      @access_token =
+        Rails.cache.fetch(token, expires_in: 1.hour) do
+          AccessToken.alive.find_by(token: token)
+        end
 
       @access_token.present?
     end
