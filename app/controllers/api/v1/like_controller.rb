@@ -6,7 +6,7 @@ class Api::V1::LikeController < Api::V1::ApplicationController
   before_action :set_idea, only: [:index, :doing]
 
   def index
-    render json: @idea.likes
+    render json: @idea.likes, root: 'likes'
   end
 
   def doing
