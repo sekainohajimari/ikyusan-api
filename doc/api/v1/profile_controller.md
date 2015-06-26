@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/profile HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="dd9db75567a8227a1bcf5f0673f60f9b44cf92aa4dae4c66ca8776cea1dc84379251ef3b37bda96a"
+Authorization: Token token="812490a000cee248bb02ba4e18b784bbaaa53914868f8c8ee0fbfed6704dddabd17417b3c6a612ad"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,20 +17,20 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 143
+Content-Length: 147
 Content-Type: application/json; charset=utf-8
-ETag: W/"0f4eb684e402bc65336cb561d5bebf9a"
+ETag: W/"99aa989510a5e914760a7cec27122585"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 74b1b6f6-2f11-4558-879e-b391f0ae1d71
-X-Runtime: 0.015629
+X-Request-Id: 2cadd9b1-057d-49a2-8872-adca235045b9
+X-Runtime: 0.016391
 X-XSS-Protection: 1; mode=block
 
 {
   "profile": {
-    "display_id": "deshaun_keler",
-    "display_name": "ブライアント 泰彦",
-    "icon_url": "http://robohash.org/exeosut.png?size=300x300"
+    "display_id": "jermey_tromp",
+    "display_name": "シャフライ ユキヱ",
+    "icon_url": "http://robohash.org/eaeosdolorem.png?size=300x300"
   }
 }
 ```
@@ -44,7 +44,7 @@ Success.
 ```
 GET /api/v1/profile/edit?display_name=ほげ HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="dcaf02c807cf224499a84def91298e97d056394ddce4ba96dc900d6b742818e7ad0d8c611162e18d"
+Authorization: Token token="1c53565789134f79746d284dc6b069ea61b97f217f41676549a4045237de26466067a25fb51e345d"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -54,20 +54,20 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 132
+Content-Length: 126
 Content-Type: application/json; charset=utf-8
-ETag: W/"c83b7dc14d73934b79d08a560c8e7b6d"
+ETag: W/"849de50c440c4b4b82a41aab3d3c3a6d"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: b02e3406-3850-4f70-81c1-6d0790404256
-X-Runtime: 0.021042
+X-Request-Id: f336321b-bc81-4ccd-9b00-42d82f508511
+X-Runtime: 0.020323
 X-XSS-Protection: 1; mode=block
 
 {
   "profile": {
-    "display_id": "tremayne.hills",
+    "display_id": "larue_volkman",
     "display_name": "ほげ",
-    "icon_url": "http://robohash.org/velnesciuntaut.png?size=300x300"
+    "icon_url": "http://robohash.org/nonetipsa.png?size=300x300"
   }
 }
 ```
@@ -81,7 +81,7 @@ Success.
 ```
 GET /api/v1/profile/edit?display_name=ほげ&display_id=hoge HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="431ab1ab48d3b50f304873e5c9de28f13f8104e73b96f056342a9c59254093efbfe11b34ad6d98b4"
+Authorization: Token token="90de68690d6b66164f0d6a0b000cdfdd279155accf9b30aab9ee0c3e70f4eb503fdfa01bd0cef8df"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -91,20 +91,20 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 116
+Content-Length: 121
 Content-Type: application/json; charset=utf-8
-ETag: W/"15ea3973090da52aed415b076eef857c"
+ETag: W/"42be5325e20b8ff86b6018ecc435fc91"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 2f79812d-7f8c-4fa3-a3f5-dcc799b0d00f
-X-Runtime: 0.016367
+X-Request-Id: 4bc97a9b-e7b3-4733-b8a9-64609decb29b
+X-Runtime: 0.014660
 X-XSS-Protection: 1; mode=block
 
 {
   "profile": {
     "display_id": "hoge",
     "display_name": "ほげ",
-    "icon_url": "http://robohash.org/hicutaut.png?size=300x300"
+    "icon_url": "http://robohash.org/quoquidolorem.png?size=300x300"
   }
 }
 ```
@@ -116,9 +116,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/profile/enabled?display_id=mikel-dummy HTTP/1.1
+GET /api/v1/profile/enabled?display_id=raheem.walsh-dummy HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="a428a3382055556b401fad23ed260107f059af89eaef5208eded33bb68ff7173ca46f29e910cedc6"
+Authorization: Token token="cc7a14095e80fda912b5e6ff4807cb4e4b4cc9cdce600507d9c30e512fb7a1652f9506229ee49c33"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -133,8 +133,8 @@ Content-Type: application/json; charset=utf-8
 ETag: W/"ebd28baaaa212dca587bc607653bbaf0"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 46b3ce1d-8653-4272-a55a-5c9de3845ef1
-X-Runtime: 0.027399
+X-Request-Id: 2c789b8e-2271-4bc5-a076-e46ffe701f4b
+X-Runtime: 0.023502
 X-XSS-Protection: 1; mode=block
 
 {
@@ -149,9 +149,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/profile/enabled?display_id=vada HTTP/1.1
+GET /api/v1/profile/enabled?display_id=chad HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="5e526b4be22f0128c4dbc95f906aa63778c265c98393a89351ba0eeb2349a4e8b21d8b8298ef24d4"
+Authorization: Token token="d9644aec5bab3768964926f7ca8245ae7e8d072d931ec6b5521829e6efea185c743d5f08dc17f89f"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -166,8 +166,8 @@ Content-Type: application/json; charset=utf-8
 ETag: W/"d987f50e402ceb8f1a41643a6c665ef0"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: d60ccd9a-ece3-4b36-9aef-73bac29c7b22
-X-Runtime: 0.017477
+X-Request-Id: 84f9674b-bf0f-4828-8f77-705ba4564dc9
+X-Runtime: 0.014269
 X-XSS-Protection: 1; mode=block
 
 {
