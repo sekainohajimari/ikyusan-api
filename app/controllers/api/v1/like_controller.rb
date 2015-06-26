@@ -16,7 +16,7 @@ class Api::V1::LikeController < Api::V1::ApplicationController
       num: idea_params[:num].to_i
     )
 
-    render json: like.idea
+    render json: like, root: 'like'
   end
 
   ##### private methods #####
