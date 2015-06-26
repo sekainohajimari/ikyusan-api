@@ -12,11 +12,11 @@ class Api::V1::InviteController < Api::V1::ApplicationController
     @group.invites << invite
     @group.save!
 
-    render json: { success: true }
+    render json: invite, root: 'invite'
   end
 
   def agree
-    invite = @group.invites.inviting.find_by(host_user: current_user)
+    invite = @group.invites.inviting.find_by(invite_user: current_user)
     invite.agree
     invite.save!
 

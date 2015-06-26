@@ -11,7 +11,7 @@ Rails.application.routes.draw do
           end
         end
         get '/invite/doing/:inviter_id', to: 'invite#doing'
-        get '/invite/agree', to: 'invite#agree'
+        patch '/invite/agree', to: 'invite#agree'
       end
       get '/g/:id/detail', to: 'group#detail'
       resources :profile, only: [:index]

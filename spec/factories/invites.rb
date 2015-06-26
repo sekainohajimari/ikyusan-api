@@ -19,10 +19,6 @@
 
 FactoryGirl.define do
   factory :invite do
-    group group
-    host_user host_user
-    invite_user invite_user
-
     trait :inviting do
       status Invite.statuses[:inviting]
     end
