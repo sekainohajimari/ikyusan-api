@@ -12,7 +12,7 @@ class Api::V1::InviteController < Api::V1::ApplicationController
     @group.invites << invite
     @group.save!
 
-    render json: { success: true }
+    render json: invite, root: 'invite'
   end
 
   def agree
