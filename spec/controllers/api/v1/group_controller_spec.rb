@@ -35,7 +35,7 @@ describe 'Group resource', type: :request, autodoc: true do
 
     context_user_authenticated do
       it 'success' do
-        is_expected.to eq 200
+        is_expected.to eq 201
         body = response.body
 
         expect(body).to have_json_path('id')
