@@ -15,6 +15,8 @@
 * [api/v1/like_controller.md](api/v1/like_controller.md)
  * [GET /api/v1/g/:group_id/t/:topic_id/i/:idea_id/l](api/v1/like_controller.md#get-apiv1ggroup_idttopic_idiidea_idl)
  * [POST /api/v1/g/:group_id/t/:topic_id/i/:idea_id/l/doing](api/v1/like_controller.md#post-apiv1ggroup_idttopic_idiidea_idldoing)
+* [api/v1/notification_controller.md](api/v1/notification_controller.md)
+ * [GET /api/v1/notifications](api/v1/notification_controller.md#get-apiv1notifications)
 * [api/v1/profile_controller.md](api/v1/profile_controller.md)
  * [GET /api/v1/profile](api/v1/profile_controller.md#get-apiv1profile)
  * [GET /api/v1/profile/edit](api/v1/profile_controller.md#get-apiv1profileedit)
