@@ -18,7 +18,6 @@
 
 FactoryGirl.define do
   factory :notification_message do
-    
+    message { generate(:say_something_smart) }
   end
-
 end
