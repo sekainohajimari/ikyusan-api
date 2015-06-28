@@ -53,7 +53,7 @@ describe 'Idea resource', type: :request, autodoc: true do
 
     context_user_authenticated do
       it 'success' do
-        is_expected.to eq 200
+        is_expected.to eq 201
         body = response.body
 
         expect(body).to have_json_path('idea')
@@ -76,11 +76,7 @@ describe 'Idea resource', type: :request, autodoc: true do
 
     context_user_authenticated do
       it 'success' do
-        is_expected.to eq 200
-        body = response.body
-
-        expect(body).to have_json_path('ideas')
-        expect(Idea.exists?(id: anonymity_enable_idea.id)).to be_falsey
+        is_expected.to eq 204
       end
     end
   end

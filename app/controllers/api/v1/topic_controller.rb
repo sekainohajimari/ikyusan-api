@@ -15,7 +15,7 @@ class Api::V1::TopicController < Api::V1::ApplicationController
       name: topic_params[:name]
     )
 
-    render json: topic, root: 'topic'
+    render json: topic, root: 'topic', status: :created
   end
 
   def edit

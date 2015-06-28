@@ -13,7 +13,7 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   def create
     @group = Group.regist(name: group_params[:name], user: current_user)
 
-    render json: @group
+    render json: @group, status: :created
   end
 
   def edit

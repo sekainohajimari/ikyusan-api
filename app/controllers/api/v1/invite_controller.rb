@@ -12,7 +12,7 @@ class Api::V1::InviteController < Api::V1::ApplicationController
     @group.invites << invite
     @group.save!
 
-    render json: invite, root: 'invite'
+    render json: invite, root: 'invite', status: :created
   end
 
   def agree
@@ -20,7 +20,7 @@ class Api::V1::InviteController < Api::V1::ApplicationController
     invite.agree
     invite.save!
 
-    render json: { success: true }
+    head :no_content
   end
 
   # TODO: 身内なのでいらないかも

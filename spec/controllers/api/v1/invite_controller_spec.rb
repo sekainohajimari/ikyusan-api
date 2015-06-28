@@ -17,7 +17,7 @@ describe 'Invite resource', type: :request, autodoc: true do
       end
 
       it 'success' do
-        is_expected.to eq 200
+        is_expected.to eq 201
         body = response.body
 
         expect(body).to have_json_path('invite')
@@ -50,10 +50,7 @@ describe 'Invite resource', type: :request, autodoc: true do
       end
 
       it 'success' do
-        is_expected.to eq 200
-        body = response.body
-
-        expect(body).to be_json_eql(true.to_json).at_path('success')
+        is_expected.to eq 204
       end
     end
   end
