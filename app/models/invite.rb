@@ -43,7 +43,7 @@ class Invite < ActiveRecord::Base
 
   act_as_notification do
     config type: :app do
-      notification_kind :immediately
+      notification_kind :sync
     end
   end
 
