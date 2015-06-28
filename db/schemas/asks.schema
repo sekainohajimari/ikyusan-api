@@ -1,6 +1,6 @@
 create_table "asks", force: :cascade do |t|
   t.integer  "category",    limit: 2
-  t.text     "conent",
+  t.text     "content"
   t.datetime "created_at",             null: false
   t.datetime "updated_at",             null: false
 end

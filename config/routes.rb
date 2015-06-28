@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get '/profile/edit', to: 'profile#edit'
       get '/profile/enabled', to: 'profile#enabled'
       resources :notifications, only: [:index]
+      get '/asks/rand'
     end
   end
 end
