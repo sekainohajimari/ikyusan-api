@@ -5,9 +5,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/64/t HTTP/1.1
+GET /api/v1/g/552/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="a295f4612a3b8f4740c27b0f8b9dd501d8f76d4ecc22d3f66852f84771bd866e973a7bb7876c19cc"
+Authorization: Token token="3a1c2ab8f5f3a04f77508040c34a464752059af14b2783f9ac18e3ffb866abde315f9b159c81b515"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,27 +17,27 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 222
+Content-Length: 233
 Content-Type: application/json; charset=utf-8
-ETag: W/"51f0d5a1e96aa4eb514a8b6d0bf354c0"
+ETag: W/"0a104a257963c43ccb6dd386716e8f54"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: ae365385-32c5-4e4e-ae3b-305b5674eed9
-X-Runtime: 0.026518
+X-Request-Id: 4dc06491-fa25-4555-9a31-bb2c44499f9f
+X-Runtime: 0.030055
 X-XSS-Protection: 1; mode=block
 
 {
   "topics": [
     {
-      "id": 51,
+      "id": 241,
       "name": "topic_1",
       "idea_max_num": 100,
       "build_user": {
-        "id": 96,
+        "id": 635,
         "profile": {
-          "display_id": "dejuan.king",
-          "display_name": "仲恭 右之助",
-          "icon_url": "http://robohash.org/facerequipariatur.png?size=300x300"
+          "display_id": "damian.mclaughlin",
+          "display_name": "五十里 保弘",
+          "icon_url": "http://robohash.org/iustoeligendidolores.png?size=300x300"
         }
       }
     }
@@ -52,9 +52,9 @@ Success.
 
 #### Request
 ```
-POST /api/v1/g/65/t HTTP/1.1
+POST /api/v1/g/553/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="1f2acf57e122beac8f9518277efaf5a1e512bef54755638db957ddb4a1f7d5ba727111bb2c0b2aa3"
+Authorization: Token token="4e7a854d759abfc6c289605859dbca62985d6e0ee288e69f7efaae180f7875744f85470417f4522d"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -64,28 +64,28 @@ name=hoge
 
 #### Response
 ```
-HTTP/1.1 200
+HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 203
+Content-Length: 214
 Content-Type: application/json; charset=utf-8
-ETag: W/"12252e02280c3e32966674684b9b3c67"
+ETag: W/"75ec11d57237ec7121becd5fe280317f"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 0fee5a3e-db8d-4ffd-812a-579dca250e2e
-X-Runtime: 0.017259
+X-Request-Id: 8b46ec4a-904f-411a-9099-e4a9a2b436e6
+X-Runtime: 0.015726
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 53,
+    "id": 243,
     "name": "hoge",
     "idea_max_num": 100,
     "build_user": {
-      "id": 97,
+      "id": 636,
       "profile": {
-        "display_id": "jonas.torp",
-        "display_name": "井堀 晴一",
-        "icon_url": "http://robohash.org/quiainab.png?size=300x300"
+        "display_id": "chasity.wiza",
+        "display_name": "百田 鈞",
+        "icon_url": "http://robohash.org/quidemautaccusamus.png?size=300x300"
       }
     }
   }
@@ -99,9 +99,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/66/t/54/edit?name=hoge HTTP/1.1
+GET /api/v1/g/554/t/244/edit?name=hoge HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="ebebb73b549d2469da781adc4a94d55c4e5c94be9b17cc655a388fc570630de86ec503dd05457651"
+Authorization: Token token="1f021bd2a0183b1263a3dd69e839ca89531f8c10fe66a6cffe96f7421283ff8d3328c3103af31da1"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -111,26 +111,26 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 205
+Content-Length: 223
 Content-Type: application/json; charset=utf-8
-ETag: W/"a35b3754c59cf1a9be08639a139dbe6a"
+ETag: W/"90d436b324c891cf7ed8e7d7e01b3879"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 4b0f9105-6bc2-45e3-8b85-7ccc1708b6f6
-X-Runtime: 0.023883
+X-Request-Id: 49bed2cb-6bde-449e-bcf3-564255f87256
+X-Runtime: 0.018725
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 54,
+    "id": 244,
     "name": "hoge",
     "idea_max_num": 100,
     "build_user": {
-      "id": 98,
+      "id": 637,
       "profile": {
-        "display_id": "vern.moen",
-        "display_name": "各務 あき",
-        "icon_url": "http://robohash.org/nemoinharum.png?size=300x300"
+        "display_id": "sylvester_lowe",
+        "display_name": "美名口 優希",
+        "icon_url": "http://robohash.org/autperferendisnihil.png?size=300x300"
       }
     }
   }
