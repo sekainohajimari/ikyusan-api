@@ -1,0 +1,8 @@
+create_table "asks", force: :cascade do |t|
+  t.integer  "category",    limit: 2
+  t.text     "conent",
+  t.datetime "created_at",             null: false
+  t.datetime "updated_at",             null: false
+end
+
+add_index "asks", ["category"], name: "index_asks_on_category", unique: true, using: :btree
