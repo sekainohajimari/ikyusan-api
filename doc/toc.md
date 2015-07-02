@@ -1,4 +1,7 @@
 ## Table of Contents
+* [api/v1/ask_controller.md](api/v1/ask_controller.md)
+ * [GET /api/v1/asks/rand](api/v1/ask_controller.md#get-apiv1asksrand)
+ * [GET /api/v1/asks/rand](api/v1/ask_controller.md#get-apiv1asksrand-1)
 * [api/v1/group_controller.md](api/v1/group_controller.md)
  * [GET /api/v1/g](api/v1/group_controller.md#get-apiv1g)
  * [POST /api/v1/g](api/v1/group_controller.md#post-apiv1g)
