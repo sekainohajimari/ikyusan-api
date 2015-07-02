@@ -14,5 +14,7 @@
 #
 
 class Ask < ActiveRecord::Base
+  enum category: { unset: 0 }
+
   scope :rand, ->(n){ where(id: self.pluck(:id).shuffle[0..n-1]) }
 end
