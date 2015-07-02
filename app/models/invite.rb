@@ -43,7 +43,7 @@ class Invite < ActiveRecord::Base
 
   act_as_notification do
     config type: :app do
-      notification_kind :immediately
+      notification_kind :sync
     end
   end
 
@@ -65,9 +65,8 @@ class Invite < ActiveRecord::Base
   def update_join_group_member
     return unless self.agreeing?
 
-    group_member = group.group_member.inviting.find_by(user: invite_user)
+    group_member = group.group_members.inviting.find_by(user: invite_user)
     group_member.join
-
     group_member.save!
   end
 end

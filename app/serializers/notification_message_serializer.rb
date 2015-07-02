@@ -17,7 +17,7 @@
 #
 
 class NotificationMessageSerializer < ActiveModel::Serializer
-  attributes :id, :notification_id, :open, :message
+  attributes :id, :open, :message
 
   def open
     NotificationMessage.opens[object.open]

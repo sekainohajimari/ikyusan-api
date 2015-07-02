@@ -13,10 +13,9 @@
 #
 #  index_likes_on_idea_id  (idea_id)
 #
+class LikeSerializer < ActiveModel::Serializer
+  attributes :id, :num
 
-FactoryGirl.define do
-  factory :like do
-    idea
-    num { (1..100).to_a.sample }
-  end
+  has_one :idea
+  has_one :like_user
 end

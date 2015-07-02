@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -35,7 +35,6 @@ gem 'active_hash'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'global'
-gem 'ridgepole'
 gem 'aasm'
 gem 'request_store'
 
@@ -53,6 +52,7 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
 
+  gem 'ridgepole'
   gem 'bullet'
   gem 'pry-rails'
   gem 'pry-byebug'
