@@ -5,9 +5,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/548/invite/doing/623 HTTP/1.1
+GET /api/v1/g/655/invite/doing/770 HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="ce6692555e279346dad3aeca584e19585f8341f88a94bf8f893b2adc439b88678fb5dd2ad76b7dbd"
+Authorization: Token token="f146bca622c985011cee8357fc720e6c638a086e01fe5cd2e01e36ac3930d4d5489df93378db4fa9"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,32 +17,32 @@ Host: www.example.com
 ```
 HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 365
+Content-Length: 363
 Content-Type: application/json; charset=utf-8
-ETag: W/"2e81a6ca9fdd2fc6c4a80664e55d54bc"
+ETag: W/"9d4159ad5c03c4376bb633a83826e653"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 169170fd-81d4-4d60-9af1-251df47d2e43
-X-Runtime: 0.143606
+X-Request-Id: 65c3e8ef-d3df-435a-a47b-099b8bc73ead
+X-Runtime: 0.087082
 X-XSS-Protection: 1; mode=block
 
 {
   "invite": {
-    "id": 68,
+    "id": 51,
     "host_user": {
-      "id": 622,
+      "id": 769,
       "profile": {
-        "display_id": "laury.collins",
-        "display_name": "角間 知洋",
-        "icon_url": "http://robohash.org/aliquidlaborumvoluptatem.png?size=300x300"
+        "display_id": "raphaelle.legros",
+        "display_name": "平石 智史",
+        "icon_url": "http://robohash.org/veritatismolestiaereiciendis.png?size=300x300"
       }
     },
     "invite_user": {
-      "id": 623,
+      "id": 770,
       "profile": {
-        "display_id": "beaulah_armstrong",
-        "display_name": "久石 胤平",
-        "icon_url": "http://robohash.org/molestiasassumendaipsam.png?size=300x300"
+        "display_id": "donald",
+        "display_name": "都留 ハルヲ",
+        "icon_url": "http://robohash.org/repellatquiaccusantium.png?size=300x300"
       }
     }
   }
@@ -56,9 +56,9 @@ Success.
 
 #### Request
 ```
-PATCH /api/v1/g/549/invite/agree HTTP/1.1
+PATCH /api/v1/g/656/invite/agree HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="d944f51fcef3927398a354589dee41373fdbd655228a797b979e8b83e8243081ad9e0f9b9d8147f9"
+Authorization: Token token="5f30f16be6d2c475454530bbde1f51d2f272b4e27d40489603ff1eb80deb498a69931593452731ca"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -70,7 +70,7 @@ HTTP/1.1 204
 Cache-Control: no-cache
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 0c5cdbad-43f1-4cae-abdf-2484a6ce2994
-X-Runtime: 0.038116
+X-Request-Id: 9f427a2c-a332-4866-9df7-0c402338726a
+X-Runtime: 0.042912
 X-XSS-Protection: 1; mode=block
 ```

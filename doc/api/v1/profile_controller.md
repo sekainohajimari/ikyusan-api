@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/profile HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="90746039bb3b5a6993926422c0ad469eb0e16e8079ee23fa7c0272332b0070b951925032ea245326"
+Authorization: Token token="5e629fd61a6e9b4829a99955dbd21ee06251a81883401a41a3b088cbca2e931b0ab578dbf80eea6a"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -19,18 +19,18 @@ HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 135
 Content-Type: application/json; charset=utf-8
-ETag: W/"98223957023c6f4624b0243ef7d1a35c"
+ETag: W/"426aa5efbff360a795e1da2b7a7a9df5"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 724ccd67-1871-4e93-a2a9-8187b9f81cf8
-X-Runtime: 0.015339
+X-Request-Id: 686a6fa6-6e2d-4914-a447-064ddfba4044
+X-Runtime: 0.017532
 X-XSS-Protection: 1; mode=block
 
 {
   "profile": {
-    "display_id": "lynn_kub",
-    "display_name": "金程 雅木",
-    "icon_url": "http://robohash.org/iustomolestiaein.png?size=300x300"
+    "display_id": "myrtle",
+    "display_name": "久川 夕貴子",
+    "icon_url": "http://robohash.org/corruptiadnihil.png?size=300x300"
   }
 }
 ```
@@ -44,7 +44,7 @@ Success.
 ```
 GET /api/v1/profile/edit?display_name=ほげ HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="79b4aed5b6e8f0fba233dac6faf1b7981d67426eb2b7242f378d2aa2eadbc3e6f39e9530e3a3017b"
+Authorization: Token token="b3f7c49020cf07c15edcf3b3df90eeb27d16687c2e5c586aead0f170f1a2a63b6d0ea9b7af174d9f"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -54,20 +54,20 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 134
+Content-Length: 129
 Content-Type: application/json; charset=utf-8
-ETag: W/"882532f7c02f20ac1c5cda2feacff3d4"
+ETag: W/"14fe1e6b88a03a1431f219445c5ae69d"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 0f7afb85-ea20-4070-927b-a1e4779a9be2
-X-Runtime: 0.018412
+X-Request-Id: 0d7cf839-fff5-45ae-9d5d-a32c2f697829
+X-Runtime: 0.023776
 X-XSS-Protection: 1; mode=block
 
 {
   "profile": {
-    "display_id": "percival.rolfson",
+    "display_id": "greta",
     "display_name": "ほげ",
-    "icon_url": "http://robohash.org/voluptateminab.png?size=300x300"
+    "icon_url": "http://robohash.org/dolorumcumquefacilis.png?size=300x300"
   }
 }
 ```
@@ -81,7 +81,7 @@ Success.
 ```
 GET /api/v1/profile/edit?display_name=ほげ&display_id=hoge HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="1d454dbdbc0d759d48ed9b315ab2f396b361e258150fe3d1866846fdfc99e1b0eefe83e3b324b54f"
+Authorization: Token token="8fabf019f6ffaac926ee636eac4364430db581e0a89588c759a0d43137f67ae2e9e4eb25a8719e7d"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -91,20 +91,20 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 118
+Content-Length: 125
 Content-Type: application/json; charset=utf-8
-ETag: W/"600b0c360e74e9f8d8beb16b815bde9b"
+ETag: W/"3d99e41d25924f8876494c0027348842"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 36ab964f-39dc-4ece-8ce5-b570e7076fd9
-X-Runtime: 0.012675
+X-Request-Id: 672b8f52-2b53-4ada-8bc4-3cdf5233448e
+X-Runtime: 0.020658
 X-XSS-Protection: 1; mode=block
 
 {
   "profile": {
     "display_id": "hoge",
     "display_name": "ほげ",
-    "icon_url": "http://robohash.org/autipsumut.png?size=300x300"
+    "icon_url": "http://robohash.org/odioquoarchitecto.png?size=300x300"
   }
 }
 ```
@@ -116,9 +116,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/profile/enabled?display_id=jamie-dummy HTTP/1.1
+GET /api/v1/profile/enabled?display_id=pat_reinger-dummy HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="b9285e4152bd718b7cd2a63888a4c15b47cad8778b95432627955fa8f401bad96359c4a141bb3df5"
+Authorization: Token token="1c024775733d00d2ff4bc74c5e9df18d27900b41f1f06a00c5185172d8eab73f34bad587926cbb9b"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -133,8 +133,8 @@ Content-Type: application/json; charset=utf-8
 ETag: W/"ebd28baaaa212dca587bc607653bbaf0"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 538f6011-3ee5-426b-b62d-3d1cbe09154c
-X-Runtime: 0.016295
+X-Request-Id: 311687ba-04ff-4e00-b213-58409c22761f
+X-Runtime: 0.022202
 X-XSS-Protection: 1; mode=block
 
 {
@@ -149,9 +149,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/profile/enabled?display_id=edwardo.gleichner HTTP/1.1
+GET /api/v1/profile/enabled?display_id=madisyn_smitham HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="2bf89072d8bd2f27d2f91dec089e9c645f65d660a6013debf7bae7bcc1d87752861e669217006005"
+Authorization: Token token="6f3e08028e1a6183fa0f0025ec5d481bc412512af16c7650970275bb9c570e17b807a361db50a28d"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -166,8 +166,8 @@ Content-Type: application/json; charset=utf-8
 ETag: W/"d987f50e402ceb8f1a41643a6c665ef0"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: a2ab77a4-993e-4ce2-a7f0-c2fe0b15c1a8
-X-Runtime: 0.012709
+X-Request-Id: 055ffb6b-a979-4c48-9845-9024c70f9f08
+X-Runtime: 0.023739
 X-XSS-Protection: 1; mode=block
 
 {

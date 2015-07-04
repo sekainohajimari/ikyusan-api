@@ -5,7 +5,7 @@
 #  id              :integer          not null, primary key
 #  notification_id :integer
 #  user_id         :integer
-#  open            :integer
+#  open            :boolean          default(FALSE), not null
 #  message         :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -18,8 +18,4 @@
 
 class NotificationMessageSerializer < ActiveModel::Serializer
   attributes :id, :open, :message
-
-  def open
-    NotificationMessage.opens[object.open]
-  end
 end

@@ -14,7 +14,7 @@ describe 'Topic resource', type: :request, autodoc: true do
     end
 
     context_user_authenticated do
-      it 'success' do
+      it 'return 200.' do
         is_expected.to eq 200
         body = response.body
 
@@ -23,6 +23,7 @@ describe 'Topic resource', type: :request, autodoc: true do
         expect(body).to be_json_eql(topic.id.to_json).at_path('topics/0/id')
         expect(body).to be_json_eql(topic.name.to_json).at_path('topics/0/name')
         expect(body).to be_json_eql(topic.idea_max_num.to_json).at_path('topics/0/idea_max_num')
+        expect(body).to be_json_eql(false.to_json).at_path('topics/0/anonymity')
 
         expect(body).to have_json_path('topics/0/build_user')
         expect(body).to be_json_eql(current_user.id.to_json).at_path('topics/0/build_user/id')
@@ -33,22 +34,41 @@ describe 'Topic resource', type: :request, autodoc: true do
   end
 
   describe "POST /api/v1/g/:group_id/t" do
-    let!(:group_id) { group.id }
-    let!(:params) { { name: 'hoge' } }
-
     before do
       group_member
     end
 
     context_user_authenticated do
-      it 'success' do
-        is_expected.to eq 201
-        body = response.body
+      let!(:group_id) { group.id }
 
-        expect(body).to have_json_path('topic')
-        expect(body).to have_json_path('topic/id')
-        expect(body).to have_json_path('topic/idea_max_num')
-        expect(body).to be_json_eql('hoge'.to_json).at_path('topic/name')
+      context 'when anonymity not post' do
+        let!(:params) { { name: 'hoge' } }
+
+        it 'return 201.' do
+          is_expected.to eq 201
+          body = response.body
+
+          expect(body).to have_json_path('topic')
+          expect(body).to have_json_path('topic/id')
+          expect(body).to have_json_path('topic/idea_max_num')
+          expect(body).to be_json_eql('hoge'.to_json).at_path('topic/name')
+          expect(body).to be_json_eql(false.to_json).at_path('topic/anonymity')
+        end
+      end
+
+      context 'when anonymity post' do
+        let!(:params) { { name: 'hoge', anonymity: 1 } }
+
+        it 'return 201.' do
+          is_expected.to eq 201
+          body = response.body
+
+          expect(body).to have_json_path('topic')
+          expect(body).to have_json_path('topic/id')
+          expect(body).to have_json_path('topic/idea_max_num')
+          expect(body).to be_json_eql('hoge'.to_json).at_path('topic/name')
+          expect(body).to be_json_eql(true.to_json).at_path('topic/anonymity')
+        end
       end
     end
   end

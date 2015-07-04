@@ -5,7 +5,7 @@
 #  id              :integer          not null, primary key
 #  notification_id :integer
 #  user_id         :integer
-#  open            :integer
+#  open            :boolean          default(FALSE), not null
 #  message         :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -17,21 +17,8 @@
 #
 
 class NotificationMessage < ActiveRecord::Base
-  include AASM
-
   belongs_to :notification
   belongs_to :user
-
-  enum open: { no: 0 , yes: 1 }
-
-  aasm column: :open, enum: true do
-    state :no, initial: true
-    state :yes
-
-    event :be_open do
-      transitions from: [:no], to: :yes
-    end
-  end
 
   ##### class methods #####
   class << self
