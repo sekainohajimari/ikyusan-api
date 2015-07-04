@@ -17,7 +17,7 @@
 #
 
 class TopicSerializer < ActiveModel::Serializer
-  attributes :id, :name, :idea_max_num
+  attributes :id, :name, :idea_max_num, :anonymity
 
   has_one :build_user
 end

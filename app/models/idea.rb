@@ -23,7 +23,13 @@ class Idea < ActiveRecord::Base
   has_many :likes
   has_many :favorites, as: :favoritable
 
+  before_create :set_anonymity
+
   def short_content
-    self.content.truncate(25, omission: '...')
+    content.truncate(25, omission: '...')
+  end
+
+  def set_anonymity
+    self.anonymity = true if topic.anonymity
   end
 end

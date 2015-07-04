@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="75878ee98e55cdd3f1d9add6f8c3c0b999ee6924649f8ba58559b5031d282f4c24c76e4615446b60"
+Authorization: Token token="9636f563bf156094c9be07a8107fdf0d1f28efb64f8ee8e09865bda53c4af42b884e744092f6f118"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,74 +17,74 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 875
+Content-Length: 906
 Content-Type: application/json; charset=utf-8
-ETag: W/"a8f1f8fc8e6c1e2f9799797315e925c9"
+ETag: W/"9af52d0d05f4393aa3308fe54b1cef52"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 81089741-3625-4ac5-9ca7-083d2e9d4210
-X-Runtime: 0.091248
+X-Request-Id: c0455e39-6943-4372-a23c-c4f9479373ab
+X-Runtime: 0.020287
 X-XSS-Protection: 1; mode=block
 
 {
   "groups": [
     {
-      "id": 531,
-      "name": "Internal Quality Officer",
+      "id": 637,
+      "name": "Chief Metrics Orchestrator",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 532,
-      "name": "Regional Quality Designer",
+      "id": 638,
+      "name": "Direct Interactions Administrator",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 533,
-      "name": "Forward Branding Liason",
+      "id": 639,
+      "name": "Principal Tactics Facilitator",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 534,
-      "name": "Forward Configuration Planner",
+      "id": 640,
+      "name": "Customer Integration Consultant",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 535,
-      "name": "Customer Metrics Technician",
+      "id": 641,
+      "name": "Human Accountability Director",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 536,
-      "name": "Lead Web Engineer",
+      "id": 642,
+      "name": "District Marketing Executive",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 537,
-      "name": "National Directives Analyst",
+      "id": 643,
+      "name": "Forward Solutions Designer",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 538,
-      "name": "Dynamic Infrastructure Associate",
+      "id": 644,
+      "name": "Corporate Accounts Assistant",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 539,
-      "name": "Human Quality Producer",
+      "id": 645,
+      "name": "Dynamic Program Orchestrator",
       "membar_max_num": 10,
       "topic_max_num": 100
     },
     {
-      "id": 540,
-      "name": "Regional Operations Officer",
+      "id": 646,
+      "name": "Forward Data Administrator",
       "membar_max_num": 10,
       "topic_max_num": 100
     }
@@ -101,7 +101,7 @@ Success.
 ```
 POST /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="2166ee417edac5cb2f5cd022fc4729c28a5ab3c1cb868b2c63c3524e33166a2e0c60babee4c0845c"
+Authorization: Token token="9d27f9342007664ab3ea9c2d6fc94d3f6b41825e58cdb0f628bc3b8cd44872071749352be8605f54"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -115,15 +115,15 @@ HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 64
 Content-Type: application/json; charset=utf-8
-ETag: W/"66f9b1b59f7973562245bc1001dd7ce3"
+ETag: W/"ebcbd3db79a332b64e261c2f77bb0091"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: a346a1c8-3f89-4c24-a2fb-2fd941a3297f
-X-Runtime: 0.020279
+X-Request-Id: 3774e20e-71d1-4be8-8757-c8cc459d65db
+X-Runtime: 0.021189
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 541,
+  "id": 647,
   "name": "hoge",
   "membar_max_num": 10,
   "topic_max_num": 100
@@ -137,9 +137,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/542/edit?name=foo HTTP/1.1
+GET /api/v1/g/648/edit?name=foo HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="9a8780c34a5859e33334dbb4530f76bd90142c891f54179e7b20147d74d390b403671bf232c73787"
+Authorization: Token token="113db127121b43ca3e37c055852b662359ddcfb57f1cb45411d54c468ed1240c7c5de4686e041875"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -151,15 +151,15 @@ HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 63
 Content-Type: application/json; charset=utf-8
-ETag: W/"624a9564f6838e40f3904b0ecd0d2e14"
+ETag: W/"f394f5fee238aa349aeacf2a2c6e9f38"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: c638c301-d790-4df3-9577-eb19b0fd1a7e
-X-Runtime: 0.022885
+X-Request-Id: 09632403-5035-4aa8-b12a-a0c6ea8ec863
+X-Runtime: 0.023476
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 542,
+  "id": 648,
   "name": "foo",
   "membar_max_num": 10,
   "topic_max_num": 100
@@ -173,9 +173,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/543/detail HTTP/1.1
+GET /api/v1/g/649/detail HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="fc287de1cf0d82c22aa56921c358a2afd91fea68deeeb400f31cd0ee54b17de4b85e705db188fdae"
+Authorization: Token token="2d7b1740d1e45f5d49289c72f75ea75bf410601762012f1cbe051ec609c6189deb15df0b4606feac"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -185,44 +185,44 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 497
+Content-Length: 503
 Content-Type: application/json; charset=utf-8
-ETag: W/"936fb20dd8d21a194a6113d638d88ae1"
+ETag: W/"bf143be626f51a5a60977e9b663a0c5a"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 90449eae-d778-4f87-9444-9fd95ddadc4e
-X-Runtime: 0.060415
+X-Request-Id: 18e88594-e3c8-4b8d-8881-08808a83f8f4
+X-Runtime: 0.043874
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 543,
-  "name": "Lead Paradigm Director",
+  "id": 649,
+  "name": "Direct Factors Consultant",
   "membar_max_num": 10,
   "topic_max_num": 100,
   "group_members": [
     {
-      "id": 657,
+      "id": 749,
       "role": "owner",
       "status": "joining",
       "user": {
-        "id": 616,
+        "id": 762,
         "profile": {
-          "display_id": "travon",
-          "display_name": "宮武 谷右衛門",
-          "icon_url": "http://robohash.org/quidemdoloremet.png?size=300x300"
+          "display_id": "carmen_boehm",
+          "display_name": "横倉 純枝",
+          "icon_url": "http://robohash.org/quisequitempora.png?size=300x300"
         }
       }
     },
     {
-      "id": 658,
+      "id": 750,
       "role": "member",
       "status": "inviting",
       "user": {
-        "id": 617,
+        "id": 763,
         "profile": {
-          "display_id": "elinor",
-          "display_name": "金津 ツタエ",
-          "icon_url": "http://robohash.org/etsitincidunt.png?size=300x300"
+          "display_id": "marlen_bode",
+          "display_name": "平井 光洋",
+          "icon_url": "http://robohash.org/autemitaqueest.png?size=300x300"
         }
       }
     }
