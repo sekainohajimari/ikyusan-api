@@ -6,7 +6,7 @@ describe 'Like resource', type: :request, autodoc: true do
   let!(:group) { create(:group) }
   let!(:group_member) { create(:group_member, :owner, group: group, user: current_user) }
   let!(:topic) { create(:topic, group: group, build_user: current_user) }
-  let!(:idea) { create(:idea, :anonymity_disable, topic: topic, post_user: current_user) }
+  let!(:idea) { create(:idea, topic: topic, post_user: current_user) }
   let!(:like) { create(:like, idea: idea, like_user: like_user) }
 
   describe "GET /api/v1/g/:group_id/t/:topic_id/i/:idea_id/l" do

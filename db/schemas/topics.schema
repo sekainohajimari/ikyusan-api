@@ -3,6 +3,7 @@ create_table "topics", force: :cascade do |t|
   t.integer  "builder_id",   limit: 4
   t.string   "name",         limit: 255
   t.integer  "idea_max_num", limit: 2
+  t.boolean  "anonymity",                null: false,  default: false
   t.datetime "created_at",               null: false
   t.datetime "updated_at",               null: false
 end

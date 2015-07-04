@@ -2,10 +2,10 @@ create_table "ideas", force: :cascade do |t|
   t.integer  "topic_id",   limit: 4
   t.integer  "poster_id",  limit: 4
   t.string   "content",    limit: 255
-  t.integer  "anonymity",  limit: 1
-  t.integer  "likes_count", default: 0
-  t.datetime "created_at",             null: false
-  t.datetime "updated_at",             null: false
+  t.boolean  "anonymity",             null: false,  default: false
+  t.integer  "likes_count",                         default: 0
+  t.datetime "created_at",            null: false
+  t.datetime "updated_at",            null: false
 end
 
 add_index "ideas", ["topic_id"], name: "index_ideas_on_topic_id", using: :btree
