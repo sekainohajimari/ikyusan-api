@@ -30,6 +30,6 @@ class Idea < ActiveRecord::Base
   end
 
   def set_anonymity
-    self.anonymity = true if topic.anonymity
+    self.anonymity = true if topic.anonymity?
   end
 end
