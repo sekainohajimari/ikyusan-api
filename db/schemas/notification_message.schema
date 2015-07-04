@@ -1,10 +1,10 @@
 create_table "notification_messages", force: :cascade do |t|
   t.integer  "notification_id", limit: 4
-  t.integer  "user_id", limit: 4
-  t.integer  "open", limit: 4
-  t.string   "message", limit: 255
-  t.datetime "created_at",           null: false
-  t.datetime "updated_at",           null: false
+  t.integer  "user_id",         limit: 4
+  t.boolean  "open", default: false,        null: false
+  t.string   "message",         limit: 255
+  t.datetime "created_at",                  null: false
+  t.datetime "updated_at",                  null: false
 end
 
 add_index "notification_messages", "notification_id", name: "index_notification_messages_on_notification_id", using: :btree

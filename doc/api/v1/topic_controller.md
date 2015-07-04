@@ -1,13 +1,13 @@
 ## GET /api/v1/g/:group_id/t
-Success.
+Return 200..
 
 ### Example
 
 #### Request
 ```
-GET /api/v1/g/552/t HTTP/1.1
+GET /api/v1/g/659/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="3a1c2ab8f5f3a04f77508040c34a464752059af14b2783f9ac18e3ffb866abde315f9b159c81b515"
+Authorization: Token token="a21453754f9ee65ac1acfb4987a54efd90c87f254a225aad3b8ac73ee73a81ca4151353441ee8217"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,27 +17,28 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 233
+Content-Length: 248
 Content-Type: application/json; charset=utf-8
-ETag: W/"0a104a257963c43ccb6dd386716e8f54"
+ETag: W/"e14e65772f366a907701a050bf040d3e"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 4dc06491-fa25-4555-9a31-bb2c44499f9f
-X-Runtime: 0.030055
+X-Request-Id: a33e00c0-f74c-4cf1-a8ad-d4d364ead68c
+X-Runtime: 0.037918
 X-XSS-Protection: 1; mode=block
 
 {
   "topics": [
     {
-      "id": 241,
+      "id": 316,
       "name": "topic_1",
       "idea_max_num": 100,
+      "anonymity": false,
       "build_user": {
-        "id": 635,
+        "id": 783,
         "profile": {
-          "display_id": "damian.mclaughlin",
-          "display_name": "五十里 保弘",
-          "icon_url": "http://robohash.org/iustoeligendidolores.png?size=300x300"
+          "display_id": "arch.herzog",
+          "display_name": "伸二 みすず",
+          "icon_url": "http://robohash.org/inciduntanimilaudantium.png?size=300x300"
         }
       }
     }
@@ -46,15 +47,15 @@ X-XSS-Protection: 1; mode=block
 ```
 
 ## POST /api/v1/g/:group_id/t
-Success.
+Return 201..
 
 ### Example
 
 #### Request
 ```
-POST /api/v1/g/553/t HTTP/1.1
+POST /api/v1/g/660/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="4e7a854d759abfc6c289605859dbca62985d6e0ee288e69f7efaae180f7875744f85470417f4522d"
+Authorization: Token token="62ca3181eb81b055ba8ca3750b10d966467479a3d80f3901bb1da3300cc99e33521fa8a08732a961"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -66,26 +67,75 @@ name=hoge
 ```
 HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 214
+Content-Length: 225
 Content-Type: application/json; charset=utf-8
-ETag: W/"75ec11d57237ec7121becd5fe280317f"
+ETag: W/"b84e6288fa627a8ca825682d9c9c9857"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 8b46ec4a-904f-411a-9099-e4a9a2b436e6
-X-Runtime: 0.015726
+X-Request-Id: 0b7f7202-3925-4e33-9e16-c8a5db8ce6fc
+X-Runtime: 0.026818
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 243,
+    "id": 318,
     "name": "hoge",
     "idea_max_num": 100,
+    "anonymity": false,
     "build_user": {
-      "id": 636,
+      "id": 784,
       "profile": {
-        "display_id": "chasity.wiza",
-        "display_name": "百田 鈞",
-        "icon_url": "http://robohash.org/quidemautaccusamus.png?size=300x300"
+        "display_id": "zechariah",
+        "display_name": "藤谷 武美",
+        "icon_url": "http://robohash.org/natusreruma.png?size=300x300"
+      }
+    }
+  }
+}
+```
+
+## POST /api/v1/g/:group_id/t
+Return 201..
+
+### Example
+
+#### Request
+```
+POST /api/v1/g/661/t HTTP/1.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Authorization: Token token="56f190e11050641c3baf4de842d78e22d6ea0486e697b65db30030447350c80401b04798b34b0306"
+Content-Length: 21
+Content-Type: application/x-www-form-urlencoded
+Host: www.example.com
+
+name=hoge&anonymity=1
+```
+
+#### Response
+```
+HTTP/1.1 201
+Cache-Control: max-age=0, private, must-revalidate
+Content-Length: 226
+Content-Type: application/json; charset=utf-8
+ETag: W/"78e15b98f81514357cbc60fb1bfea02e"
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Request-Id: 96c94d68-4fb6-4098-ac7a-fed08eb94fa0
+X-Runtime: 0.032209
+X-XSS-Protection: 1; mode=block
+
+{
+  "topic": {
+    "id": 320,
+    "name": "hoge",
+    "idea_max_num": 100,
+    "anonymity": true,
+    "build_user": {
+      "id": 785,
+      "profile": {
+        "display_id": "trea",
+        "display_name": "揖保 由水",
+        "icon_url": "http://robohash.org/aeumnecessitatibus.png?size=300x300"
       }
     }
   }
@@ -99,9 +149,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/554/t/244/edit?name=hoge HTTP/1.1
+GET /api/v1/g/662/t/321/edit?name=hoge HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="1f021bd2a0183b1263a3dd69e839ca89531f8c10fe66a6cffe96f7421283ff8d3328c3103af31da1"
+Authorization: Token token="2c678d7d30baa8bc5ad7cf1a9dec611dda9c23fb921039df7b261b397e3631544f4dbf553ba69524"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -111,26 +161,27 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 223
+Content-Length: 238
 Content-Type: application/json; charset=utf-8
-ETag: W/"90d436b324c891cf7ed8e7d7e01b3879"
+ETag: W/"094a0e3e7409223d3ab14dc68b7215bd"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 49bed2cb-6bde-449e-bcf3-564255f87256
-X-Runtime: 0.018725
+X-Request-Id: 31198007-b1fd-40d6-85db-c654e7ffeb0d
+X-Runtime: 0.029047
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 244,
+    "id": 321,
     "name": "hoge",
     "idea_max_num": 100,
+    "anonymity": false,
     "build_user": {
-      "id": 637,
+      "id": 786,
       "profile": {
-        "display_id": "sylvester_lowe",
-        "display_name": "美名口 優希",
-        "icon_url": "http://robohash.org/autperferendisnihil.png?size=300x300"
+        "display_id": "garrick",
+        "display_name": "北岡 君夫",
+        "icon_url": "http://robohash.org/repellendusquaeconsequatur.png?size=300x300"
       }
     }
   }

@@ -6,7 +6,7 @@
 #  topic_id    :integer
 #  poster_id   :integer
 #  content     :string(255)
-#  anonymity   :integer
+#  anonymity   :boolean          default(FALSE), not null
 #  likes_count :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

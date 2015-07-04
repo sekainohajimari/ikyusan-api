@@ -10,6 +10,7 @@
 * [api/v1/idea_controller.md](api/v1/idea_controller.md)
  * [GET /api/v1/g/:group_id/t/:topic_id/i](api/v1/idea_controller.md#get-apiv1ggroup_idttopic_idi)
  * [GET /api/v1/g/:group_id/t/:topic_id/i](api/v1/idea_controller.md#get-apiv1ggroup_idttopic_idi-1)
+ * [GET /api/v1/g/:group_id/t/:topic_id/i](api/v1/idea_controller.md#get-apiv1ggroup_idttopic_idi-2)
  * [POST /api/v1/g/:group_id/t/:topic_id/i](api/v1/idea_controller.md#post-apiv1ggroup_idttopic_idi)
  * [DELETE /api/v1/g/:group_id/t/:topic_id/i/:id](api/v1/idea_controller.md#delete-apiv1ggroup_idttopic_idiid)
 * [api/v1/invite_controller.md](api/v1/invite_controller.md)
@@ -29,4 +30,5 @@
 * [api/v1/topic_controller.md](api/v1/topic_controller.md)
  * [GET /api/v1/g/:group_id/t](api/v1/topic_controller.md#get-apiv1ggroup_idt)
  * [POST /api/v1/g/:group_id/t](api/v1/topic_controller.md#post-apiv1ggroup_idt)
+ * [POST /api/v1/g/:group_id/t](api/v1/topic_controller.md#post-apiv1ggroup_idt-1)
  * [GET /api/v1/g/:group_id/t/:id/edit](api/v1/topic_controller.md#get-apiv1ggroup_idtidedit)

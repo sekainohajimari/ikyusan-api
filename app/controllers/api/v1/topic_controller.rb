@@ -12,9 +12,9 @@ class Api::V1::TopicController < Api::V1::ApplicationController
   def create
     topic = @group.topics.create!(
       build_user: current_user,
-      name: topic_params[:name]
+      name: topic_params[:name],
+      anonymity: topic_params[:anonymity].present? ? topic_params[:anonymity] : false
     )
-
     render json: topic, root: 'topic', status: :created
   end
 
@@ -35,7 +35,8 @@ class Api::V1::TopicController < Api::V1::ApplicationController
   def topic_params
     params.permit(
       :group_id,
-      :name
+      :name,
+      :anonymity
     )
   end
 

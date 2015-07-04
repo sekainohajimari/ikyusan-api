@@ -6,7 +6,7 @@
 #  topic_id    :integer
 #  poster_id   :integer
 #  content     :string(255)
-#  anonymity   :integer
+#  anonymity   :boolean          default(FALSE), not null
 #  likes_count :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -22,10 +22,10 @@ class IdeaSerializer < ActiveModel::Serializer
   has_one :post_user
 
   def post_user
-    if object.disabling?
-      UserSerializer.new(object.post_user)
-    else
+    if object.anonymity?
       AnonymityUserSerializer.new(object.post_user)
+    else
+      UserSerializer.new(object.post_user)
     end
   end
 end

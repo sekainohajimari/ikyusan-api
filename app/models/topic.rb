@@ -7,6 +7,7 @@
 #  builder_id   :integer
 #  name         :string(255)
 #  idea_max_num :integer
+#  anonymity    :boolean          default(FALSE), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
