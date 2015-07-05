@@ -1,5 +1,7 @@
 namespace :db do
-  Rake::Task['db:migrate'].clear
+  if Rake::Task.task_defined?('db:migrate')
+    Rake::Task['db:migrate'].clear
+  end
 
   DATABASE_CONFIG = 'config/database.yml'
   SCHEMA_CONFIG = 'db/schemas/Schemafile'

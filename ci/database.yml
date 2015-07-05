@@ -13,4 +13,4 @@ development:
 
 test:
   <<: *default
-  database: circleci_test
+  database: circleci_test<%= ENV['TEST_ENV_NUMBER'] %>
