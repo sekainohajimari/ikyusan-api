@@ -24,7 +24,8 @@ dependencies:
 test:
   override:
     # - bundle exec rubocop
-    - bundle exec rake spec
+    # - bundle exec rake spec
+    - bundle exec bin/rspec-queue spec
 
 deployment:
   production:
