@@ -1,7 +1,7 @@
 class Rack::Attack
   # Throttle requests to 5 requests per second per ip
   throttle('req/ip', :limit => 5, :period => 1.second) do |req|
-    req.ip
+    req.ip if Rails.env.production?
   end
 
   self.throttled_response = lambda do |env|
