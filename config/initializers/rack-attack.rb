@@ -1,6 +1,6 @@
 class Rack::Attack
   # Throttle requests to 5 requests per second per ip
-  throttle('req/ip', :limit => 5, :period => 100.second) do |req|
+  throttle('req/ip', :limit => 5, :period => 1.second) do |req|
     req.ip
   end
 
