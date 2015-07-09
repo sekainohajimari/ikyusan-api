@@ -24,5 +24,7 @@ module IkyusanApi
     config.cache_store = :file_store, 'tmp/cache'
     # TODO: 一旦コメントアウト
     # config.action_controller.action_on_unpermitted_parameters = :raise
+
+    config.middleware.use Rack::Attack
   end
 end

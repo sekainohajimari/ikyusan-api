@@ -37,6 +37,7 @@ gem 'omniauth-twitter'
 gem 'global'
 gem 'aasm'
 gem 'request_store'
+gem 'rack-attack'
 
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'slack-notifier'
