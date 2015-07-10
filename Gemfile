@@ -86,3 +86,7 @@ group :development, :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'test-queue'
 end
+
+group :production do
+  gem 'newrelic_rpm'
+end
