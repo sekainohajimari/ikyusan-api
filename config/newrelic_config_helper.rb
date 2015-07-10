@@ -10,7 +10,7 @@ class NewrelicConfigHelper
 
   class << self
     def license_key
-      ENV['NEWRELIC_LICENSE_KEY']
+      ENV.fetch('NEW_RELIC_LICENSE_KEY')
     end
 
     def app_name
