@@ -26,6 +26,10 @@ module ExceptionHandler
     render json: { message: e.render_message }, status: e.status_code
   end
 
+  def handle_exception
+    render json: { message: '予期せぬエラーが発生しました' }, status: 500
+  end
+
   private
   def notify_slack(e)
     ExceptionNotifier.notify_exception(

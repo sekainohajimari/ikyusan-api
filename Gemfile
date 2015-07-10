@@ -37,6 +37,7 @@ gem 'omniauth-twitter'
 gem 'global'
 gem 'aasm'
 gem 'request_store'
+gem 'rack-attack'
 
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'slack-notifier'
@@ -82,5 +83,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'test-queue'
+end
+
+group :production do
+  gem 'newrelic_rpm'
 end

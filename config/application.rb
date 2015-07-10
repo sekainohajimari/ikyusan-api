@@ -15,6 +15,8 @@ require "action_mailer/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative 'newrelic_config_helper'
+
 module IkyusanApi
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib/autoload)
@@ -24,5 +26,7 @@ module IkyusanApi
     config.cache_store = :file_store, 'tmp/cache'
     # TODO: 一旦コメントアウト
     # config.action_controller.action_on_unpermitted_parameters = :raise
+
+    config.middleware.use Rack::Attack
   end
 end

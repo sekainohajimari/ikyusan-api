@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../../config/environment", __FILE__)
+
+require "test_queue"
+require "test_queue/runner/rspec"
+require 'rake'
+
+class RSpecParallelRunner < TestQueue::Runner::RSpec
+  def after_fork(num)
+    ENV.update('TEST_ENV_NUMBER' => num > 1 ? num.to_s : '')
+    ActiveRecord::Base.configurations['test']['database'] << ENV['TEST_ENV_NUMBER']
+    ActiveRecord::Base.establish_connection(:test)
+
+    ActiveRecord::Tasks::DatabaseTasks.create_current
+
+    exec_rake(task_name: 'db:migrate')
+  end
+
+  private
+
+  def exec_rake(task_name:)
+    unless @rake
+      @rake = Rake::Application.new
+      Rake.application = @rake
+      Rake.application.rake_require('ridgepole', ["#{Rails.root}/lib/tasks"])
+      Rake::Task.define_task(:environment)
+    end
+
+    @rake[task_name].execute
+  end
+end
+
+RSpecParallelRunner.new.execute
