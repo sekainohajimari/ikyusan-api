@@ -15,6 +15,8 @@ require "action_mailer/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative 'newrelic_config_helper'
+
 module IkyusanApi
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/lib/autoload)
