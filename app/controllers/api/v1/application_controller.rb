@@ -14,7 +14,10 @@ class Api::V1::ApplicationController < ActionController::API
   before_action :store_request
   before_action :require_login
 
+  serialization_scope :view_context
+
   private
+
   def store_request
     RequestStore.store[:request] = request
   end

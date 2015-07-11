@@ -24,6 +24,9 @@ describe 'Group resource', type: :request, autodoc: true do
         expect(body).to have_json_path('groups/0/name')
         expect(body).to have_json_path('groups/0/membar_max_num')
         expect(body).to have_json_path('groups/0/topic_max_num')
+        expect(body).to have_json_path('groups/0/own_group_member')
+        expect(body).to have_json_path('groups/0/own_group_member/status')
+        expect(body).to have_json_path('groups/0/own_group_member/role')
       end
     end
   end

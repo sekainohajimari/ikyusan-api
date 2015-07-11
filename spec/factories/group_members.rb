@@ -12,8 +12,7 @@
 #
 # Indexes
 #
-#  index_group_members_on_group_id  (group_id)
-#  index_group_members_on_user_id   (user_id)
+#  index_group_members_on_group_id_and_user_id  (group_id,user_id) UNIQUE
 #
 
 FactoryGirl.define do

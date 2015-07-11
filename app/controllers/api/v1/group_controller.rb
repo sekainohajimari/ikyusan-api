@@ -5,9 +5,9 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   before_action :referenceable?, only: [:edit, :detail]
 
   def index
-    groups = Group.joins(:group_members).where(group_members: { user_id: current_user.id })
+    groups = Group.includes(:group_members).where(group_members: { user_id: current_user.id })
 
-    render json: groups, root: 'groups'
+    render json: groups, root: 'groups', additional: true
   end
 
   def create
