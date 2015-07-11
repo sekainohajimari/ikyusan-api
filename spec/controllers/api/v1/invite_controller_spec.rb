@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe 'Invite resource', type: :request, autodoc: true do
   let!(:group) { create(:group) }
-  let!(:group_member) { create(:group_member, :owner, group: group, user: current_user) }
 
   describe "GET /api/v1/g/:group_id/invite/doing/:inviter_id" do
     let!(:group_id) { group.id }
     let!(:inviter_id) { invite_user.id }
     let!(:invite_user) { create(:user) }
     let!(:inviter_user_profile) { create(:profile, user: invite_user) }
+    let!(:group_member) { create(:group_member, :owner, group: group, user: current_user) }
 
     context_user_authenticated do
       before do
@@ -36,21 +36,23 @@ describe 'Invite resource', type: :request, autodoc: true do
   end
 
   describe "PATCH /api/v1/g/:group_id/invite/agree" do
-    let!(:group_id) { group.id }
+    let!(:invite_group) { create(:group) }
+    let!(:group_id) { invite_group.id }
     let!(:host_user) { create(:user) }
     let!(:host_user_profile) { create(:profile, user: host_user) }
-    let!(:invite_group_member) { create(:group_member, :member, :inviting, group: group, user: current_user) }
-    let!(:invite) { create(:invite, group: group, host_user: host_user, invite_user: current_user)}
+    let!(:invite) { create(:invite, group: invite_group, host_user: host_user, invite_user: current_user)}
 
     context_user_authenticated do
       before do
         host_user_profile
         invite
-        invite_group_member
       end
 
       it 'success' do
         is_expected.to eq 204
+
+        target_invite = Invite.find(invite.id)
+        expect(target_invite.agreeing?).to be_truthy
       end
     end
   end

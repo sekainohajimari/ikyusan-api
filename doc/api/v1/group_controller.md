@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="9636f563bf156094c9be07a8107fdf0d1f28efb64f8ee8e09865bda53c4af42b884e744092f6f118"
+Authorization: Token token="dfefbde21db30e6b0870d54d234467ba45c23d1f6b8138b5915f52ce996ccfcc7791a274deff4d86"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,76 +17,116 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 906
+Content-Length: 1451
 Content-Type: application/json; charset=utf-8
-ETag: W/"9af52d0d05f4393aa3308fe54b1cef52"
+ETag: W/"98319b90ca31591f0aa4f56905d2bffb"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: c0455e39-6943-4372-a23c-c4f9479373ab
-X-Runtime: 0.020287
+X-Request-Id: 6450dc71-75a6-4330-9699-fd854eca10ce
+X-Runtime: 0.081006
 X-XSS-Protection: 1; mode=block
 
 {
   "groups": [
     {
-      "id": 637,
-      "name": "Chief Metrics Orchestrator",
+      "id": 352,
+      "name": "Direct Marketing Administrator",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 638,
-      "name": "Direct Interactions Administrator",
+      "id": 353,
+      "name": "District Branding Representative",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 639,
-      "name": "Principal Tactics Facilitator",
+      "id": 354,
+      "name": "Corporate Communications Liason",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 640,
-      "name": "Customer Integration Consultant",
+      "id": 355,
+      "name": "National Web Executive",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 641,
-      "name": "Human Accountability Director",
+      "id": 356,
+      "name": "Investor Functionality Designer",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 642,
-      "name": "District Marketing Executive",
+      "id": 357,
+      "name": "Corporate Applications Director",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 643,
-      "name": "Forward Solutions Designer",
+      "id": 358,
+      "name": "Regional Identity Facilitator",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 644,
-      "name": "Corporate Accounts Assistant",
+      "id": 359,
+      "name": "Chief Paradigm Strategist",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 645,
-      "name": "Dynamic Program Orchestrator",
+      "id": 360,
+      "name": "Chief Paradigm Director",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     },
     {
-      "id": 646,
-      "name": "Forward Data Administrator",
+      "id": 361,
+      "name": "Product Mobility Producer",
       "membar_max_num": 10,
-      "topic_max_num": 100
+      "topic_max_num": 100,
+      "own_group_member": {
+        "status": "joining",
+        "role": "owner"
+      }
     }
   ]
 }
