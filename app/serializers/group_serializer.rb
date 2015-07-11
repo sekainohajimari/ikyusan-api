@@ -12,4 +12,19 @@
 
 class GroupSerializer < ActiveModel::Serializer
   attributes :id, :name, :membar_max_num, :topic_max_num
+
+  def attributes
+    data = super
+
+    if serialization_options[:additional]
+      own_group_member =
+        object.group_members.find_by(group_id: object.id, user_id: scope.current_user.id)
+      data[:own_group_member] = {
+        status: own_group_member.status,
+        role: own_group_member.role
+      }
+    end
+
+    data
+  end
 end

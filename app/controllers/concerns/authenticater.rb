@@ -1,7 +1,12 @@
 module Authenticater
   extend ActiveSupport::Concern
 
+  included do
+    helper_method :current_user, :require_login
+  end
+
   private
+
   def login(*credentials)
     @current_user = nil
 
