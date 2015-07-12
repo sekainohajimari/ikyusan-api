@@ -292,6 +292,8 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    sucker_punch (1.5.0)
+      celluloid (~> 0.16.0)
     tapp (1.5.0)
       thor
     test-queue (0.2.13)
@@ -368,6 +370,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   squeel
+  sucker_punch
   tapp
   test-queue
   timecop
