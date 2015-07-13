@@ -17,5 +17,30 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'create' do
+    let!(:current_user) { create(:user) }
+    let!(:current_user_profile) { create(:profile, user: current_user) }
+    let!(:group) { create(:group) }
+    let!(:group_member) { create(:group_member, :owner, group: group, user: current_user) }
+    let!(:topic) { create(:topic, group: group, build_user: current_user) }
+    let!(:idea) { create(:idea, topic: topic, post_user: current_user) }
+    let!(:like_user) { create(:user) }
+    let!(:like_user_profile) { create(:profile, user: like_user) }
+
+    before do
+      current_user_profile
+      group_member
+    end
+
+    context 'when after create notification' do
+      it 'success' do
+        like = Like.create(
+          idea: idea,
+          like_user: like_user,
+          num: 10
+        )
+        expect(like.notification.present?).to be_truthy
+      end
+    end
+  end
 end
