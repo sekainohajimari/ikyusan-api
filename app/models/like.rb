@@ -22,18 +22,6 @@ class Like < ActiveRecord::Base
 
   after_save :update_counter_cache
 
-  def notifiy_user
-    idea.post_user
-  end
-
-  def title
-    "あなたのアイディアが「スキ」されました"
-  end
-
-  def body
-    "#{like_user.display_name}さんが、#{idea.short_content}にスキをしました"
-  end
-
   ##### class methods #####
   class << self
     def create_or_update_by!(idea_id:, like_user:, num:)
@@ -56,6 +44,18 @@ class Like < ActiveRecord::Base
 
   ##### private methods #####
   private
+  def notifiy_user
+    idea.post_user
+  end
+
+  def title
+    "あなたのアイディアが「スキ」されました"
+  end
+
+  def body
+    "#{like_user.display_name}さんが、#{idea.short_content}にスキをしました"
+  end
+  
   def update_counter_cache
     idea.likes_count = Like.where(idea_id: self.idea_id).sum(:num)
 

@@ -17,7 +17,7 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  describe 'create' do
+  describe 'create like' do
     let!(:current_user) { create(:user) }
     let!(:current_user_profile) { create(:profile, user: current_user) }
     let!(:group) { create(:group) }
@@ -34,12 +34,18 @@ RSpec.describe Like, type: :model do
 
     context 'when after create notification' do
       it 'success' do
-        like = Like.create(
+        like = Like.create!(
           idea: idea,
           like_user: like_user,
           num: 10
         )
+
         expect(like.notification.present?).to be_truthy
+        expect(like.notification.like?).to eq be_truthy
+        expect(like.notification.notifiable_id).to eq like.id
+        expect(like.notification.title.present?).to be_truthy
+        expect(like.notification.body.present?).to be_truthy
+        expect(like.notification.opened?).to be_falsey
       end
     end
   end

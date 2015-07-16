@@ -4,7 +4,13 @@ module Notifiable
   included do
     has_one :notification, as: :notifiable
 
-    after_create :create_notification
+    after_create do
+      create_notification!(
+        notifiy_user: notifiy_user,
+        title: title,
+        body: body
+      )
+    end
   end
 
   def notifiy_user
@@ -17,15 +23,5 @@ module Notifiable
 
   def body
     raise NotImplementedError
-  end
-
-  def create_notification
-    Notification.create(
-      notifiy_user: notifiy_user,
-      notifiable_type: self.class.name,
-      notifiable_id: id,
-      title: title,
-      body: body
-    )
   end
 end
