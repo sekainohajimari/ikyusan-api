@@ -24,6 +24,7 @@ describe 'Group resource', type: :request, autodoc: true do
         expect(body).to have_json_path('groups/0/name')
         expect(body).to have_json_path('groups/0/membar_max_num')
         expect(body).to have_json_path('groups/0/topic_max_num')
+        expect(body).to have_json_path('groups/0/color_id')
         expect(body).to have_json_path('groups/0/own_group_member')
         expect(body).to have_json_path('groups/0/own_group_member/status')
         expect(body).to have_json_path('groups/0/own_group_member/role')
@@ -33,7 +34,7 @@ describe 'Group resource', type: :request, autodoc: true do
 
   describe "POST /api/v1/g", type: :request, autodoc: true do
     let(:params) do
-      { name: 'hoge' }
+      { name: 'hoge', color_id: 3 }
     end
 
     context_user_authenticated do
@@ -45,7 +46,9 @@ describe 'Group resource', type: :request, autodoc: true do
         expect(body).to have_json_path('name')
         expect(body).to have_json_path('membar_max_num')
         expect(body).to have_json_path('topic_max_num')
+        expect(body).to have_json_path('color_id')
         expect(body).to be_json_eql(params[:name].to_json).at_path('name')
+        expect(body).to be_json_eql(params[:color_id].to_json).at_path('color_id')
       end
     end
   end
@@ -55,7 +58,7 @@ describe 'Group resource', type: :request, autodoc: true do
     let(:group_member) { create(:group_member, :owner, group: group, user: current_user) }
     let(:id) { group.id }
     let(:params) do
-      { name: 'foo' }
+      { name: 'foo', color_id: 4 }
     end
 
     before do
@@ -71,6 +74,7 @@ describe 'Group resource', type: :request, autodoc: true do
         expect(body).to have_json_path('name')
         expect(body).to have_json_path('membar_max_num')
         expect(body).to have_json_path('topic_max_num')
+        expect(body).to have_json_path('color_id')
         expect(body).to be_json_eql(group.id.to_json).at_path('id')
         expect(body).to be_json_eql(params[:name].to_json).at_path('name')
         expect(body).to be_json_eql(group.membar_max_num.to_json).at_path('membar_max_num')
@@ -103,10 +107,12 @@ describe 'Group resource', type: :request, autodoc: true do
         expect(body).to have_json_path('name')
         expect(body).to have_json_path('membar_max_num')
         expect(body).to have_json_path('topic_max_num')
+        expect(body).to have_json_path('color_id')
         expect(body).to be_json_eql(group.id.to_json).at_path('id')
         expect(body).to be_json_eql(group.name.to_json).at_path('name')
         expect(body).to be_json_eql(group.membar_max_num.to_json).at_path('membar_max_num')
         expect(body).to be_json_eql(group.topic_max_num.to_json).at_path('topic_max_num')
+        expect(body).to be_json_eql(group.color_id.to_json).at_path('color_id')
 
         # group member
         expect(body).to be_json_eql(group_member_owner.id.to_json).at_path('group_members/0/id')
