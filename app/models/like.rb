@@ -24,7 +24,7 @@ class Like < ActiveRecord::Base
 
   act_as_notification do
     config type: :app do
-      notification_kind :sync
+      notification_kind :async
     end
   end
 

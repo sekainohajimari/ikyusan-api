@@ -29,7 +29,7 @@ class Notification < ActiveRecord::Base
   # enum type: { app: AppNotification.name, ios_push: IosPushNotification.name }
   enum type: { app: 'AppNotification', ios_push: 'IosPushNotification' }
   enum notificationable_type: { like: Like.name, invite: Invite.name }
-  enum notification_kind: { sync: 1, job: 2, batch: 3 }
+  enum notification_kind: { sync: 1, async: 2, batch: 3 }
   enum progress: { incompleting: 1, processing: 2, completing: 3 }
 
   aasm column: :progress, enum: true do
@@ -51,8 +51,10 @@ class Notification < ActiveRecord::Base
   ##### private methods #####
   private
   def create_notification_message
-    return unless self.sync?
-
-    NotificationMessage.notify_messages(self)
+    if self.sync?
+      NotificationMessage.notify_messages(self)
+    elsif self.async?
+      NotificationMessageSenderJob.perform_later(self)
+    end
   end
 end
