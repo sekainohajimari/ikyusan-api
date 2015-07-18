@@ -38,6 +38,8 @@ gem 'global'
 gem 'aasm'
 gem 'request_store'
 gem 'rack-attack'
+gem 'hashie'
+gem 'sucker_punch'
 
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'slack-notifier'
