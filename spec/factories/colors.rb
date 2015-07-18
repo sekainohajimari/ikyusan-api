@@ -14,9 +14,8 @@
 #  index_colors_on_colorable  (colorable_type,colorable_id) UNIQUE
 #
 
-class Color < ActiveRecord::Base
-  extend ActiveHash::Associations::ActiveRecordExtensions
-
-  belongs_to :colorable, polymorphic: true
-  belongs_to :color_code
+FactoryGirl.define do
+  factory :color do
+    color_code_id 1
+  end
 end
