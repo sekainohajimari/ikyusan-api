@@ -6,13 +6,14 @@
 #  name           :string(255)
 #  membar_max_num :integer
 #  topic_max_num  :integer
-#  color_id       :integer          default(1), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 class GroupSerializer < ActiveModel::Serializer
-  attributes :id, :name, :membar_max_num, :topic_max_num, :color_id
+  attributes :id, :name, :membar_max_num, :topic_max_num
+
+  has_one :color
 
   def attributes
     data = super

@@ -11,15 +11,17 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   end
 
   def create
-    @group = Group.regist(name: group_params[:name], user: current_user, color_id: group_params[:color_id])
+    @group = Group.regist(name: group_params[:name], user: current_user, color_code_id: group_params[:color_code_id])
 
     render json: @group, status: :created
   end
 
   def edit
-    @group.update!(
-      name: group_params[:name],
-      color_id: group_params[:color_id]
+    @group.update_with_color!(
+      params: {
+        name: group_params[:name]
+      },
+      color_code_id: group_params[:color_code_id]
     )
 
     render json: @group
@@ -37,7 +39,7 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   def group_params
     params.permit(
       :name,
-      :color_id
+      :color_code_id
     )
   end
 
