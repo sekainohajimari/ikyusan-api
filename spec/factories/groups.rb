@@ -6,7 +6,6 @@
 #  name           :string(255)
 #  membar_max_num :integer
 #  topic_max_num  :integer
-#  color_id       :integer          default(1), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

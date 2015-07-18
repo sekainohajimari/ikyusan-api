@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="6c4a5217a51c6fba97031c6f7ae87d60f3b62ee7d3a6add630d9517b563ecda71ab9fb901a725806"
+Authorization: Token token="d634f8bce14f694ac0b7b0bc3cdee0b424a6a23b9b5806da3eb11e7aa72e017f6af6800e6e383097"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,125 +17,145 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 1593
+Content-Length: 1732
 Content-Type: application/json; charset=utf-8
-ETag: W/"5c028118124b70bdb95790dc8993be15"
+ETag: W/"b5b7f3e919defe697ace6b690c9988c5"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 98ef1dda-182f-455d-9ea3-5d6bd8987f1d
-X-Runtime: 0.081498
+X-Request-Id: 20b01569-983f-4c41-995d-6c91025e3ed2
+X-Runtime: 0.090799
 X-XSS-Protection: 1; mode=block
 
 {
   "groups": [
     {
-      "id": 105,
-      "name": "Global Marketing Executive",
+      "id": 158,
+      "name": "Internal Brand Representative",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 106,
-      "name": "Global Operations Agent",
+      "id": 159,
+      "name": "Lead Data Technician",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 107,
-      "name": "Dynamic Integration Administrator",
+      "id": 160,
+      "name": "Internal Communications Executive",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 108,
-      "name": "Customer Infrastructure Orchestrator",
+      "id": 161,
+      "name": "Global Implementation Officer",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 109,
-      "name": "Corporate Creative Producer",
+      "id": 162,
+      "name": "Future Creative Representative",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 110,
-      "name": "Future Creative Designer",
+      "id": 163,
+      "name": "Principal Optimization Manager",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 111,
-      "name": "Dynamic Tactics Executive",
+      "id": 164,
+      "name": "Legacy Identity Developer",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 112,
-      "name": "International Paradigm Analyst",
+      "id": 165,
+      "name": "International Directives Technician",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 113,
-      "name": "Principal Configuration Strategist",
+      "id": 166,
+      "name": "Product Web Officer",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     },
     {
-      "id": 114,
-      "name": "Regional Accountability Developer",
+      "id": 167,
+      "name": "International Operations Agent",
       "membar_max_num": 10,
       "topic_max_num": 100,
-      "color_id": 1,
       "own_group_member": {
         "status": "joining",
         "role": "owner"
+      },
+      "color": {
+        "color_code_id": 1
       }
     }
   ]
@@ -151,33 +171,35 @@ Success.
 ```
 POST /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="b59241fd26c131196896d43f4ce7d8b8bb0b9b67cf321701e988293b43f44dd1df4d752406e1386b"
-Content-Length: 20
+Authorization: Token token="066a3fab0b79585e441a56545a206cb1f010cc7340452485c8512c06790895a54825e9387763379d"
+Content-Length: 25
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
 
-name=hoge&color_id=3
+name=hoge&color_code_id=3
 ```
 
 #### Response
 ```
 HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 77
+Content-Length: 92
 Content-Type: application/json; charset=utf-8
-ETag: W/"16fa384b60b1419d35b61264174ac8cc"
+ETag: W/"a9ee2761bd821b84e495875d14ff7e49"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 61abc9a2-a54f-4828-82ec-ae0551fd4a3d
-X-Runtime: 0.014771
+X-Request-Id: fe909795-0ae0-4a8d-9967-5d61367341ec
+X-Runtime: 0.024495
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 115,
+  "id": 168,
   "name": "hoge",
   "membar_max_num": 10,
   "topic_max_num": 100,
-  "color_id": 3
+  "color": {
+    "color_code_id": 3
+  }
 }
 ```
 
@@ -188,9 +210,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/116/edit?name=foo&color_id=4 HTTP/1.1
+GET /api/v1/g/169/edit?name=foo&color_code_id=4 HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="7b7c3bcf249f3b57507bdba0e3c4ff25aa2e52c9dffe098e5d23f38c7fc967082c247f4dac8f93e4"
+Authorization: Token token="4cefface70295df1d4fb836990a9023ee3fd3bb3fdf3b2aa43db31d2f2f8145a2a7cdab2089fde1f"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -200,21 +222,23 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 76
+Content-Length: 91
 Content-Type: application/json; charset=utf-8
-ETag: W/"ff390bb20de187387325762be7525861"
+ETag: W/"eb993ae054f3be7382d81828da2556a8"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: ca9dcd09-58c6-4fd6-8e40-1f8e5f52507c
-X-Runtime: 0.027874
+X-Request-Id: 4e2bc8ee-1684-49fc-a0b0-71b75bb7babe
+X-Runtime: 0.029119
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 116,
+  "id": 169,
   "name": "foo",
   "membar_max_num": 10,
   "topic_max_num": 100,
-  "color_id": 4
+  "color": {
+    "color_code_id": 4
+  }
 }
 ```
 
@@ -225,9 +249,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/117/detail HTTP/1.1
+GET /api/v1/g/170/detail HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="8110508f88fd3c820715681c530ec21e455caa74a9cae6840017e22a6b2ae63d281ed524936e4023"
+Authorization: Token token="c90094db238dce8df43cd0137b48bb9af781d2dd9cd58a5c0762e52b26080e3028217c9df0780107"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -237,45 +261,47 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 514
+Content-Length: 535
 Content-Type: application/json; charset=utf-8
-ETag: W/"242dbfe231264b032fc2754e1d66189d"
+ETag: W/"24da20ba36981f736821134a1fedaa38"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: a839c7a3-2df9-43ee-8db5-3cbb650ab75e
-X-Runtime: 0.047811
+X-Request-Id: 2eee261c-a96d-488a-8ae9-6347fc781737
+X-Runtime: 0.043465
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 117,
-  "name": "Central Solutions Executive",
+  "id": 170,
+  "name": "Human Markets Executive",
   "membar_max_num": 10,
   "topic_max_num": 100,
-  "color_id": 1,
+  "color": {
+    "color_code_id": 1
+  },
   "group_members": [
     {
-      "id": 123,
+      "id": 177,
       "role": "owner",
       "status": "joining",
       "user": {
-        "id": 71,
+        "id": 133,
         "profile": {
-          "display_id": "eleonore",
-          "display_name": "厚見 博俊",
-          "icon_url": "http://robohash.org/etminusnam.png?size=300x300"
+          "display_id": "cheyanne_witting",
+          "display_name": "税所 禎",
+          "icon_url": "http://robohash.org/cumquequiaveritatis.png?size=300x300"
         }
       }
     },
     {
-      "id": 124,
+      "id": 178,
       "role": "member",
       "status": "inviting",
       "user": {
-        "id": 72,
+        "id": 134,
         "profile": {
-          "display_id": "dillon_jacobi",
-          "display_name": "黒森 泰信",
-          "icon_url": "http://robohash.org/ipsumreruminventore.png?size=300x300"
+          "display_id": "kellie",
+          "display_name": "佐保 段治郎",
+          "icon_url": "http://robohash.org/quoplaceatimpedit.png?size=300x300"
         }
       }
     }

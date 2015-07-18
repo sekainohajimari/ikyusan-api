@@ -6,13 +6,12 @@
 #  name           :string(255)
 #  membar_max_num :integer
 #  topic_max_num  :integer
-#  color_id       :integer          default(1), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 class Group < ActiveRecord::Base
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  include Colorable
 
   has_many :group_members
   has_many :topics
@@ -20,21 +19,25 @@ class Group < ActiveRecord::Base
   has_many :likes, through: :ideas
   has_many :invites
 
-  belongs_to :color
-
   before_create :setting_default
 
   def referenceable?(user_id:)
     group_members.exists?(user_id: user_id)
   end
 
+  def update_with_color!(params:, color_code_id: nil)
+    ActiveRecord::Base.transaction do
+      update!(params)
+      color.update!(color_code_id: color_code_id) if color_code_id
+    end
+  end
+
   ##### class methods #####
   class << self
-    def regist(name:, user:, color_id:)
+    def regist(name:, user:, color_code_id:)
       ActiveRecord::Base.transaction do
         group = Group.new(
-          name: name,
-          color_id: color_id
+          name: name
         )
 
         # TODO: tapでスコープ作ったほうがスマートな気がするので後程検討
@@ -46,6 +49,10 @@ class Group < ActiveRecord::Base
         group.group_members << group_member
 
         group.save!
+
+        group.create_color!(
+          color_code_id: color_code_id
+        )
 
         group
       end
