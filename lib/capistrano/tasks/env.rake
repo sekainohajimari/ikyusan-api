@@ -3,6 +3,7 @@ task :production do
   namespace :deploy do
     before :starting, 'slack:start'
     before :migrate, :db_create
+    after :finished, 'deploy:cleanup'
     after :finished, 'unicorn:restart'
     before 'unicorn:restart', 'slack:finish'
   end
