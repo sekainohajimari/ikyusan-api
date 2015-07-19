@@ -41,12 +41,12 @@ RSpec.describe Invite, type: :model do
           status: Invite.statuses[:inviting]
         )
 
-        expect(invite.notification.present?).to be_truthy
-        expect(invite.notification.invite?).to be_truthy
+        expect(invite.notification.present?).to be true
+        expect(invite.notification.invite?).to be true
         expect(invite.notification.notifiable_id).to eq invite.id
-        expect(invite.notification.title.present?).to be_truthy
-        expect(invite.notification.body.present?).to be_truthy
-        expect(invite.notification.opened?).to be_falsey
+        expect(invite.notification.title.present?).to be true
+        expect(invite.notification.body.present?).to be true
+        expect(invite.notification.opened?).to be false
       end
     end
   end
