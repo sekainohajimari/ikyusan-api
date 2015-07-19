@@ -14,7 +14,7 @@
 #
 # Indexes
 #
-#  index_notifications_on_notifiable   (notifiable_type,notifiable_id) UNIQUE
+#  index_notifications_on_notifiable   (notifiable_type,notifiable_id)
 #  index_notifications_on_notifier_id  (notifier_id)
 #
 

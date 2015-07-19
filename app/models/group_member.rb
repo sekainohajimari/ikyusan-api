@@ -13,6 +13,7 @@
 # Indexes
 #
 #  index_group_members_on_group_id_and_user_id  (group_id,user_id) UNIQUE
+#  index_group_members_on_user_id               (user_id)
 #
 
 class GroupMember < ActiveRecord::Base
@@ -37,4 +38,6 @@ class GroupMember < ActiveRecord::Base
       transitions from: [:joining], to: :withdrawaling
     end
   end
+
+  scope :exclude_user, ->(user){ where.not(user: user) }
 end
