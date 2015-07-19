@@ -1,13 +1,13 @@
 create_table "notifications", force: :cascade do |t|
-  t.integer  "notifier_id", limit: 4
-  t.string   "type", limit: 255
-  t.string   "notificationable_type", limit: 255
-  t.string   "notificationable_id", limit: 255
-  t.integer  "notification_kind", limit: 1
-  t.integer  "progress", limit: 1
-  t.datetime "created_at",           null: false
-  t.datetime "updated_at",           null: false
+  t.integer  "notifier_id",           limit: 4
+  t.string   "notifiable_type",       limit: 64
+  t.integer  "notifiable_id",         limit: 4
+  t.string   "title",                 limit: 255
+  t.text     "body"
+  t.boolean  "opened",                            null: false,  default: false
+  t.datetime "created_at",                        null: false
+  t.datetime "updated_at",                        null: false
 end
 
 add_index "notifications", "notifier_id", name: "index_notifications_on_notifier_id", using: :btree
-add_index "notifications", ["notificationable_type", "notificationable_id"], name: "index_notifications_on_notificationable", using: :btree
+add_index "notifications", ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable", unique: true, using: :btree

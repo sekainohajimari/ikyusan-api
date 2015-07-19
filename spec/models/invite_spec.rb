@@ -20,5 +20,34 @@
 require 'rails_helper'
 
 RSpec.describe Invite, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'create invite' do
+    let!(:host_user) { create(:user) }
+    let!(:host_user_profile) { create(:profile, user: host_user) }
+    let!(:current_user) { create(:user) }
+    let!(:current_user_profile) { create(:profile, user: current_user) }
+    let!(:group) { create(:group) }
+
+    before do
+      current_user_profile
+      group
+    end
+
+    context 'when after create notification' do
+      it 'success' do
+        invite = Invite.create!(
+          group: group,
+          host_user: host_user,
+          invite_user: current_user,
+          status: Invite.statuses[:inviting]
+        )
+
+        expect(invite.notification.present?).to be true
+        expect(invite.notification.invite?).to be true
+        expect(invite.notification.notifiable_id).to eq invite.id
+        expect(invite.notification.title.present?).to be true
+        expect(invite.notification.body.present?).to be true
+        expect(invite.notification.opened?).to be false
+      end
+    end
+  end
 end
