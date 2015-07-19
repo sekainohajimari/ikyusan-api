@@ -2,18 +2,21 @@ module Notifiable
   extend ActiveSupport::Concern
 
   included do
-    has_one :notification, as: :notifiable
+    has_many :notifications, as: :notifiable
 
-    after_create do
-      create_notification!(
-        notifiy_user: notifiy_user,
-        title: title,
-        body: body
-      )
+    after_save do
+      notifiy_users.each do |notifiy_user|
+        notifications.new(
+          notifiy_user: notifiy_user,
+          title: title,
+          body: body
+        )
+      end
+      Notification.import(notifications.to_a)
     end
   end
 
-  def notifiy_user
+  def notifiy_users
     raise NotImplementedError
   end
 

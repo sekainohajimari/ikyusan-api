@@ -16,6 +16,7 @@
 * [api/v1/invite_controller.md](api/v1/invite_controller.md)
  * [GET /api/v1/g/:group_id/invite/doing/:inviter_id](api/v1/invite_controller.md#get-apiv1ggroup_idinvitedoinginviter_id)
  * [PATCH /api/v1/g/:group_id/invite/agree](api/v1/invite_controller.md#patch-apiv1ggroup_idinviteagree)
+ * [PATCH /api/v1/g/:group_id/invite/denial](api/v1/invite_controller.md#patch-apiv1ggroup_idinvitedenial)
 * [api/v1/like_controller.md](api/v1/like_controller.md)
  * [GET /api/v1/g/:group_id/t/:topic_id/i/:idea_id/l](api/v1/like_controller.md#get-apiv1ggroup_idttopic_idiidea_idl)
  * [POST /api/v1/g/:group_id/t/:topic_id/i/:idea_id/l/doing](api/v1/like_controller.md#post-apiv1ggroup_idttopic_idiidea_idldoing)

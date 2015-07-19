@@ -40,12 +40,12 @@ RSpec.describe Like, type: :model do
           num: 10
         )
 
-        expect(like.notification.present?).to be true
-        expect(like.notification.like?).to be true
-        expect(like.notification.notifiable_id).to eq like.id
-        expect(like.notification.title.present?).to be true
-        expect(like.notification.body.present?).to be true
-        expect(like.notification.opened?).to be false
+        expect(like.notifications.first.present?).to be true
+        expect(like.notifications.first.like?).to be true
+        expect(like.notifications.first.notifiable_id).to eq like.id
+        expect(like.notifications.first.title.present?).to be true
+        expect(like.notifications.first.body.present?).to be true
+        expect(like.notifications.first.opened?).to be false
       end
     end
   end

@@ -44,8 +44,8 @@ class Like < ActiveRecord::Base
 
   ##### private methods #####
   private
-  def notifiy_user
-    idea.post_user
+  def notifiy_users
+    [idea.post_user]
   end
 
   def title
@@ -55,7 +55,7 @@ class Like < ActiveRecord::Base
   def body
     "#{like_user.display_name}さんが、#{idea.short_content}にスキをしました"
   end
-  
+
   def update_counter_cache
     idea.likes_count = Like.where(idea_id: self.idea_id).sum(:num)
 
