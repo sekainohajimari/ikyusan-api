@@ -52,8 +52,31 @@ describe 'Invite resource', type: :request, autodoc: true do
         is_expected.to eq 204
 
         target_invite = Invite.find(invite.id)
-        expect(target_invite.agreeing?).to be_truthy
+        expect(target_invite.agreeing?).to be true
       end
     end
   end
+
+  describe "PATCH /api/v1/g/:group_id/invite/denial" do
+    let!(:invite_group) { create(:group) }
+    let!(:group_id) { invite_group.id }
+    let!(:host_user) { create(:user) }
+    let!(:host_user_profile) { create(:profile, user: host_user) }
+    let!(:invite) { create(:invite, group: invite_group, host_user: host_user, invite_user: current_user)}
+
+    context_user_authenticated do
+      before do
+        host_user_profile
+        invite
+      end
+
+      it 'success' do
+        is_expected.to eq 204
+
+        target_invite = Invite.find(invite.id)
+        expect(target_invite.denialing?).to be true
+      end
+    end
+  end
+
 end

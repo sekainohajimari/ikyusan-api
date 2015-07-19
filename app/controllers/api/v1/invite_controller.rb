@@ -1,8 +1,9 @@
 class Api::V1::InviteController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :set_group, only: [:doing, :agree]
+  before_action :set_group, only: [:doing, :agree, :denial]
   before_action :referenceable?, only: [:doing, :agree]
+  before_action :set_inviting_invite, only: [:agree, :denial]
 
   def doing
     invite = Invite.new(
@@ -16,16 +17,18 @@ class Api::V1::InviteController < Api::V1::ApplicationController
   end
 
   def agree
-    invite = @group.invites.inviting.find_by(invite_user: current_user)
-    invite.agree
-    invite.save!
+    @inviting_invite.agree
+    @inviting_invite.save!
 
     head :no_content
   end
 
-  # TODO: 身内なのでいらないかも
-  # def denial
-  # end
+  def denial
+    @inviting_invite.denial
+    @inviting_invite.save!
+
+    head :no_content
+  end
 
   ##### private methods #####
   private
@@ -37,5 +40,9 @@ class Api::V1::InviteController < Api::V1::ApplicationController
     params.permit(
       :inviter_id
     )
+  end
+
+  def set_inviting_invite
+    @inviting_invite = @group.invites.inviting.find_by(invite_user: current_user)
   end
 end

@@ -37,7 +37,7 @@ class Invite < ActiveRecord::Base
     end
 
     event :denial do
-      transitions from: [:inviting], to: :denial
+      transitions from: [:inviting], to: :denialing
     end
   end
 
@@ -47,8 +47,12 @@ class Invite < ActiveRecord::Base
   ##### private methods #####
   private
   # TODO: 複数対応する(配列で返すようにする)
-  def notifiy_user
-    invite_user
+  def notifiy_users
+    return [invite_user] if inviting?
+
+    if agreeing?
+
+    end
   end
 
   def title
