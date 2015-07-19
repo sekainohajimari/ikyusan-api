@@ -1,13 +1,13 @@
 class Api::V1::NotificationsController < Api::V1::ApplicationController
-  before_action :set_notification_messages, only: [:index]
+  before_action :set_notifications, only: [:index]
 
   def index
-    render json: @notification_messages, root: 'notification_messages'
+    render json: @notifications, root: 'notifications'
   end
 
   ##### private methods #####
   private
-  def set_notification_messages
-    @notification_messages = NotificationMessage.where(user_id: current_user.id)
+  def set_notifications
+    @notifications = Notification.where(notifier_id: current_user.id)
   end
 end

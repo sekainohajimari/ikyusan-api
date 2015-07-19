@@ -3,10 +3,13 @@ require 'rails_helper'
 describe 'Notifications resource', type: :request, autodoc: true do
 
   describe "GET /api/v1/notifications" do
-    let!(:notification_messages) { 10.times { create(:notification_message, user: current_user) }}
+    let!(:notifications) {
+      5.times { create(:notification, :like, notifiy_user: current_user) }
+      5.times { create(:notification, :invite, notifiy_user: current_user) }
+    }
 
     before do
-      notification_messages
+      notifications
     end
 
     context_user_authenticated do
@@ -14,11 +17,12 @@ describe 'Notifications resource', type: :request, autodoc: true do
         is_expected.to eq 200
         body = response.body
 
-        expect(body).to have_json_path('notification_messages')
-        expect(body).to have_json_size(10).at_path("notification_messages")
-        expect(body).to have_json_path('notification_messages/0/id')
-        expect(body).to have_json_path('notification_messages/0/open')
-        expect(body).to have_json_path('notification_messages/0/message')
+        expect(body).to have_json_path('notifications')
+        expect(body).to have_json_size(10).at_path("notifications")
+        expect(body).to have_json_path('notifications/0/id')
+        expect(body).to have_json_path('notifications/0/title')
+        expect(body).to have_json_path('notifications/0/body')
+        expect(body).to have_json_path('notifications/0/opened')
       end
     end
   end

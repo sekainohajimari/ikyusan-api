@@ -18,19 +18,6 @@
 #  index_notifications_on_notifier_id  (notifier_id)
 #
 
-FactoryGirl.define do
-  factory :notification do
-    title { generate(:say_something_smart) }
-    body { generate(:say_something_smart) }
-    sequence(:notifiable_id) { |i| 1000 + i }
-    opened { [true, false].sample }
-
-    trait :like do
-      notifiable_type Like.name
-    end
-
-    trait :invite do
-      notifiable_type Invite.name
-    end
-  end
+class NotificationSerializer < ActiveModel::Serializer
+  attributes :id, :title, :body, :opened
 end
