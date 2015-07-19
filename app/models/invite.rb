@@ -42,29 +42,30 @@ class Invite < ActiveRecord::Base
   end
 
   after_create :create_invite_group_member
-  after_save :update_join_group_member
+  after_save :update_group_member
 
-  ##### private methods #####
-  private
-  # TODO: 複数対応する(配列で返すようにする)
   def notifiy_users
     return [invite_user] if inviting?
-
-    if agreeing?
-
-    end
+    return group.group_members.exclude_user(invite_user).map(&:user) if agreeing?
+    return [host_user] if denialing?
   end
 
   def title
-    "グループへの招待がきています"
+    return "グループへの招待がきています" if inviting?
+    return "グループへの参加者がいます" if agreeing?
+    return "グループへの参加を拒否されました" if denialing?
   end
 
   def body
-    "#{host_user.display_name}さんが、グループ「#{group.name}」にあなたを招待しています"
+    return "#{host_user.display_name}さんが、グループ「#{group.name}」にあなたを招待しています" if inviting?
+    return "#{invite_user.display_name}さんが、グループ「#{group.name}」へ参加しました" if agreeing?
+    return "#{invite_user.display_name}さんが、グループ「#{group.name}」への参加を拒否しました" if denialing?
   end
 
+  ##### private methods #####
+  private
   def create_invite_group_member
-    return unless self.inviting?
+    return unless inviting?
 
     group_member = GroupMember.new(user: invite_user)
     group_member.member!
@@ -73,11 +74,14 @@ class Invite < ActiveRecord::Base
     group.save!
   end
 
-  def update_join_group_member
-    return unless self.agreeing?
+  def update_group_member
+    return if inviting?
 
-    group_member = group.group_members.inviting.find_by(user: invite_user)
-    group_member.join
-    group_member.save!
+    group_member = group.group_members.find_by(user: invite_user)
+    if agreeing?
+      group_member.join!
+    elsif denialing?
+      group_member.destroy
+    end
   end
 end

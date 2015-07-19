@@ -17,15 +17,13 @@ class Api::V1::InviteController < Api::V1::ApplicationController
   end
 
   def agree
-    @inviting_invite.agree
-    @inviting_invite.save!
+    @inviting_invite.agree!
 
     head :no_content
   end
 
   def denial
-    @inviting_invite.denial
-    @inviting_invite.save!
+    @inviting_invite.denial!
 
     head :no_content
   end

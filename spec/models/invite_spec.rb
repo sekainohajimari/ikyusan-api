@@ -41,12 +41,86 @@ RSpec.describe Invite, type: :model do
           status: Invite.statuses[:inviting]
         )
 
-        expect(invite.notification.present?).to be true
-        expect(invite.notification.invite?).to be true
-        expect(invite.notification.notifiable_id).to eq invite.id
-        expect(invite.notification.title.present?).to be true
-        expect(invite.notification.body.present?).to be true
-        expect(invite.notification.opened?).to be false
+        expect(invite.notifications.present?).to be true
+        expect(invite.notifications.first.invite?).to be true
+        expect(invite.notifications.first.notifiable_id).to eq invite.id
+        expect(invite.notifications.first.title.present?).to be true
+        expect(invite.notifications.first.body.present?).to be true
+        expect(invite.notifications.first.opened?).to be false
+      end
+    end
+  end
+
+  describe 'invite denial' do
+    let!(:host_user) { create(:user) }
+    let!(:host_user_profile) { create(:profile, user: host_user) }
+    let!(:current_user) { create(:user) }
+    let!(:current_user_profile) { create(:profile, user: current_user) }
+    let!(:group) { create(:group) }
+    let!(:group_member_host) { create(:group_member, :owner, group: group, user: host_user) }
+
+    before do
+      current_user_profile
+      group_member_host
+    end
+
+    context 'when after create notification' do
+      it 'success' do
+        invite = Invite.create!(
+          group: group,
+          host_user: host_user,
+          invite_user: current_user,
+          status: Invite.statuses[:inviting]
+        )
+        invite.denial!
+
+        expect(invite.notifications.present?).to be true
+        expect(invite.notifications.last.invite?).to be true
+        expect(invite.notifications.last.notifiable_id).to eq invite.id
+        expect(invite.notifications.last.title).to eq invite.title
+        expect(invite.notifications.last.body).to eq invite.body
+        expect(invite.notifications.last.opened?).to be false
+      end
+    end
+  end
+
+  describe 'invite agree' do
+    let!(:host_user) { create(:user) }
+    let!(:host_user_profile) { create(:profile, user: host_user) }
+    let!(:current_user) { create(:user) }
+    let!(:current_user_profile) { create(:profile, user: current_user) }
+    let!(:member2) { create(:user) }
+    let!(:member3) { create(:user) }
+    let!(:group) { create(:group) }
+    let!(:group_member_host) { create(:group_member, :owner, group: group, user: host_user) }
+    let!(:group_member_1) { create(:group_member, :member, group: group, user: member2) }
+    let!(:group_member_2) { create(:group_member, :member, group: group, user: member3) }
+
+    before do
+      current_user_profile
+      group_member_host
+      group_member_1
+      group_member_2
+    end
+
+    context 'when after create notification' do
+      it 'success' do
+        invite = Invite.create!(
+          group: group,
+          host_user: host_user,
+          invite_user: current_user,
+          status: Invite.statuses[:inviting]
+        )
+        invite.agree!
+
+        expect(invite.notifications.present?).to be true
+        expect(invite.notifications.length).to be invite.group.group_members.count
+        expect(invite.notifications.first.invite?).to be true
+        expect(invite.notifications.first.notifiable_id).to eq invite.id
+        expect(invite.notifications.last.title).to eq invite.title
+        expect(invite.notifications.last.body).to eq invite.body
+
+        expect(invite.group.group_members.find_by(user: current_user).joining?).to be true
       end
     end
   end
