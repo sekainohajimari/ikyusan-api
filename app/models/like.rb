@@ -15,18 +15,12 @@
 #
 
 class Like < ActiveRecord::Base
-  include Notificationable
+  include Notifiable
 
   belongs_to :idea
   belongs_to :like_user, class_name: User.name, foreign_key: :liker_id
 
   after_save :update_counter_cache
-
-  act_as_notification do
-    config type: :app do
-      notification_kind :async
-    end
-  end
 
   ##### class methods #####
   class << self
@@ -50,13 +44,21 @@ class Like < ActiveRecord::Base
 
   ##### private methods #####
   private
+  def notifiy_user
+    idea.post_user
+  end
+
+  def title
+    "あなたのアイディアが「スキ」されました"
+  end
+
+  def body
+    "#{like_user.display_name}さんが、#{idea.short_content}にスキをしました"
+  end
+  
   def update_counter_cache
     idea.likes_count = Like.where(idea_id: self.idea_id).sum(:num)
 
     idea.save!
-  end
-
-  def notifier_id
-    like_user.id
   end
 end

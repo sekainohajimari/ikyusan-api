@@ -18,13 +18,6 @@
 #  index_notifications_on_notifier_id  (notifier_id)
 #
 
-class Notification < ActiveRecord::Base
-  belongs_to :notifiable, polymorphic: true
-  belongs_to :notifiy_user, class_name: User.name, foreign_key: :notifier_id
-
-  enum notifiable_type: { like: 'Like', invite: 'Invite' }
-
-  # TODO: push通知とかmail送信とか
-  # def deliver
-  # end
+class NotificationSerializer < ActiveModel::Serializer
+  attributes :id, :title, :body, :opened
 end

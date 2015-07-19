@@ -19,7 +19,7 @@
 
 class Invite < ActiveRecord::Base
   include AASM
-  include Notificationable
+  include Notifiable
 
   belongs_to :group
   belongs_to :host_user, class_name: User.name, foreign_key: :hoster_id
@@ -41,17 +41,24 @@ class Invite < ActiveRecord::Base
     end
   end
 
-  act_as_notification do
-    config type: :app do
-      notification_kind :async
-    end
-  end
-
   after_create :create_invite_group_member
   after_save :update_join_group_member
 
   ##### private methods #####
   private
+  # TODO: 複数対応する(配列で返すようにする)
+  def notifiy_user
+    invite_user
+  end
+
+  def title
+    "グループへの招待がきています"
+  end
+
+  def body
+    "#{host_user.display_name}さんが、グループ「#{group.name}」にあなたを招待しています"
+  end
+
   def create_invite_group_member
     return unless self.inviting?
 
