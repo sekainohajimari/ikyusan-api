@@ -84,6 +84,4 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
 end
