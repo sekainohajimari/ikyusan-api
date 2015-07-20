@@ -41,6 +41,7 @@ gem 'rack-attack'
 gem 'hashie'
 gem 'sucker_punch'
 gem 'activerecord-import'
+gem 'kaminari'
 
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'slack-notifier'
@@ -86,7 +87,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
-  gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', require: false
   gem 'test-queue'
 end
 
