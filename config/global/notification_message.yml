@@ -1,5 +1,0 @@
-default: &default
-  template_file_dir: <%= Rails.root %>/template/notification_message
-
-development:
-  <<: *default

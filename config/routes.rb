@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :profile, only: [:index]
       get '/profile/edit', to: 'profile#edit'
       get '/profile/enabled', to: 'profile#enabled'
+      put '/profile/default_icon', to: 'profile#default_icon'
       resources :notifications, only: [:index]
       get '/asks/rand'
     end
