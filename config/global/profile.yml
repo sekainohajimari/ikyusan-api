@@ -1,2 +1,5 @@
-default: &default
+default:
+  default_icon_url: 'http://example.com/default_icon.png'
+
+production:
   default_icon_url: <%= ENV.fetch('IKYUSAN_DEFAULT_ICON_URL') %>
