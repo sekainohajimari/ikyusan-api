@@ -166,11 +166,49 @@ Content-Type: application/json; charset=utf-8
 ETag: W/"d987f50e402ceb8f1a41643a6c665ef0"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 055ffb6b-a979-4c48-9845-9024c70f9f08
-X-Runtime: 0.023739
+X-Request-Id: ded9f6d9-71bf-4c71-a9e3-fe9a2d618f24
+X-Runtime: 0.025422
 X-XSS-Protection: 1; mode=block
 
 {
   "enabled": false
+}
+```
+
+## PUT /api/v1/profile/default_icon
+Success.
+
+### Example
+
+#### Request
+```
+PUT /api/v1/profile/default_icon HTTP/1.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Authorization: Token token="306a650464ed5d8438ae8000c86ebdd90b75c5d737375c0df97b2f1fbedfd88fdfa8cfbb800150b0"
+Content-Length: 0
+Content-Type: application/x-www-form-urlencoded
+Host: www.example.com
+```
+
+#### Response
+```
+HTTP/1.1 200
+Cache-Control: max-age=0, private, must-revalidate
+Content-Length: 157
+Content-Type: application/json; charset=utf-8
+ETag: W/"ae9d4e7e3c42eff0213aa454281f7bcb"
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Request-Id: 05aa1be8-377d-4cc9-817c-bd16da1d4809
+X-Runtime: 0.012001
+X-XSS-Protection: 1; mode=block
+
+{
+  "profile": {
+    "display_id": "americo.murazik",
+    "display_name": "夏八木 倫太郎",
+    "icon_url": "http://example.com/default_icon.png",
+    "in_use_default_icon": true
+  }
 }
 ```
