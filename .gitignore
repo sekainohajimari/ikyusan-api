@@ -11,9 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-
 /vendor/bundle
-
-/config/global/social/twitter.yml
 /coverage
 .test_queue_stats

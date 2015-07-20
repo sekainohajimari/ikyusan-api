@@ -2,17 +2,18 @@
 #
 # Table name: profiles
 #
-#  id           :integer          not null, primary key
-#  user_id      :integer
-#  display_id   :string(255)
-#  display_name :string(255)
-#  icon_url     :string(255)
-#  affiliation  :string(255)
-#  place        :string(255)
-#  website      :string(255)
-#  introduction :string(255)
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id                  :integer          not null, primary key
+#  user_id             :integer
+#  display_id          :string(255)
+#  display_name        :string(255)
+#  icon_url            :string(255)
+#  in_use_default_icon :boolean          default(FALSE), not null
+#  affiliation         :string(255)
+#  place               :string(255)
+#  website             :string(255)
+#  introduction        :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 # Indexes
 #
@@ -21,5 +22,5 @@
 #
 
 class ProfileSerializer < ActiveModel::Serializer
-  attributes :display_id, :display_name, :icon_url
+  attributes :display_id, :display_name, :icon_url, :in_use_default_icon
 end

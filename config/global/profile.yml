@@ -1,0 +1,2 @@
+default: &default
+  default_icon_url: <%= ENV.fetch('IKYUSAN_DEFAULT_ICON_URL') %>
