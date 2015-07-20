@@ -19,5 +19,5 @@
 #
 
 class NotificationSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :opened
+  attributes :id, :notifiable_type, :title, :body, :opened
 end
