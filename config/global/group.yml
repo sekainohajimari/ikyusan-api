@@ -1,6 +1,3 @@
-default: &default
+default:
   default_membar_max_num: 10
   default_topic_max_num: 100
-
-development:
-  <<: *default

@@ -1,5 +1,5 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
-  before_action :set_profile, only: [:index, :edit]
+  before_action :set_profile, only: [:index, :edit, :default_icon]
 
   def index
     render json: @profile, root: 'profile'
@@ -14,11 +14,20 @@ class Api::V1::ProfileController < Api::V1::ApplicationController
 
     @profile.update!(update_params)
 
-    render json: current_user.profile, root: 'profile'
+    render json: @profile, root: 'profile'
   end
 
   def enabled
     render json: { enabled: !Profile.where(display_id: params[:display_id]).exists? }
+  end
+
+  def default_icon
+    @profile.update!(
+      icon_url: Global.profile.default_icon_url,
+      in_use_default_icon: true
+    )
+
+    render json: @profile, root: 'profile'
   end
 
   private
