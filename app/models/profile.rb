@@ -25,10 +25,8 @@ class Profile < ActiveRecord::Base
   belongs_to :user
 
   before_create do
-    if display_id.blank?
-      begin
-        self.display_id = "temp_#{SecureRandom.hex(4)}#{Time.zone.now.to_i.to_s}"
-      end while self.class.exists?(display_id: display_id)
+    while self.class.exists?(display_id: display_id)
+      self.display_id = "temp_#{SecureRandom.hex(4)}#{Time.zone.now.to_i.to_s}"
     end
   end
 end

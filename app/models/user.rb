@@ -38,7 +38,6 @@ class User < ActiveRecord::Base
   ##### class methods #####
   class << self
     def authenticate(auth = {})
-      binding.pry
       User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
         user.create_profile!(
           display_id: auth[:info][:nickname],
