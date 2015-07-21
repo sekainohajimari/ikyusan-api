@@ -12,5 +12,5 @@ create_table "profiles", force: :cascade do |t|
   t.datetime "updated_at",               null: false
 end
 
-add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
-add_index "profiles", ["display_id"], name: "index_profiles_on_display_id", using: :btree
+add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree, unique: true
+add_index "profiles", ["display_id"], name: "index_profiles_on_display_id", using: :btree, unique: true

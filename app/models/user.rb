@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   class << self
     def authenticate(auth = {})
       User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
-        user.create_profile(
+        user.create_profile!(
           display_id: auth[:info][:nickname],
           display_name: auth[:info][:name],
           icon_url: auth[:info][:image],
