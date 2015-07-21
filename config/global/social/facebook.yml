@@ -1,3 +1,7 @@
 default:
   key: <%= ENV.fetch('IKYUSAN_FACEBOOK_KEY', 'dummy_key')
   secret: <%= ENV.fetch('IKYUSAN_FACEBOOK_SECRET', 'dummy_secret')
+
+production:
+  key: <%= ENV.fetch('IKYUSAN_FACEBOOK_KEY', 'dummy_key')
+  secret: <%= ENV.fetch('IKYUSAN_FACEBOOK_SECRET', 'dummy_secret')
