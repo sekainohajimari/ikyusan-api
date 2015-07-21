@@ -1,6 +1,3 @@
-default: &default
-  key: PVY0zv04nz6zPW58z52Jg
-  secret: 5HV3CU2xvm7DENeBzIpDg0kdoQCIUWqO2C4i2aP09SQ
-
-development:
-  <<: *default
+default:
+  key: <%= ENV.fetch('IKYUSAN_TWITTER_KEY', 'dummy_key')
+  secret: <%= ENV.fetch('IKYUSAN_TWITTER_SECRET', 'dummy_secret')

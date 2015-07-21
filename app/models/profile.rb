@@ -17,10 +17,18 @@
 #
 # Indexes
 #
-#  index_profiles_on_display_id  (display_id)
-#  index_profiles_on_user_id     (user_id)
+#  index_profiles_on_display_id  (display_id) UNIQUE
+#  index_profiles_on_user_id     (user_id) UNIQUE
 #
 
 class Profile < ActiveRecord::Base
   belongs_to :user
+
+  before_create do
+    if display_id.blank?
+      begin
+        self.display_id = "temp_#{SecureRandom.hex(4)}#{Time.zone.now.to_i.to_s}"
+      end while self.class.exists?(display_id: display_id)
+    end
+  end
 end

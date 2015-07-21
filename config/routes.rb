@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/auth/failure', to: 'api/v1/sessions#failure'
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       get '/auth/:provider/callback', to: 'sessions#new'

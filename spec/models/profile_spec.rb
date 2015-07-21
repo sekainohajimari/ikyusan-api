@@ -17,8 +17,8 @@
 #
 # Indexes
 #
-#  index_profiles_on_display_id  (display_id)
-#  index_profiles_on_user_id     (user_id)
+#  index_profiles_on_display_id  (display_id) UNIQUE
+#  index_profiles_on_user_id     (user_id) UNIQUE
 #
 
 require 'rails_helper'
