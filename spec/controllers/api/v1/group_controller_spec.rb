@@ -59,7 +59,7 @@ describe 'Group resource', type: :request, autodoc: true do
     end
   end
 
-  describe "GET /api/v1/g/:id/edit", type: :request, autodoc: true do
+  describe "PATCH /api/v1/g/:id", type: :request, autodoc: true do
     let(:group) { create(:group) }
     let(:group_member) { create(:group_member, :owner, group: group, user: current_user) }
     let(:color) { create(:color, colorable: group) }
