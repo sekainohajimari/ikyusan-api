@@ -73,7 +73,7 @@ describe 'Topic resource', type: :request, autodoc: true do
     end
   end
 
-  describe "GET /api/v1/g/:group_id/t/:id/edit" do
+  describe "PATCH /api/v1/g/:group_id/t/:id" do
     let!(:group_id) { group.id }
     let!(:id) { topic.id }
     let!(:params) { { name: 'hoge' } }

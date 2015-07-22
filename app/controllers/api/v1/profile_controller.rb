@@ -1,11 +1,11 @@
 class Api::V1::ProfileController < Api::V1::ApplicationController
-  before_action :set_profile, only: [:index, :edit, :default_icon]
+  before_action :set_profile, only: [:index, :update, :default_icon]
 
   def index
     render json: @profile, root: 'profile'
   end
 
-  def edit
+  def update
     update_params =
       {}.tap do |hash|
         hash[:display_id] = profile_params[:display_id] if profile_params[:display_id].present?

@@ -16,7 +16,7 @@ describe 'Profile resource', type: :request, autodoc: true do
     end
   end
 
-  describe "GET /api/v1/profile/edit" do
+  describe "PATCH /api/v1/profile" do
     context_user_authenticated do
       context 'when params display_name only' do
         let!(:params) { { display_name: 'ほげ' } }

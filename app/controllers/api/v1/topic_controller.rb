@@ -1,9 +1,9 @@
 class Api::V1::TopicController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :set_group, only: [:index, :create, :edit]
-  before_action :referenceable?, only: [:index, :create, :edit]
-  before_action :set_topic, only: [:edit]
+  before_action :set_group, only: [:index, :create, :update]
+  before_action :referenceable?, only: [:index, :create, :update]
+  before_action :set_topic, only: [:update]
 
   def index
     render json: @group.topics, root: 'topics'
@@ -18,7 +18,7 @@ class Api::V1::TopicController < Api::V1::ApplicationController
     render json: topic, root: 'topic', status: :created
   end
 
-  def edit
+  def update
     @topic.update!(
       name: topic_params[:name]
     )
