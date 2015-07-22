@@ -13,5 +13,21 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validate' do
+    it 'when valid' do
+      group = Group.new(
+        name: 'abcde'
+      )
+
+      expect(group).to be_valid
+    end
+
+    it 'when invalid' do
+      group = Group.new(
+        name: SecureRandom.base64(31)
+      )
+
+      expect(group).to be_invalid
+    end
+  end
 end

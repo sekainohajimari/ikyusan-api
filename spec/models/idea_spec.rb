@@ -19,5 +19,26 @@
 require 'rails_helper'
 
 RSpec.describe Idea, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validate' do
+    it 'when valid' do
+      idea = Idea.new(
+        topic_id: 1,
+        poster_id: 1,
+        content: 'hogehoge'
+      )
+
+      expect(idea).to be_valid
+    end
+
+    it 'when invalid' do
+      idea = Idea.new(
+        topic_id: 1,
+        poster_id: 1,
+        content: SecureRandom.base64(141)
+      )
+
+      expect(idea).to be_invalid
+    end
+  end
+
 end
