@@ -15,5 +15,9 @@ FactoryGirl.define do
     sequence(:name) { generate(:title) }
     membar_max_num Global.group.default_membar_max_num
     topic_max_num Global.group.default_topic_max_num
+
+    to_create do |instance|
+      instance.save validate: false
+    end
   end
 end

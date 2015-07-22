@@ -21,6 +21,8 @@ class Group < ActiveRecord::Base
 
   before_create :setting_default
 
+  validates :name, length: { in: 1..30 }
+
   def referenceable?(user_id:)
     group_members.exists?(user_id: user_id)
   end

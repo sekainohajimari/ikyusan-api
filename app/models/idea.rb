@@ -25,6 +25,8 @@ class Idea < ActiveRecord::Base
 
   before_create :set_anonymity
 
+  validates :content, length: { in: 1..140 }
+
   def short_content
     content.truncate(25, omission: '...')
   end
