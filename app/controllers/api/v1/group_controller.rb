@@ -1,8 +1,8 @@
 class Api::V1::GroupController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :set_group, only: [:edit]
-  before_action :referenceable?, only: [:edit, :detail]
+  before_action :set_group, only: [:update]
+  before_action :referenceable?, only: [:update, :detail]
 
   def index
     groups = Group.includes(:group_members).where(group_members: { user_id: current_user.id })
@@ -16,7 +16,7 @@ class Api::V1::GroupController < Api::V1::ApplicationController
     render json: @group, status: :created
   end
 
-  def edit
+  def update
     @group.update_with_color!(
       params: {
         name: group_params[:name]

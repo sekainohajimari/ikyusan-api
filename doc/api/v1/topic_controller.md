@@ -5,9 +5,9 @@ Return 200..
 
 #### Request
 ```
-GET /api/v1/g/659/t HTTP/1.1
+GET /api/v1/g/752/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="a21453754f9ee65ac1acfb4987a54efd90c87f254a225aad3b8ac73ee73a81ca4151353441ee8217"
+Authorization: Token token="19fb7dd58f96dbbd4caa8125cd9d6b52eaffbb383bbbb45b42c494b1043e2bcd1597e62b2100da00"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,28 +17,29 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 248
+Content-Length: 275
 Content-Type: application/json; charset=utf-8
-ETag: W/"e14e65772f366a907701a050bf040d3e"
+ETag: W/"476d462ecba1ad81be0253d3638665fa"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: a33e00c0-f74c-4cf1-a8ad-d4d364ead68c
-X-Runtime: 0.037918
+X-Request-Id: b55b8bc5-2e38-4435-9517-60c5f065c149
+X-Runtime: 0.034255
 X-XSS-Protection: 1; mode=block
 
 {
   "topics": [
     {
-      "id": 316,
+      "id": 324,
       "name": "topic_1",
       "idea_max_num": 100,
       "anonymity": false,
       "build_user": {
-        "id": 783,
+        "id": 1156,
         "profile": {
-          "display_id": "arch.herzog",
-          "display_name": "伸二 みすず",
-          "icon_url": "http://robohash.org/inciduntanimilaudantium.png?size=300x300"
+          "display_id": "daphnee_quitzon",
+          "display_name": "伊東 浩嗣",
+          "icon_url": "http://robohash.org/hicvoluptatemlaborum.png?size=300x300",
+          "in_use_default_icon": false
         }
       }
     }
@@ -53,9 +54,9 @@ Return 201..
 
 #### Request
 ```
-POST /api/v1/g/660/t HTTP/1.1
+POST /api/v1/g/753/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="62ca3181eb81b055ba8ca3750b10d966467479a3d80f3901bb1da3300cc99e33521fa8a08732a961"
+Authorization: Token token="c3d0530b82156279a4055f4ae9bca7c2e28ed692009b80208facf2a6f0ed993eb93dbb52aabbc719"
 Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -67,27 +68,28 @@ name=hoge
 ```
 HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 225
+Content-Length: 262
 Content-Type: application/json; charset=utf-8
-ETag: W/"b84e6288fa627a8ca825682d9c9c9857"
+ETag: W/"7cad12c717bb44dcb9297718ddf92cbe"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 0b7f7202-3925-4e33-9e16-c8a5db8ce6fc
-X-Runtime: 0.026818
+X-Request-Id: 051f6c99-7416-454b-88b3-807de7b2cd84
+X-Runtime: 0.019049
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 318,
+    "id": 326,
     "name": "hoge",
     "idea_max_num": 100,
     "anonymity": false,
     "build_user": {
-      "id": 784,
+      "id": 1157,
       "profile": {
-        "display_id": "zechariah",
-        "display_name": "藤谷 武美",
-        "icon_url": "http://robohash.org/natusreruma.png?size=300x300"
+        "display_id": "prince",
+        "display_name": "冷川 黄石",
+        "icon_url": "http://robohash.org/facerequiavoluptatibus.png?size=300x300",
+        "in_use_default_icon": false
       }
     }
   }
@@ -101,9 +103,9 @@ Return 201..
 
 #### Request
 ```
-POST /api/v1/g/661/t HTTP/1.1
+POST /api/v1/g/754/t HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="56f190e11050641c3baf4de842d78e22d6ea0486e697b65db30030447350c80401b04798b34b0306"
+Authorization: Token token="1ff5266add4d46a2dea1a259abfdc17c52bf7d7e4fde9de6ed5cacf774ceeb05b09dcd9e1830b51c"
 Content-Length: 21
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -115,73 +117,77 @@ name=hoge&anonymity=1
 ```
 HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 226
+Content-Length: 248
 Content-Type: application/json; charset=utf-8
-ETag: W/"78e15b98f81514357cbc60fb1bfea02e"
+ETag: W/"79ade229635919370900c3135569103c"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 96c94d68-4fb6-4098-ac7a-fed08eb94fa0
-X-Runtime: 0.032209
+X-Request-Id: c8d569ac-2b6d-4e28-b20a-c06852cf1bd0
+X-Runtime: 0.022414
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 320,
+    "id": 328,
     "name": "hoge",
     "idea_max_num": 100,
     "anonymity": true,
     "build_user": {
-      "id": 785,
+      "id": 1158,
       "profile": {
-        "display_id": "trea",
-        "display_name": "揖保 由水",
-        "icon_url": "http://robohash.org/aeumnecessitatibus.png?size=300x300"
+        "display_id": "eve",
+        "display_name": "青垣 嘉隆",
+        "icon_url": "http://robohash.org/eosisteomnis.png?size=300x300",
+        "in_use_default_icon": false
       }
     }
   }
 }
 ```
 
-## GET /api/v1/g/:group_id/t/:id/edit
+## PATCH /api/v1/g/:group_id/t/:id
 Success.
 
 ### Example
 
 #### Request
 ```
-GET /api/v1/g/662/t/321/edit?name=hoge HTTP/1.1
+PATCH /api/v1/g/755/t/329 HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="2c678d7d30baa8bc5ad7cf1a9dec611dda9c23fb921039df7b261b397e3631544f4dbf553ba69524"
-Content-Length: 0
+Authorization: Token token="08057efbd9c2dd056b9604c373570364c0c3f2ca77e8327c6a8c133f56547383300e25efac8b8ad3"
+Content-Length: 9
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
+
+name=hoge
 ```
 
 #### Response
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 238
+Content-Length: 260
 Content-Type: application/json; charset=utf-8
-ETag: W/"094a0e3e7409223d3ab14dc68b7215bd"
+ETag: W/"cff661fd84490126f2e97bc4b66904ed"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 31198007-b1fd-40d6-85db-c654e7ffeb0d
-X-Runtime: 0.029047
+X-Request-Id: dfba1b91-8036-4f21-b76d-ddfd9df47f4e
+X-Runtime: 0.023479
 X-XSS-Protection: 1; mode=block
 
 {
   "topic": {
-    "id": 321,
+    "id": 329,
     "name": "hoge",
     "idea_max_num": 100,
     "anonymity": false,
     "build_user": {
-      "id": 786,
+      "id": 1159,
       "profile": {
-        "display_id": "garrick",
-        "display_name": "北岡 君夫",
-        "icon_url": "http://robohash.org/repellendusquaeconsequatur.png?size=300x300"
+        "display_id": "gail",
+        "display_name": "真中 文治郎",
+        "icon_url": "http://robohash.org/doloribusdoloremest.png?size=300x300",
+        "in_use_default_icon": false
       }
     }
   }
