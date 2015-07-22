@@ -18,5 +18,9 @@ FactoryGirl.define do
   factory :like do
     idea
     num { (1..100).to_a.sample }
+
+    to_create do |instance|
+      instance.save validate: false
+    end
   end
 end

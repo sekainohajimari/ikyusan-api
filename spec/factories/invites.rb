@@ -30,5 +30,9 @@ FactoryGirl.define do
     trait :denialing do
       status Invite.statuses[:denialing]
     end
+
+    to_create do |instance|
+      instance.save validate: false
+    end
   end
 end
