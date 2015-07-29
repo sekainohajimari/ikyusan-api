@@ -10,7 +10,7 @@ stderr_path "#{app_dir}/log/#{application}_unicorn.log"
 
 cpu_num = `cat /proc/cpuinfo | grep processor`.split("\n").size
 
-worker_processes 3 * cpu_num
+worker_processes 2 * cpu_num
 timeout 600
 preload_app true
 
