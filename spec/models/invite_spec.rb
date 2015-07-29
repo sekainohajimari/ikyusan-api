@@ -107,12 +107,13 @@ RSpec.describe Invite, type: :model do
 
     context 'when after create notification' do
       it 'success' do
-        invite = Invite.create!(
+        invite = Invite.new(
           group: group,
           host_user: host_user,
           invite_user: current_user,
           status: Invite.statuses[:inviting]
         )
+        invite.save(validate: false)
         invite.agree!
 
         expect(invite.notifications.present?).to be true
