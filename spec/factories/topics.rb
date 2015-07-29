@@ -21,5 +21,9 @@ FactoryGirl.define do
     group
     sequence(:name) { |n| "topic_#{n}" }
     idea_max_num Global.topic.default_idea_max_num
+
+    to_create do |instance|
+      instance.save validate: false
+    end
   end
 end

@@ -24,6 +24,8 @@ class Topic < ActiveRecord::Base
 
   before_create :setting_default
 
+  validates :name, length: { in: 1..64 }
+
   ##### private methods #####
   private
   def setting_default
