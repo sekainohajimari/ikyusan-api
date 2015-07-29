@@ -22,6 +22,8 @@ class Like < ActiveRecord::Base
 
   after_save :update_counter_cache
 
+  validates :num, inclusion: { in: 1..100 }
+
   ##### class methods #####
   class << self
     def create_or_update_by!(idea_id:, like_user:, num:)
@@ -57,7 +59,7 @@ class Like < ActiveRecord::Base
   end
 
   def update_counter_cache
-    idea.likes_count = Like.where(idea_id: self.idea_id).sum(:num)
+    idea.likes_count = Like.where(idea_id: idea_id).sum(:num)
 
     idea.save!
   end

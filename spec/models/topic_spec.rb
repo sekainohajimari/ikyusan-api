@@ -19,5 +19,28 @@
 require 'rails_helper'
 
 RSpec.describe Topic, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'validate' do
+    it 'when valid' do
+      topic = Topic.new(
+        group_id: 1,
+        builder_id: 1,
+        name: 'hogehoge',
+        idea_max_num: 10
+      )
+
+      expect(topic).to be_valid
+    end
+
+    it 'when invalid' do
+      topic = Topic.new(
+        group_id: 1,
+        builder_id: 1,
+        name: SecureRandom.base64(65),
+        idea_max_num: 10
+      )
+
+      expect(topic).to be_invalid
+    end
+  end
+
 end
