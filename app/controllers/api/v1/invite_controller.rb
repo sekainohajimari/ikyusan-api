@@ -6,12 +6,10 @@ class Api::V1::InviteController < Api::V1::ApplicationController
   before_action :set_inviting_invite, only: [:agree, :denial]
 
   def doing
-    invite = Invite.new(
+    invite = @group.invites.create!(
       host_user: current_user,
       inviter_id: invite_params[:inviter_id]
     )
-    @group.invites << invite
-    @group.save!
 
     render json: invite, root: 'invite', status: :created
   end
