@@ -39,6 +39,8 @@ class Api::V1::InviteController < Api::V1::ApplicationController
   end
 
   def set_inviting_invite
+    set_group unless @group
+
     @inviting_invite = @group.invites.inviting.find_by(invite_user: current_user)
   end
 end
