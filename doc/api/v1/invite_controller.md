@@ -1,13 +1,13 @@
 ## GET /api/v1/g/:group_id/invite/doing/:inviter_id
-Success.
+Return 201.
 
 ### Example
 
 #### Request
 ```
-GET /api/v1/g/366/invite/doing/575 HTTP/1.1
+GET /api/v1/g/91/invite/doing/tiana HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="590353235795cd666a3e1874df22de6018cfbcfdbf95c41ce8ee2b2729eaf4ccc70f094f3793ae81"
+Authorization: Token token="1fa494ae162490aec3f53ebb89dc809de2b85ceeb466bf9dd7afe8826a14c673becf0b5adb78840c"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,35 +17,69 @@ Host: www.example.com
 ```
 HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 340
+Content-Length: 388
 Content-Type: application/json; charset=utf-8
-ETag: W/"125c1b113f2f63676e1d3e6d0aa420b6"
+ETag: W/"06d9487e40b53fdd40b439b17aaf2013"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 050fea4d-fc01-4d51-a2b2-ca8305ebb8b6
-X-Runtime: 0.068653
+X-Request-Id: e0182066-7adb-4d94-a316-c0bed2f346a5
+X-Runtime: 0.057976
 X-XSS-Protection: 1; mode=block
 
 {
   "invite": {
-    "id": 157,
+    "id": 27,
     "host_user": {
-      "id": 576,
+      "id": 108,
       "profile": {
-        "display_id": "scarlett.orn",
-        "display_name": "鳴尾 福蔵",
-        "icon_url": "http://robohash.org/distinctiositsunt.png?size=300x300"
+        "display_id": "kaela.feil",
+        "display_name": "奥崎 留吉",
+        "icon_url": "http://robohash.org/evenietnonquia.png?size=300x300",
+        "in_use_default_icon": false
       }
     },
     "invite_user": {
-      "id": 575,
+      "id": 107,
       "profile": {
-        "display_id": "arnaldo.nolan",
-        "display_name": "島尻 泰紀",
-        "icon_url": "http://robohash.org/idetdolor.png?size=300x300"
+        "display_id": "tiana",
+        "display_name": "原口 徳内",
+        "icon_url": "http://robohash.org/quidemminimaest.png?size=300x300",
+        "in_use_default_icon": false
       }
     }
   }
+}
+```
+
+## GET /api/v1/g/:group_id/invite/doing/:inviter_id
+Return 400.
+
+### Example
+
+#### Request
+```
+GET /api/v1/g/92/invite/doing/dummy HTTP/1.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Authorization: Token token="ac2b09a91f8200ea4689dbf66b37799df1215e3aad683e549d1592e91d2376e51c11f0568e2f892c"
+Content-Length: 0
+Content-Type: application/x-www-form-urlencoded
+Host: www.example.com
+```
+
+#### Response
+```
+HTTP/1.1 400
+Cache-Control: no-cache
+Content-Length: 45
+Content-Type: application/json; charset=utf-8
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Request-Id: afb73deb-c17d-4829-8f6c-518c27194c22
+X-Runtime: 0.015584
+X-XSS-Protection: 1; mode=block
+
+{
+  "message": "dummyは存在しないIDです"
 }
 ```
 
@@ -56,9 +90,9 @@ Success.
 
 #### Request
 ```
-PATCH /api/v1/g/368/invite/agree HTTP/1.1
+PATCH /api/v1/g/94/invite/agree HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="af8d3c3df8f5d3c790f5a63ea3001c4d6d94a230c33139d31313ca6f853ed26207a572d2aec70381"
+Authorization: Token token="db5be6ca09c914d6641d8e8eada78f88026ccd3d259695760aef99ab4cc04807ad49acd12b7f9b0f"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -70,8 +104,8 @@ HTTP/1.1 204
 Cache-Control: no-cache
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 3ca48c56-13a1-45d9-8964-946891ef1c43
-X-Runtime: 0.041821
+X-Request-Id: 5c5bd5d3-e6f0-4494-8cd2-7a80ffb23d02
+X-Runtime: 0.037905
 X-XSS-Protection: 1; mode=block
 ```
 
@@ -82,9 +116,9 @@ Success.
 
 #### Request
 ```
-PATCH /api/v1/g/370/invite/denial HTTP/1.1
+PATCH /api/v1/g/96/invite/denial HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="498e934dd62d2423637ba4bf4fe689cd2b5d6adeb04806f6508ee49468ccd3606b4e5fcdcfe476d5"
+Authorization: Token token="962bc913cee8200c0f0a755858a12fb60928c2e8e5b549e73e98f211b6a97107d5d71b75664973b0"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -96,7 +130,7 @@ HTTP/1.1 204
 Cache-Control: no-cache
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 38ebc2af-07ba-4ce8-b03b-f8d78bad1277
-X-Runtime: 0.038959
+X-Request-Id: de2d2655-8258-46ca-82eb-586fb023b147
+X-Runtime: 0.036254
 X-XSS-Protection: 1; mode=block
 ```

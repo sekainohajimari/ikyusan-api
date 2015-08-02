@@ -6,9 +6,14 @@ class Api::V1::InviteController < Api::V1::ApplicationController
   before_action :set_inviting_invite, only: [:agree, :denial]
 
   def doing
+    invite_user_profile = Profile.find_by(display_id: invite_params[:inviter_id])
+    if invite_user_profile.blank?
+      raise Error::ApiError.new("#{invite_params[:inviter_id]}は存在しないIDです", 400)
+    end
+
     invite = @group.invites.create!(
       host_user: current_user,
-      inviter_id: invite_params[:inviter_id]
+      invite_user: invite_user_profile.user
     )
 
     render json: invite, root: 'invite', status: :created
