@@ -35,6 +35,7 @@ describe 'Idea resource', type: :request, autodoc: true do
           expect(body).to be_json_eql(ideas.first.id.to_json).at_path('ideas/0/id')
           expect(body).to be_json_eql(ideas.first.content.to_json).at_path('ideas/0/content')
           expect(body).to be_json_eql(ideas.first.likes_count.to_json).at_path('ideas/0/likes_count')
+          expect(body).to be_json_eql(ideas.first.created_at.strftime('%Y-%m-%d %H:%M:%S').to_json).at_path('ideas/0/created_at')
           expect(body).to be_json_eql(current_user.id.to_json).at_path('ideas/0/post_user/id')
           expect(body).to be_json_eql(current_user.profile.display_id.to_json).at_path('ideas/0/post_user/profile/display_id')
           expect(body).to be_json_eql(current_user.profile.display_name.to_json).at_path('ideas/0/post_user/profile/display_name')
