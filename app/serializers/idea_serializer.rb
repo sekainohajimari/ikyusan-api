@@ -17,7 +17,7 @@
 #
 
 class IdeaSerializer < ActiveModel::Serializer
-  attributes :id, :content, :likes_count
+  attributes :id, :content, :likes_count, :created_at
 
   has_one :post_user
 
@@ -27,5 +27,9 @@ class IdeaSerializer < ActiveModel::Serializer
     else
       UserSerializer.new(object.post_user)
     end
+  end
+
+  def created_at
+    object.created_at.strftime('%Y-%m-%d %H:%M:%S')
   end
 end
