@@ -141,4 +141,20 @@ describe 'Group resource', type: :request, autodoc: true do
       end
     end
   end
+
+  describe "DELETE /api/v1/g/:id" do
+    let!(:id) { group.id }
+    let(:group) { create(:group) }
+    let(:group_member_owner) { create(:group_member, :owner, :joining, group: group, user: current_user) }
+
+    before do
+      group_member_owner
+    end
+
+    context_user_authenticated do
+      it 'success' do
+        is_expected.to eq 204
+      end
+    end
+  end
 end

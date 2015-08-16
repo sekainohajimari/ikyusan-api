@@ -1,7 +1,7 @@
 class Api::V1::GroupController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :set_group, only: [:update]
+  before_action :set_group, only: [:update, :destroy]
   before_action :referenceable?, only: [:update, :detail]
 
   def index
@@ -32,6 +32,15 @@ class Api::V1::GroupController < Api::V1::ApplicationController
       Group.includes(invites: [invite_user: :profile], group_members: [user: :profile]).find_by(id: group_id)
 
     render json: group, serializer: GroupDetailSerializer
+  end
+
+  def destroy
+    unless @group.owner?(user_id: current_user.id)
+      raise Error::ApiError.new('グループを削除できるのはオーナーのみです', 400)
+    end
+    @group.destroy!
+
+    head :no_content
   end
 
   ##### private methods #####
