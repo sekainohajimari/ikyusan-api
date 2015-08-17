@@ -22,7 +22,11 @@ class Notification < ActiveRecord::Base
   belongs_to :notifiable, polymorphic: true
   belongs_to :notifiy_user, class_name: User.name, foreign_key: :notifier_id
 
-  enum notifiable_type: { like: 'Like', invite: 'Invite' }
+  enum notifiable_type: {
+    like: 'Like',
+    invite: 'Invite',
+    group_member: 'GroupMember'
+  }
 
   # TODO: push通知とかmail送信とか
   # def deliver

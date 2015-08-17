@@ -162,18 +162,20 @@ describe 'Group resource', type: :request, autodoc: true do
     let!(:id) { group.id }
     let!(:group) { create(:group) }
     let!(:group_member) { create(:group_member, :member, :joining, group: group, user: current_user) }
-    # let!(:group_member_2) { create(:group_member, :owner, :joining, group: group, user: user_2) }
-    # let!(:user_2) { create(:user) }
-    # let!(:user_profile_2) { create(:profile, user: user_2) }
+    let!(:group_member_2) { create(:group_member, :owner, :joining, group: group, user: user_2) }
+    let!(:user_2) { create(:user) }
+    let!(:user_profile_2) { create(:profile, user: user_2) }
 
     before do
       group_member
-      # group_member_2
+      group_member_2
     end
 
     context_user_authenticated do
       it 'success' do
         is_expected.to eq 204
+
+        expect(Notification.group_member.exists?(notifiable_id: group_member.id)).to eq(true)
       end
     end
   end
