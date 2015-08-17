@@ -18,6 +18,7 @@
 
 class GroupMember < ActiveRecord::Base
   include AASM
+  include Notifiable
 
   belongs_to :group
   belongs_to :user, -> { includes :profile }
@@ -25,6 +26,8 @@ class GroupMember < ActiveRecord::Base
   enum role: { owner: 1, member: 2 }
   enum status: { joining: 1, inviting: 2, withdrawaling: 3 }
 
+  scope :exclude_user, ->(user){ where.not(user: user) }
+  
   aasm column: :status, enum: true do
     state :inviting, initial: true
     state :joining
@@ -39,5 +42,23 @@ class GroupMember < ActiveRecord::Base
     end
   end
 
-  scope :exclude_user, ->(user){ where.not(user: user) }
+  ##### private methods #####
+  private
+  def notify?
+    return false unless withdrawaling?
+
+    true
+  end
+
+  def notifiy_users
+    group.group_members.where.not(user_id: user_id)
+  end
+
+  def title
+    "グループから脱退者がでました><"
+  end
+
+  def body
+    "#{user.display_name}さんが、グループ「#{group.name}」を脱退しました"
+  end
 end
