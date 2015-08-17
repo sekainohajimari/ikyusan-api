@@ -27,6 +27,14 @@ class Group < ActiveRecord::Base
     group_members.exists?(user_id: user_id)
   end
 
+  def owner?(user)
+    group_members.owner.exists?(user: user)
+  end
+
+  def member(user)
+    group_members.member.joining.find_by(user: user)
+  end
+
   def update_with_color!(params:, color_code_id: nil)
     ActiveRecord::Base.transaction do
       update!(params)
@@ -47,10 +55,8 @@ class Group < ActiveRecord::Base
           user: user,
           role: GroupMember.roles[:owner]
         )
-        group_member.join
         group.group_members << group_member
-
-        group.save!
+        group_member.join!
 
         group.create_color!(
           color_code_id: color_code_id

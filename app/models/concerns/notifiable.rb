@@ -3,17 +3,22 @@ module Notifiable
 
   included do
     has_many :notifications, as: :notifiable
+    after_save :exec_notify, if: :notify?
+  end
 
-    after_save do
-      notifiy_users.each do |notifiy_user|
-        notifications.new(
-          notifiy_user: notifiy_user,
-          title: title,
-          body: body
-        )
-      end
-      Notification.import(notifications.to_a)
+  def exec_notify
+    notifiy_users.each do |notifiy_user|
+      notifications.new(
+        notifiy_user: notifiy_user,
+        title: title,
+        body: body
+      )
     end
+    Notification.import(notifications.to_a)
+  end
+
+  def notify?
+    true
   end
 
   def notifiy_users
