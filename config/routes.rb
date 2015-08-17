@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :group, path: 'g', only: [:index, :create, :update, :destroy] do
         member do
           get 'detail'
+          patch 'escape'
         end
 
         resources :topic, path: 't', only: [:index, :create, :update] do

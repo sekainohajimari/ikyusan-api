@@ -27,8 +27,12 @@ class Group < ActiveRecord::Base
     group_members.exists?(user_id: user_id)
   end
 
-  def owner?(user_id:)
-    group_members.owner.exists?(user_id: user_id)
+  def owner?(user)
+    group_members.owner.exists?(user: user)
+  end
+
+  def member(user)
+    group_members.member.joining.find_by(user: user)
   end
 
   def update_with_color!(params:, color_code_id: nil)

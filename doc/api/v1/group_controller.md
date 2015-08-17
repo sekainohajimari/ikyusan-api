@@ -7,7 +7,7 @@ Success.
 ```
 GET /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="9eba93524312d44055c0f08d8ab9ee861496416925d7299a68113e96ff9e9905ef769ca331be5065"
+Authorization: Token token="3f8d16218ec02bcaf7f1d2fe193d35f50bf17efa165c9b19b7a329ca6d03031244fb370607073134"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -17,20 +17,20 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 1729
+Content-Length: 1573
 Content-Type: application/json; charset=utf-8
-ETag: W/"8d61e48bb002494e808677e1d4c2cf34"
+ETag: W/"553fabddc2d120cd36f697573d475c9f"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: bb0baa02-c182-44b8-8449-b30a6f0465b8
-X-Runtime: 0.100304
+X-Request-Id: 76091d4d-aef4-4a22-96d4-dd247a01eaae
+X-Runtime: 0.096773
 X-XSS-Protection: 1; mode=block
 
 {
   "groups": [
     {
-      "id": 727,
-      "name": "Corporate Security Planner",
+      "id": 494,
+      "name": "group name 1",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -42,8 +42,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 728,
-      "name": "Chief Metrics Architect",
+      "id": 495,
+      "name": "group name 2",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -55,8 +55,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 729,
-      "name": "Customer Quality Director",
+      "id": 496,
+      "name": "group name 3",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -68,8 +68,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 730,
-      "name": "District Security Director",
+      "id": 497,
+      "name": "group name 4",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -81,8 +81,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 731,
-      "name": "Global Functionality Coordinator",
+      "id": 498,
+      "name": "group name 5",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -94,8 +94,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 732,
-      "name": "Forward Markets Representative",
+      "id": 499,
+      "name": "group name 6",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -107,8 +107,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 733,
-      "name": "National Infrastructure Strategist",
+      "id": 500,
+      "name": "group name 7",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -120,8 +120,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 734,
-      "name": "Internal Response Associate",
+      "id": 501,
+      "name": "group name 8",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -133,8 +133,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 735,
-      "name": "Dynamic Accounts Director",
+      "id": 502,
+      "name": "group name 9",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -146,8 +146,8 @@ X-XSS-Protection: 1; mode=block
       }
     },
     {
-      "id": 736,
-      "name": "Forward Optimization Producer",
+      "id": 503,
+      "name": "group name 10",
       "membar_max_num": 10,
       "topic_max_num": 100,
       "own_group_member": {
@@ -171,7 +171,7 @@ Success.
 ```
 POST /api/v1/g HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="542358ff7cdcad197d5af6cc2c471af960dc94600c56745922fb6b27c29714e10b2364c99afcaac9"
+Authorization: Token token="4e08d904fbc2a15c72bf6f8620744e8684cecaa9c63b2e70310a55781eb740a74a2860b30c3ad389"
 Content-Length: 25
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -185,15 +185,15 @@ HTTP/1.1 201
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 92
 Content-Type: application/json; charset=utf-8
-ETag: W/"332c1cc4e2409513b74170942e2dfa6b"
+ETag: W/"7a70cd14d41788cd498932529b18cd6e"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 8089de97-38a6-491d-ab02-d78017f78a67
-X-Runtime: 0.021214
+X-Request-Id: 0a320813-818e-44d1-9866-bd43454ba91d
+X-Runtime: 0.025750
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 737,
+  "id": 504,
   "name": "hoge",
   "membar_max_num": 10,
   "topic_max_num": 100,
@@ -210,9 +210,9 @@ Success.
 
 #### Request
 ```
-PATCH /api/v1/g/738 HTTP/1.1
+PATCH /api/v1/g/505 HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="03ea903c09b062125289646a03f132479286bd44f76c3ede1ceceb534c91f1e8a2572e086cb10d41"
+Authorization: Token token="1719c1fa2bf4eb05bae891483b0a4fc07409b0a2bd70e164f8b17a5e9ef352034a03e9abae8f1732"
 Content-Length: 24
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -226,15 +226,15 @@ HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
 Content-Length: 91
 Content-Type: application/json; charset=utf-8
-ETag: W/"09e4ec3c51c58d117713f31c2e125a53"
+ETag: W/"d092cef5646de3949c6788781e441b24"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: dfd2a0bb-14c5-4ae5-b81b-1d7fc8c76e8f
-X-Runtime: 0.027598
+X-Request-Id: 2afab170-73f9-4682-b7f1-d3bc84f857d2
+X-Runtime: 0.032497
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 738,
+  "id": 505,
   "name": "foo",
   "membar_max_num": 10,
   "topic_max_num": 100,
@@ -251,9 +251,9 @@ Success.
 
 #### Request
 ```
-GET /api/v1/g/739/detail HTTP/1.1
+GET /api/v1/g/506/detail HTTP/1.1
 Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-Authorization: Token token="4ff4b852700cfd1d7f5765e979ba4372149577147df059c927987e0d35ddc85dfd3dc314b24fa389"
+Authorization: Token token="be0d18dcbd0548495d21e2a39c30c5b62fff60f982f74cbc1e9f09b27224751832633b2dbc911a44"
 Content-Length: 0
 Content-Type: application/x-www-form-urlencoded
 Host: www.example.com
@@ -263,18 +263,18 @@ Host: www.example.com
 ```
 HTTP/1.1 200
 Cache-Control: max-age=0, private, must-revalidate
-Content-Length: 584
+Content-Length: 580
 Content-Type: application/json; charset=utf-8
-ETag: W/"f053befcdd5b01ec87aaf3fb860e3c38"
+ETag: W/"3069a02b13b025b855090788f6cacd33"
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 95049235-7f23-404e-91a0-73098ccffa4d
-X-Runtime: 0.063657
+X-Request-Id: b364f329-3222-4bb4-8e3d-77c33493ec7b
+X-Runtime: 0.053564
 X-XSS-Protection: 1; mode=block
 
 {
-  "id": 739,
-  "name": "Forward Web Strategist",
+  "id": 506,
+  "name": "group name 12",
   "membar_max_num": 10,
   "topic_max_num": 100,
   "color": {
@@ -282,33 +282,85 @@ X-XSS-Protection: 1; mode=block
   },
   "group_members": [
     {
-      "id": 859,
+      "id": 572,
       "role": "owner",
       "status": "joining",
       "user": {
-        "id": 1131,
+        "id": 641,
         "profile": {
-          "display_id": "hardy",
-          "display_name": "作田 達太郎",
-          "icon_url": "http://robohash.org/saepeexpeditavel.png?size=300x300",
+          "display_id": "gilberto.bauch",
+          "display_name": "越後谷 有司",
+          "icon_url": "http://robohash.org/temporibusquosquia.png?size=300x300",
           "in_use_default_icon": false
         }
       }
     },
     {
-      "id": 860,
+      "id": 573,
       "role": "member",
       "status": "inviting",
       "user": {
-        "id": 1132,
+        "id": 642,
         "profile": {
-          "display_id": "glenna.hirthe",
-          "display_name": "鷺洲 靜香",
-          "icon_url": "http://robohash.org/iustosedipsam.png?size=300x300",
+          "display_id": "tatyana",
+          "display_name": "呉 仲太郎",
+          "icon_url": "http://robohash.org/veritatisetmodi.png?size=300x300",
           "in_use_default_icon": false
         }
       }
     }
   ]
 }
+```
+
+## DELETE /api/v1/g/:id
+Success.
+
+### Example
+
+#### Request
+```
+DELETE /api/v1/g/507 HTTP/1.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Authorization: Token token="f39b023102a00d9f395219151d52066ae80c08717c49667387b339151351e8c5b976cc65d5caa604"
+Content-Length: 0
+Content-Type: application/x-www-form-urlencoded
+Host: www.example.com
+```
+
+#### Response
+```
+HTTP/1.1 204
+Cache-Control: no-cache
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Request-Id: 082aa138-09f5-4e4f-8335-e15e168edcb4
+X-Runtime: 0.023239
+X-XSS-Protection: 1; mode=block
+```
+
+## PATCH /api/v1/g/:id/escape
+Success.
+
+### Example
+
+#### Request
+```
+PATCH /api/v1/g/508/escape HTTP/1.1
+Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Authorization: Token token="f8b670ea429f2e15b88f4fc846878cd43d4a359c58e32a5e65b911c27bf54a6a7a86c054b82edab0"
+Content-Length: 0
+Content-Type: application/x-www-form-urlencoded
+Host: www.example.com
+```
+
+#### Response
+```
+HTTP/1.1 204
+Cache-Control: no-cache
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-Request-Id: 44f728d5-2a70-4791-9741-492655945a02
+X-Runtime: 0.037043
+X-XSS-Protection: 1; mode=block
 ```

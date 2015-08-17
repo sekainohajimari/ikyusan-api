@@ -1,7 +1,7 @@
 class Api::V1::GroupController < Api::V1::ApplicationController
   include GroupReferencer
 
-  before_action :set_group, only: [:update, :destroy]
+  before_action :set_group, only: [:update, :destroy, :escape]
   before_action :referenceable?, only: [:update, :detail]
 
   def index
@@ -35,10 +35,20 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   end
 
   def destroy
-    unless @group.owner?(user_id: current_user.id)
+    unless @group.owner?(current_user)
       raise Error::ApiError.new('グループを削除できるのはオーナーのみです', 400)
     end
     @group.destroy!
+
+    head :no_content
+  end
+
+  def escape
+    member = @group.member(current_user)
+    if member.blank?
+      raise Error::ApiError.new("#{current_user.display_name}さんは脱退対象ではありません", 400)
+    end
+    member.withdrawal!
 
     head :no_content
   end
