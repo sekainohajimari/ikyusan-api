@@ -27,6 +27,7 @@ class GroupMember < ActiveRecord::Base
   enum status: { joining: 1, inviting: 2, withdrawaling: 3 }
 
   scope :exclude_user, ->(user){ where.not(user: user) }
+  scope :active, -> { where(status: [GroupMember.statuses[:joining], GroupMember.statuses[:inviting]]) }
 
   aasm column: :status, enum: true do
     state :inviting, initial: true
