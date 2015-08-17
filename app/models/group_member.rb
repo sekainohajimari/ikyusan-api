@@ -51,7 +51,7 @@ class GroupMember < ActiveRecord::Base
   end
 
   def notifiy_users
-    group.group_members.where.not(user_id: user_id).map { |group_member| group_member.user }
+    group.group_members.where.not(user: user).map { |group_member| group_member.user }
   end
 
   def title
