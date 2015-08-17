@@ -5,7 +5,9 @@ class Api::V1::GroupController < Api::V1::ApplicationController
   before_action :referenceable?, only: [:update, :detail]
 
   def index
-    groups = Group.includes(:group_members).where(group_members: { user_id: current_user.id })
+    groups =
+      Group.includes(:group_members)
+      .where(group_members: { user_id: current_user.id }).merge(GroupMember.active)
 
     render json: groups, root: 'groups', additional: true
   end
