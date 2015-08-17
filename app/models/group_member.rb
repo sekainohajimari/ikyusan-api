@@ -27,7 +27,7 @@ class GroupMember < ActiveRecord::Base
   enum status: { joining: 1, inviting: 2, withdrawaling: 3 }
 
   scope :exclude_user, ->(user){ where.not(user: user) }
-  
+
   aasm column: :status, enum: true do
     state :inviting, initial: true
     state :joining
@@ -51,7 +51,7 @@ class GroupMember < ActiveRecord::Base
   end
 
   def notifiy_users
-    group.group_members.where.not(user_id: user_id)
+    group.group_members.where.not(user_id: user_id).map { |group_member| group_member.user }
   end
 
   def title
