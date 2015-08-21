@@ -10,10 +10,6 @@ describe 'Notifications resource', type: :request, autodoc: true do
       end
     end
 
-    before do
-      notifications
-    end
-
     context_user_authenticated do
       it 'success for page unspecified' do
         is_expected.to eq 200
@@ -28,6 +24,7 @@ describe 'Notifications resource', type: :request, autodoc: true do
           expect(body).to be_json_eql(notification.title.to_json).at_path("notifications/#{i}/title")
           expect(body).to be_json_eql(notification.body.to_json).at_path("notifications/#{i}/body")
           expect(body).to be_json_eql(notification.opened.to_json).at_path("notifications/#{i}/opened")
+          expect(body).to be_json_eql(notification.created_at.strftime('%Y-%m-%d %H:%M:%S').to_json).at_path("notifications/#{i}/created_at")
         end
 
         expect(body).to have_json_path('meta/pagination')
@@ -55,6 +52,7 @@ describe 'Notifications resource', type: :request, autodoc: true do
           expect(body).to be_json_eql(notification.title.to_json).at_path("notifications/#{i}/title")
           expect(body).to be_json_eql(notification.body.to_json).at_path("notifications/#{i}/body")
           expect(body).to be_json_eql(notification.opened.to_json).at_path("notifications/#{i}/opened")
+          expect(body).to be_json_eql(notification.created_at.strftime('%Y-%m-%d %H:%M:%S').to_json).at_path("notifications/#{i}/created_at")
         end
 
         expect(body).to have_json_path('meta/pagination')

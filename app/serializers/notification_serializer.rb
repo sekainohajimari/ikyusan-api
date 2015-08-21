@@ -19,5 +19,9 @@
 #
 
 class NotificationSerializer < ActiveModel::Serializer
-  attributes :id, :notifiable_type, :title, :body, :opened
+  attributes :id, :notifiable_type, :title, :body, :opened, :created_at
+
+  def created_at
+    object.created_at.strftime('%Y-%m-%d %H:%M:%S')
+  end
 end
