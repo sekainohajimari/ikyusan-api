@@ -29,4 +29,8 @@ class Profile < ActiveRecord::Base
       self.display_id = "temp_#{SecureRandom.hex(4)}#{Time.zone.now.to_i.to_s}"
     end
   end
+
+  before_save do
+    self.icon_url = Global.profile.default_icon_url if in_use_default_icon?
+  end
 end
