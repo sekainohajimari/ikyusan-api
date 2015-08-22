@@ -21,11 +21,18 @@ Rails.application.routes.draw do
         patch '/invite/denial', to: 'invite#denial'
       end
 
-      resources :profile, only: [:index]
-      patch '/profile', to: 'profile#update'
-      get '/profile/enabled', to: 'profile#enabled'
-      put '/profile/default_icon', to: 'profile#default_icon'
-      resources :notifications, only: [:index]
+      resource :profile, only: [:show, :update] do
+        collection do
+          get 'enabled'
+        end
+      end
+
+      resources :notifications, only: [:index] do
+        collection do
+          get 'unopened_count'
+        end
+      end
+
       get '/asks/rand'
     end
   end

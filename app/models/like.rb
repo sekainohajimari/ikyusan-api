@@ -46,6 +46,12 @@ class Like < ActiveRecord::Base
 
   ##### private methods #####
   private
+  def notify?
+    return false if like_user.id == idea.post_user.id
+
+    true
+  end
+
   def notifiy_users
     [idea.post_user]
   end

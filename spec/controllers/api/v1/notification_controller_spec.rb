@@ -64,4 +64,20 @@ describe 'Notifications resource', type: :request, autodoc: true do
       end
     end
   end
+
+  describe "GET /api/v1/notifications/unopened_count" do
+    let!(:notifications) do
+      25.times { create(:notification, :like, notifiy_user: current_user, opened: true) }
+      25.times { create(:notification, :invite, notifiy_user: current_user, opened: false) }
+    end
+
+    context_user_authenticated do
+      it 'success' do
+        is_expected.to eq 200
+        body = response.body
+
+        expect(body).to be_json_eql(25.to_json).at_path('unopened_count')
+      end
+    end
+  end
 end

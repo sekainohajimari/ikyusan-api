@@ -23,4 +23,10 @@
 
 class ProfileSerializer < ActiveModel::Serializer
   attributes :display_id, :display_name, :icon_url, :in_use_default_icon
+
+  def icon_url
+    return Global.profile.default_icon_url if object.in_use_default_icon
+
+    object.icon_url
+  end
 end
