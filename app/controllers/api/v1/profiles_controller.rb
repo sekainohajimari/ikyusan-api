@@ -1,7 +1,7 @@
-class Api::V1::ProfileController < Api::V1::ApplicationController
-  before_action :set_profile, only: [:index, :update, :default_icon]
+class Api::V1::ProfilesController < Api::V1::ApplicationController
+  before_action :set_profile, only: [:show, :update]
 
-  def index
+  def show
     render json: @profile, root: 'profile'
   end
 
@@ -10,7 +10,13 @@ class Api::V1::ProfileController < Api::V1::ApplicationController
       {}.tap do |hash|
         hash[:display_id] = profile_params[:display_id] if profile_params[:display_id].present?
         hash[:display_name] = profile_params[:display_name]
-        hash[:in_use_default_icon] = true if profile_params[:apply_default_icon].present?
+        if profile_params[:apply_default_icon].present?
+          if profile_params[:apply_default_icon].presence.to_i == 1
+            hash[:in_use_default_icon] = true
+          else
+            hash[:in_use_default_icon] = false
+          end
+        end
       end
 
     @profile.update!(update_params)

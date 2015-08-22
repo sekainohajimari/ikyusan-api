@@ -28,6 +28,8 @@ class Notification < ActiveRecord::Base
     group_member: 'GroupMember'
   }
 
+  scope :unopend, -> { where(opened: false) }
+  
   # TODO: push通知とかmail送信とか
   # def deliver
   # end
