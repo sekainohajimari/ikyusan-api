@@ -13,7 +13,7 @@ module Authenticater
     user = User.authenticate(*credentials)
     raise Error::ApiError.new('Authentication failure', 401) unless user
 
-    AccessToken.clean_issuance(user_id: user.id, expired: 100.days)
+    AccessToken.find_or_create_by(user_id: user.id) { |e| e.expired = 365.days }
 
     @current_user = user
   end
