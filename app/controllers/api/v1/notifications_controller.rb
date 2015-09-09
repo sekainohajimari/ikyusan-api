@@ -11,6 +11,13 @@ class Api::V1::NotificationsController < Api::V1::ApplicationController
     render json: { unopened_count: @notifications.unopend.count }
   end
 
+  def opend
+    notification_ids = paramas[:notification_ids]
+    @notifications.where(id: notification_ids).update_all(opened: true)
+
+    head :no_content
+  end
+
   ##### private methods #####
   private
   def set_notifications
