@@ -1,5 +1,5 @@
 class Api::V1::NotificationsController < Api::V1::ApplicationController
-  before_action :set_notifications, only: [:index, :unopened_count]
+  before_action :set_notifications, only: [:index, :unopened_count, :opend]
 
   def index
     page = notification_params[:page].present? ? notification_params[:page].to_i : 1
@@ -12,8 +12,7 @@ class Api::V1::NotificationsController < Api::V1::ApplicationController
   end
 
   def opend
-    notification_ids = paramas[:notification_ids]
-    @notifications.where(id: notification_ids).update_all(opened: true)
+    @notifications.where(id: params[:ids]).update_all(opened: true)
 
     head :no_content
   end
