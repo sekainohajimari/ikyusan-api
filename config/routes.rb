@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :notifications, only: [:index] do
         collection do
           get 'unopened_count'
+          patch 'opend'
         end
       end
 
