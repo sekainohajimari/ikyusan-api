@@ -4,7 +4,7 @@ class Api::V1::NotificationsController < Api::V1::ApplicationController
   def index
     page = notification_params[:page].present? ? notification_params[:page].to_i : 1
 
-    render json: @notifications.page(page), root: 'notifications', serializer: PaginationSerializer
+    render json: @notifications.page(page).order(id: :desc), root: 'notifications', serializer: PaginationSerializer
   end
 
   def unopened_count

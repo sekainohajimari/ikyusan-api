@@ -7,7 +7,7 @@ describe 'Notifications resource', type: :request, autodoc: true do
       [].tap do |notifications|
         25.times { notifications << create(:notification, :like, notifiy_user: current_user) }
         25.times { notifications << create(:notification, :invite, notifiy_user: current_user) }
-      end
+      end.reverse
     end
 
     context_user_authenticated do
