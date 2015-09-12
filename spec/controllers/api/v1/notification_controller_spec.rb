@@ -80,4 +80,23 @@ describe 'Notifications resource', type: :request, autodoc: true do
       end
     end
   end
+
+  describe "PATCH /api/v1/notifications/opend" do
+    let!(:notifications) do
+      [].tap do |result|
+        25.times { result << create(:notification, :invite, notifiy_user: current_user, opened: false) }
+      end
+    end
+    let(:params) { { ids: notifications.map(&:id) } }
+
+    context_user_authenticated do
+      it 'success' do
+        is_expected.to eq 204
+
+        Notification.where(id: params[:ids]).each do |notification|
+          expect(notification.opened?).to eq(true)
+        end
+      end
+    end
+  end
 end
