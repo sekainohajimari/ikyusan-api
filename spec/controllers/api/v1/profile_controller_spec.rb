@@ -12,6 +12,7 @@ describe 'Profile resource', type: :request, autodoc: true do
         expect(body).to be_json_eql(profile.display_name.to_json).at_path('profile/display_name')
         expect(body).to be_json_eql(profile.icon_url.to_json).at_path('profile/icon_url')
         expect(body).to be_json_eql(false.to_json).at_path('profile/in_use_default_icon')
+        expect(body).to be_json_eql(Global.profile.default_icon_url.to_json).at_path('profile/default_icon_url')
       end
     end
   end
@@ -30,6 +31,7 @@ describe 'Profile resource', type: :request, autodoc: true do
           expect(body).to be_json_eql(params[:display_name].to_json).at_path('profile/display_name')
           expect(body).to be_json_eql(profile.icon_url.to_json).at_path('profile/icon_url')
           expect(body).to be_json_eql(false.to_json).at_path('profile/in_use_default_icon')
+          expect(body).to be_json_eql(Global.profile.default_icon_url.to_json).at_path('profile/default_icon_url')
         end
       end
 
@@ -45,6 +47,7 @@ describe 'Profile resource', type: :request, autodoc: true do
           expect(body).to be_json_eql(params[:display_name].to_json).at_path('profile/display_name')
           expect(body).to be_json_eql(profile.icon_url.to_json).at_path('profile/icon_url')
           expect(body).to be_json_eql(false.to_json).at_path('profile/in_use_default_icon')
+          expect(body).to be_json_eql(Global.profile.default_icon_url.to_json).at_path('profile/default_icon_url')
         end
       end
 
@@ -58,8 +61,9 @@ describe 'Profile resource', type: :request, autodoc: true do
           expect(body).to have_json_path('profile')
           expect(body).to be_json_eql(params[:display_id].to_json).at_path('profile/display_id')
           expect(body).to be_json_eql(params[:display_name].to_json).at_path('profile/display_name')
-          expect(body).to be_json_eql(Global.profile.default_icon_url.to_json).at_path('profile/icon_url')
+          expect(body).to be_json_eql(profile.icon_url.to_json).at_path('profile/icon_url')
           expect(body).to be_json_eql(true.to_json).at_path('profile/in_use_default_icon')
+          expect(body).to be_json_eql(Global.profile.default_icon_url.to_json).at_path('profile/default_icon_url')
         end
       end
 
@@ -75,6 +79,7 @@ describe 'Profile resource', type: :request, autodoc: true do
           expect(body).to be_json_eql(params[:display_name].to_json).at_path('profile/display_name')
           expect(body).to be_json_eql(profile.icon_url.to_json).at_path('profile/icon_url')
           expect(body).to be_json_eql(false.to_json).at_path('profile/in_use_default_icon')
+          expect(body).to be_json_eql(Global.profile.default_icon_url.to_json).at_path('profile/default_icon_url')
         end
       end
     end
