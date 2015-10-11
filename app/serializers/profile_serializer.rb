@@ -22,9 +22,15 @@
 #
 
 class ProfileSerializer < ActiveModel::Serializer
-  attributes :display_id, :display_name, :icon_url, :in_use_default_icon, :default_icon_url
+  attributes :display_id, :display_name, :icon_url, :in_use_default_icon
 
-  def default_icon_url
-    Global.profile.default_icon_url
+  def attributes
+    data = super
+
+    if serialization_options[:add_default_icon_url]
+      data[:default_icon_url] = Global.profile.default_icon_url
+    end
+
+    data
   end
 end

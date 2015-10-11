@@ -2,7 +2,7 @@ class Api::V1::ProfilesController < Api::V1::ApplicationController
   before_action :set_profile, only: [:show, :update]
 
   def show
-    render json: @profile, root: 'profile'
+    render json: @profile, root: 'profile', add_default_icon_url: true
   end
 
   def update
