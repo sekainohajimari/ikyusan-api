@@ -19,9 +19,12 @@
 class AccessToken < ActiveRecord::Base
   belongs_to :user
 
-  enum type: { ios: 'IosAccessToken', android: 'AndroidAccessToken' }
+  enum type: {
+    ios: 'IosAccessToken',
+    android: 'AndroidAccessToken'
+  }
 
-  before_create :set_token
+  before_create :set_default
 
   scope :alive, -> (now: Time.now){ where{ expires_at > now } }
 
@@ -43,19 +46,21 @@ class AccessToken < ActiveRecord::Base
       token = find_by(user_id: user_id)
       token.destroy if token
     end
+  end
 
-    private
+  ##### private methods #####
+  private
+
+    def set_default
+      self.token = SecureRandom.hex(40)
+      self.type = get_type
+      self.expires_at = Time.now + Global.application.token_expire_days.days
+    end
+
     def get_type
       # TODO: 本番OPEN前には変更する
       return IosAccessToken.name
       # return IosAccessToken.name if Util::Request.ios?
       # return AndroidAccessToken.name if Util::Request.android?
     end
-  end
-
-  ##### private methods #####
-  private
-  def set_token
-    self.token = SecureRandom.hex(40)
-  end
 end

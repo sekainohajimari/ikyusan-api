@@ -1,0 +1,2 @@
+default:
+  token_expire_days: 365
