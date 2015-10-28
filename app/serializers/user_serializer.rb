@@ -2,12 +2,14 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  provider   :string(255)
-#  uid        :string(255)
-#  status     :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :integer          not null, primary key
+#  provider           :string(255)
+#  uid                :string(255)
+#  oauth_token        :string(255)
+#  oauth_token_secret :string(255)
+#  status             :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 # Indexes
 #

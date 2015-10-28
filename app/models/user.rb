@@ -2,12 +2,14 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  provider   :string(255)
-#  uid        :string(255)
-#  status     :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :integer          not null, primary key
+#  provider           :string(255)
+#  uid                :string(255)
+#  oauth_token        :string(255)
+#  oauth_token_secret :string(255)
+#  status             :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 # Indexes
 #
@@ -39,6 +41,9 @@ class User < ActiveRecord::Base
   class << self
     def authenticate(auth = {})
       User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
+        user.oauth_token = auth[:credentials][:token]
+        user.oauth_token_secret = auth[:credentials][:secret]
+
         user.create_profile!(
           display_id: auth[:info][:nickname],
           display_name: auth[:info][:name],
