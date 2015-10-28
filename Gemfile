@@ -43,6 +43,7 @@ gem 'hashie'
 gem 'sucker_punch'
 gem 'activerecord-import'
 gem 'kaminari'
+gem 'twitter'
 
 gem 'exception_notification', github: 'smartinez87/exception_notification'
 gem 'slack-notifier'

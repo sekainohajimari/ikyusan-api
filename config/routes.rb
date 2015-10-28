@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       end
 
       get '/asks/rand'
+      post '/twitter/tweet'
     end
   end
 end
