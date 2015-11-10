@@ -34,6 +34,9 @@ Rails.application.routes.draw do
         end
       end
 
+      resources :signin, only: [:create] do
+      end
+
       get '/asks/rand'
       post '/twitter/tweet'
     end

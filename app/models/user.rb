@@ -2,18 +2,16 @@
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
-#  provider           :string(255)
-#  uid                :string(255)
-#  oauth_token        :string(255)
-#  oauth_token_secret :string(255)
-#  status             :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id         :integer          not null, primary key
+#  platform   :integer          not null
+#  uuid       :string(255)      not null
+#  status     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_users_on_provider_and_uid  (provider,uid) UNIQUE
+#  index_users_on_uuid  (uuid) UNIQUE
 #
 
 class User < ActiveRecord::Base
@@ -24,7 +22,14 @@ class User < ActiveRecord::Base
 
   has_many :notifications, foreign_key: :notifier_id
 
-  enum status: { activing: 1, baning: 2 }
+  enum platform: {
+    ios: 1,
+    android: 2
+  }
+  enum status: {
+    activing: 1,
+    baning: 2
+  }
 
   aasm column: :status, enum: true do
     state :activing, initial: true
@@ -39,18 +44,34 @@ class User < ActiveRecord::Base
 
   ##### class methods #####
   class << self
-    def authenticate(auth = {})
-      User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
-        user.oauth_token = auth[:credentials][:token]
-        user.oauth_token_secret = auth[:credentials][:secret]
+    def authenticate_with_uuid(uuid)
+      User.find_or_create_by(uuid: uuid) do |user|
+        user.platform = User.platforms[:ios]
 
+        begin
+          display_id = SecureRandom.urlsafe_base64(6)
+        end while Profile.exists?(display_id: display_id)
         user.create_profile!(
-          display_id: auth[:info][:nickname],
-          display_name: auth[:info][:name],
-          icon_url: auth[:info][:image],
-          place: auth[:info][:location]
+          display_id: display_id,
+          display_name: Gimei.katakana,
+          icon_url: Global.profile.default_icon_url
         )
       end
+    end
+
+    def authenticate_with_social(auth = {})
+      # TODO: 一旦コメントアウト
+      # User.find_or_create_by(provider: auth[:provider], uid: auth[:uid]) do |user|
+      #   user.oauth_token = auth[:credentials][:token]
+      #   user.oauth_token_secret = auth[:credentials][:secret]
+      #
+      #   user.create_profile!(
+      #     display_id: auth[:info][:nickname],
+      #     display_name: auth[:info][:name],
+      #     icon_url: auth[:info][:image],
+      #     place: auth[:info][:location]
+      #   )
+      # end
     end
   end
 end

@@ -2,18 +2,16 @@
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
-#  provider           :string(255)
-#  uid                :string(255)
-#  oauth_token        :string(255)
-#  oauth_token_secret :string(255)
-#  status             :integer
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id         :integer          not null, primary key
+#  platform   :integer          not null
+#  uuid       :string(255)      not null
+#  status     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 # Indexes
 #
-#  index_users_on_provider_and_uid  (provider,uid) UNIQUE
+#  index_users_on_uuid  (uuid) UNIQUE
 #
 
 require 'rails_helper'

@@ -6,7 +6,7 @@ module RequestMacros
   module ClassMethods
     def context_user_authenticated(*user_traits, &block)
       context('with authentication') do
-        let(:current_user) { create(:user, :twitter) }
+        let(:current_user) { create(:user, :ios) }
         let(:profile) { create(:profile, user: current_user) }
         let(:access_token) { create(:access_token, :ios, user: current_user) }
 

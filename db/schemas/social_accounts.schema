@@ -1,0 +1,10 @@
+create_table "social_accounts", force: :cascade do |t|
+  t.integer  "user_id",                         null: false
+  t.string   "provider",           limit: 255,  null: false
+  t.string   "uid",                limit: 255,  null: false
+  t.string   "image_url",          limit: 255
+  t.string   "oauth_token",        limit: 255
+  t.string   "oauth_token_secret", limit: 255
+end
+
+add_index "social_accounts", ["user_id", "provider"], name: "index_social_accounts_on_user_id_and_provider", unique: true, using: :btree

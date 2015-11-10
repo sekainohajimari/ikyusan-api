@@ -1,2 +1,3 @@
 default:
   token_expire_days: 365
+  uuid_hash_salt: <%= ENV.fetch('UUID_HASH_SALT', 'hogehoge') %>
