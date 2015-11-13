@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :social_account do
+    
+  end
+
   sequence(:name) { Faker::Name.name }
   sequence(:name_jp) { Faker::Japanese::Name.name }
   sequence(:internet_name) { Faker::Internet.user_name }
