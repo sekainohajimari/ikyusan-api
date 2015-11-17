@@ -49,11 +49,11 @@ class User < ActiveRecord::Base
         user.platform = User.platforms[:ios]
 
         begin
-          display_id = SecureRandom.urlsafe_base64(6)
+          display_id = SecureRandom.hex[0...6]
         end while Profile.exists?(display_id: display_id)
         user.create_profile!(
           display_id: display_id,
-          display_name: Gimei.katakana,
+          display_name: Gimei.first.katakana,
           icon_url: Global.profile.default_icon_url
         )
       end
